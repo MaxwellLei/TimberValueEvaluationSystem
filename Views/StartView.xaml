@@ -1,0 +1,18 @@
+﻿<Window x:Class="TimberValueEvaluationSystem.Views.StartView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="StartView" Height="450" Width="800" AllowsTransparency="True" Background="Transparent"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" BorderThickness="0" Loaded="Window_Loaded"
+        MouseDown="Window_MouseDown" MouseMove="Window_MouseMove" MouseUp="Window_MouseUp">
+    <!--启动页面，异步启动-->
+    <Border Name="Basemap" CornerRadius="8">
+        <Grid>
+            <hc:SimpleText Foreground="Wheat" Text="正在启动..." FontWeight="Bold" FontSize="16" Margin="0 0 0 8" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <ProgressBar Grid.Row="1"  Style="{DynamicResource ProgressBarFlat}" x:Name="progressBar" 
+                             Minimum="0" Maximum="100" Value="0" Width="790" Height="5" Margin="0 0 0 0.2"
+                             HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,99 @@
+﻿<Window x:Class="TimberValueEvaluationSystem.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        Title="MainView" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent"
+        BorderThickness="0" MinHeight="640" MinWidth="1000" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--侧边栏按钮样式-->
+        <Style x:Key="SideControlBar" TargetType="{x:Type RadioButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="radioButtonBorder">
+                            <Border x:Name="insideBorder" Margin="5" CornerRadius="8">
+                                <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid x:Name="markGrid">
+                                        <Ellipse x:Name="optionMark" Opacity="0"/>
+                                    </Grid>
+                                    <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="insideBorder" Value="#4b4f55"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Background" TargetName="insideBorder" Value="#62666d"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!--主窗体-->
+    <Border CornerRadius="8">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--左侧控制栏-->
+            <Border CornerRadius="0 0 0 8">
+                <Grid Background="#35383e">
+                    <StackPanel>
+                        <RadioButton Name="RadioButton1" Style="{DynamicResource SideControlBar}" 
+                                     Width="60" Height="60" Margin="-200,0,0,0" IsChecked="True">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="图标" Foreground="White"/>
+                                <TextBlock Text="主页" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                        <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar}" 
+                                     Width="60" Height="60" Margin="-200,0,0,0">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="图标" Foreground="White"/>
+                                <TextBlock Text="地图" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                        <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar}" 
+                                     Width="60" Height="60" Margin="-200,0,0,0">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="图标" Foreground="White"/>
+                                <TextBlock Text="数据" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                        <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" 
+                                     Width="60" Height="60" Margin="-200,0,0,0">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="图标" Foreground="White"/>
+                                <TextBlock Text="导出" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                        <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" 
+                                     Width="60" Height="60" Margin="-200,0,0,0">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="图标" Foreground="White"/>
+                                <TextBlock Text="设置" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+            
+            <!--右侧显示栏-->
+            <Border CornerRadius="0" Grid.Column="1">
+                <Frame BorderThickness="0"/>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
