@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>TimberValueEvaluationSystem</id>
+    <version>1.0.0</version>
+    <authors>TimberValueEvaluationSystem</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="HandyControl" version="3.4.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows7.0/Resources/Icon/iconfont.ttf" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Icon/logo_icon.ico" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Icon/logo_icon.png" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/1.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/2.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/1.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/10.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/2.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/3.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/4.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/5.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/6.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/7.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/8.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/StartPic/9.jpg" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows\TimberValueEvaluationSystem.runtimeconfig.json" target="lib\net6.0-windows7.0\TimberValueEvaluationSystem.runtimeconfig.json" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows\TimberValueEvaluationSystem.dll" target="lib\net6.0-windows7.0\TimberValueEvaluationSystem.dll" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\iconfont.ttf" target="content\Resources\Icon\iconfont.ttf" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\iconfont.ttf" target="contentFiles\any\net6.0-windows7.0\Resources\Icon\iconfont.ttf" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\logo_icon.ico" target="content\Resources\Icon\logo_icon.ico" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\logo_icon.ico" target="contentFiles\any\net6.0-windows7.0\Resources\Icon\logo_icon.ico" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\logo_icon.png" target="content\Resources\Icon\logo_icon.png" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Icon\logo_icon.png" target="contentFiles\any\net6.0-windows7.0\Resources\Icon\logo_icon.png" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\1.jpg" target="content\Resources\Image\HomeBg\1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="content\Resources\Image\HomeBg\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\1.jpg" target="content\Resources\Image\StartPic\1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\10.jpg" target="content\Resources\Image\StartPic\10.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\10.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\10.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\2.jpg" target="content\Resources\Image\StartPic\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\2.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\3.jpg" target="content\Resources\Image\StartPic\3.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\3.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\3.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\4.jpg" target="content\Resources\Image\StartPic\4.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\4.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\4.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\5.jpg" target="content\Resources\Image\StartPic\5.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\5.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\5.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\6.jpg" target="content\Resources\Image\StartPic\6.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\6.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\6.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\7.jpg" target="content\Resources\Image\StartPic\7.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\7.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\7.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\8.jpg" target="content\Resources\Image\StartPic\8.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\8.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\8.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\9.jpg" target="content\Resources\Image\StartPic\9.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\9.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\9.jpg" />
+  </files>
+</package>
