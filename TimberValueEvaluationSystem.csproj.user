@@ -18,6 +18,9 @@
     <Compile Update="Views\ModelPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MSiteQModelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SCommonPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -39,6 +42,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ModelPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MSiteQModelView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SCommonPageView.xaml">

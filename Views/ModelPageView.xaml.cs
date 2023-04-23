@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,7 @@ namespace TimberValueEvaluationSystem.Views
         private ModelPageView()
         {
             InitializeComponent();
-            this.DataContext = new ModelPageViewModel();
+            this.DataContext = new ModelPageViewModel(ModelNav);
         }
         public static Page GetPage()
         {
@@ -53,7 +54,7 @@ namespace TimberValueEvaluationSystem.Views
                 Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
 
                 //延迟动画时间
-                marginAnim.Duration = TimeSpan.FromSeconds(0.5 + i * 0.05);
+                marginAnim.Duration = TimeSpan.FromSeconds(0.5 + i * 0.05); 
 
                 //创建动画版播放动画
                 var sb = new Storyboard();

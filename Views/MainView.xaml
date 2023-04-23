@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         Title="林木价值评价系统" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent"
-        BorderThickness="0" MinHeight="640" MinWidth="1000" Loaded="Window_Loaded" Icon="../Resources/Icon/logo_icon.png"
+        BorderThickness="0" MinHeight="720" MinWidth="1080" Loaded="Window_Loaded" Icon="../Resources/Icon/logo_icon.png"
         Closing="Window_Closing">
     <!--主窗体-->
     <Border CornerRadius="8" Name="rootborder">

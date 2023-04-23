@@ -1,8 +1,11 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using TimberValueEvaluationSystem.Views;
+
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -23,6 +26,8 @@ namespace TimberValueEvaluationSystem.ViewModels
             HomePage = new RelayCommand(ExecuteHomePage);
             ModelPage = new RelayCommand(ExecuteModelPage);
             SettingPage = new RelayCommand(ExecuteSettingPage);
+
+            
         }
 
         //切换地图命令

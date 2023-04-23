@@ -28,7 +28,9 @@
     <None Remove="Resources\Image\StartPic\7.jpg" />
     <None Remove="Resources\Image\StartPic\8.jpg" />
     <None Remove="Resources\Image\StartPic\9.jpg" />
-    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model.pkl" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\Classificationmodel.png" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model.onnx" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\modeltest.onnx" />
     <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg" />
     <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.png" />
   </ItemGroup>
@@ -41,8 +43,9 @@
   <ItemGroup>
     <PackageReference Include="Esri.ArcGISRuntime.WPF" Version="100.9.0" />
     <PackageReference Include="HandyControl" Version="3.4.0" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.701" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.12.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
-    <PackageReference Include="pythonnet" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -94,7 +97,13 @@
     <Content Include="Resources\Image\StartPic\9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model.pkl">
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\Classificationmodel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\modeltest.onnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg">

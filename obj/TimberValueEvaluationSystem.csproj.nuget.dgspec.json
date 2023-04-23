@@ -53,13 +53,17 @@
               "target": "Package",
               "version": "[3.4.0, )"
             },
+            "LiveChartsCore.SkiaSharpView.WPF": {
+              "target": "Package",
+              "version": "[2.0.0-beta.701, )"
+            },
+            "Microsoft.ML.OnnxRuntime": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
             "MvvmLightLibs": {
               "target": "Package",
               "version": "[5.4.1.1, )"
-            },
-            "pythonnet": {
-              "target": "Package",
-              "version": "[3.0.1, )"
             }
           },
           "imports": [

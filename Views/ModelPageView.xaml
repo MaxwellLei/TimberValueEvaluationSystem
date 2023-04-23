@@ -23,7 +23,7 @@
                 <hc:SearchBar Style="{StaticResource SearchBarPlus}" Margin="10 10 10 5"/>
                 <Border Height="60">
                     <RadioButton Name="RadioButton1" Style="{DynamicResource SideControlBar2}" GroupName="ModelSideBar"
-                                   Margin="0,0,-300,0" IsChecked="True" Command="{Binding HomePage}">
+                                   Margin="0,0,-300,0" IsChecked="True" Command="{Binding SiteQualityPageCommand}">
                         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
                             <TextBlock Text="&#xe605;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                                VerticalAlignment="Center" Margin="0 0 8 0"/>
@@ -47,9 +47,7 @@
         <!--右侧显示区域-->
         <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left"
                   VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
-        <Grid Grid.Column="1" Background="White" Margin="2 0 0 0">
-            
-        </Grid>
+        <Frame Name="ModelNav" Grid.Column="1" BorderThickness="0" Margin="2 0 0 0"/>
     </Grid>
     
 </Page>
