@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Cursors\pointer.cur" />
     <None Remove="Resources\Icon\iconfont.ttf" />
     <None Remove="Resources\Icon\logo_icon.ico" />
     <None Remove="Resources\Icon\logo_icon.png" />
@@ -27,6 +28,9 @@
     <None Remove="Resources\Image\StartPic\7.jpg" />
     <None Remove="Resources\Image\StartPic\8.jpg" />
     <None Remove="Resources\Image\StartPic\9.jpg" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model.pkl" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,11 +39,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Esri.ArcGISRuntime.WPF" Version="100.9.0" />
     <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="pythonnet" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\Cursors\pointer.cur">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Icon\iconfont.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -83,6 +92,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Image\StartPic\9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model.pkl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -45,12 +45,14 @@ namespace TimberValueEvaluationSystem.ViewModels
         public HomePageViewModel()
         {
             //初始化计时器
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             _timer.Tick += (sender, e) =>
             {
                 //按照 小时：分钟 格式显示
-                CurrentTime = DateTime.Now.ToString("hh:mm");
+                CurrentTime = DateTime.Now.ToString("HH:mm");
                 //按照 年份：月：日 星期 显示
                 CurrentDate = DateTime.Now.ToString("yyyy年 MM月 dd日 dddd");
             };

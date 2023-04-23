@@ -5,42 +5,8 @@
         Title="林木价值评价系统" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent"
         BorderThickness="0" MinHeight="640" MinWidth="1000" Loaded="Window_Loaded" Icon="../Resources/Icon/logo_icon.png"
         Closing="Window_Closing">
-    <Window.Resources>
-        <!--侧边栏按钮样式-->
-        <Style x:Key="SideControlBar" TargetType="{x:Type RadioButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type RadioButton}">
-                        <Border x:Name="radioButtonBorder">
-                            <Border x:Name="insideBorder" Margin="5" CornerRadius="8">
-                                <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid x:Name="markGrid">
-                                        <Ellipse x:Name="optionMark" Opacity="0"/>
-                                    </Grid>
-                                    <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
-                                </Grid>
-                            </Border>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="insideBorder" Value="#4b4f55"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="true">
-                                <Setter Property="Background" TargetName="insideBorder" Value="#62666d"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
     <!--主窗体-->
-    <Border CornerRadius="8">
+    <Border CornerRadius="8" Name="rootborder">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="65"/>
@@ -56,7 +22,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel>
                         <RadioButton Name="RadioButton1" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
-                                     Width="60" Height="60" Margin="-200,0,0,0" IsChecked="True">
+                                     Width="60" Height="60" Margin="-200,0,0,0" IsChecked="True" Command="{Binding HomePage}">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe679;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
@@ -64,7 +30,7 @@
                             </WrapPanel>
                         </RadioButton>
                         <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
-                                     Width="60" Height="60" Margin="-200,0,0,0">
+                                     Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding MapPage}">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe65e;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
@@ -72,6 +38,14 @@
                             </WrapPanel>
                         </RadioButton>
                         <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                                     Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding ModelPage}">
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="&#xe614;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                                           HorizontalAlignment="Center" FontSize="24"/>
+                                <TextBlock Text="模型" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                        <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe6ed;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
@@ -79,7 +53,7 @@
                                 <TextBlock Text="数据" Foreground="White"/>
                             </WrapPanel>
                         </RadioButton>
-                        <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                        <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe640;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
@@ -89,8 +63,8 @@
                         </RadioButton>
                     </StackPanel>
 
-                    <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
-                                     Width="60" Height="60" Margin="-200,0,0,0">
+                    <RadioButton Name="RadioButton6" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
+                                     Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding SettingPage}">
                         <WrapPanel Orientation="Vertical">
                             <TextBlock Text="&#xe8b8;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
@@ -103,7 +77,7 @@
             
             <!--右侧显示栏-->
             <Border CornerRadius="0" Grid.Column="1">
-                <Frame Name="Nav" BorderThickness="0" Source="HomePageView.xaml"/>
+                <Frame Name="Nav" BorderThickness="0" NavigationUIVisibility="Hidden"/>
             </Border>
         </Grid>
     </Border>

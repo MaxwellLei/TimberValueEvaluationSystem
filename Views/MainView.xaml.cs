@@ -8,7 +8,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing;
 using HandyControl.Controls;
-using static HandyControl.Controls.Growl;
+using TimberValueEvaluationSystem.Views;
+using System.Windows.Input;
 
 namespace TimberValueEvaluationSystem
 {
@@ -18,7 +19,8 @@ namespace TimberValueEvaluationSystem
         {
             InitializeComponent();
             //绑定ViewModel
-            this.DataContext = new MainViewModel();
+            this.DataContext = new MainViewModel(Nav);
+            Nav.Navigate(HomePageView.GetPage());
         }
 
         //窗体加载完成后的按钮动画
@@ -31,18 +33,19 @@ namespace TimberValueEvaluationSystem
                 To = new Thickness(0, 0, 0, 0),
                 EasingFunction = new QuadraticEase()
             };
-            for (int i = 1; i < 6; i++)
+            for (int i = 1; i < 7; i++)
             {
                 Storyboard.SetTargetName(marginAnim, "RadioButton" + i);
                 Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
 
                 //延迟动画时间
-                marginAnim.Duration = TimeSpan.FromSeconds(0.5 + i*0.3);
+                marginAnim.Duration = TimeSpan.FromSeconds(0.5 + i*0.25);
 
                 //创建动画版播放动画
                 var sb = new Storyboard();
                 sb.Children.Add(marginAnim);
                 sb.Begin(this);
+                
             }
 
             // 创建 NotifyIcon 对象
@@ -73,6 +76,10 @@ namespace TimberValueEvaluationSystem
             // 将右键菜单分配给 NotifyIcon 对象
             notifyIcon.ContextMenuStrip = menu;
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_MouseClick);
+
+            // 加载自定义的鼠标样式
+            System.Windows.Input.Cursor myCursor = new System.Windows.Input.Cursor(@"Resources/Cursors/pointer.cur");
+            rootborder.Cursor = myCursor;
         }
 
         private void RestoreItem_Click(object? sender, EventArgs? e)

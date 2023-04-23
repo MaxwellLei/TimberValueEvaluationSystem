@@ -12,6 +12,18 @@
     <Compile Update="Views\HomePageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MapPageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ModelPageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SCommonPageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SettingPageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\StartView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +33,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MapPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ModelPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SCommonPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SettingPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\StartView.xaml">

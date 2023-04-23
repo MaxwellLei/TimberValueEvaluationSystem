@@ -1,0 +1,43 @@
+﻿<Page x:Class="TimberValueEvaluationSystem.Views.SCommonPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SCommonPageView">
+    <hc:ScrollViewer>
+        <Border Margin="10">
+            <StackPanel Margin="0 40 0 20">
+                <GroupBox Header="语言" Width="360" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                  FontWeight="Bold" FontSize="16" Margin="0 0 0 5">
+                    <Expander Header="简体中文" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                </GroupBox>
+                <GroupBox Header="字体大小（正文）" Width="360" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                  FontWeight="Bold" FontSize="16" Margin="0 0 0 5">
+                    <Expander Header="12" FontWeight="Normal" VerticalAlignment="Center"
+                      HorizontalAlignment="Right"/>
+                </GroupBox>
+                <GroupBox Header="开机启动" Width="360" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                  FontWeight="Bold" FontSize="16" Margin="0 0 0 5">
+                    <ToggleButton Style="{StaticResource ToggleButtonSwitch}" HorizontalAlignment="Right"/>
+                </GroupBox>
+                <GroupBox Header="自动检查更新" Width="360" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                  FontWeight="Bold" FontSize="16" Margin="0 0 0 5">
+                    <StackPanel>
+                        <ToggleButton Style="{StaticResource ToggleButtonSwitch}" HorizontalAlignment="Right" IsChecked="True"/>
+                        <Button Width="80" Content="检查更新" HorizontalAlignment="Right" Margin="0 10 0 5" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="退出程序方式" Width="360" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                  FontWeight="Bold" FontSize="16" Margin="0 0 0 5">
+                    <StackPanel>
+                        <Expander Header="最小化" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </Border>
+    </hc:ScrollViewer>
+</Page>

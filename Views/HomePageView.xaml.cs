@@ -16,15 +16,22 @@ using TimberValueEvaluationSystem.ViewModels;
 
 namespace TimberValueEvaluationSystem.Views
 {
-    /// <summary>
-    /// HomePageView.xaml 的交互逻辑
-    /// </summary>
+    //主页
     public partial class HomePageView : Page
     {
-        public HomePageView()
+        private static HomePageView homePage = null;
+        private HomePageView()
         {
             InitializeComponent();
             this.DataContext = new HomePageViewModel();
+        }
+        public static Page GetPage()
+        {
+            if (homePage == null)
+            {
+                homePage = new HomePageView();
+            }
+            return homePage;
         }
     }
 }
