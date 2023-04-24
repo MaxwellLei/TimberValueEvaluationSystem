@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Work Space\Project\TimberValueEvaluationSystem\App.xaml
-8221976341
+9-965625520
 25-1098404702
-21340827456
+231036634141
 220-1761052352
-Views\HomePageView.xaml;Views\MainView.xaml;Views\MapPageView.xaml;Views\ModelPageView.xaml;Views\MSiteQModelView.xaml;Views\SCommonPageView.xaml;Views\SettingPageView.xaml;Views\StartView.xaml;
+Views\HomePageView.xaml;Views\MainView.xaml;Views\MapPageView.xaml;Views\ModelPageView.xaml;Views\MSiteQModelView.xaml;Views\SAboutPageView.xaml;Views\SCommonPageView.xaml;Views\SettingPageView.xaml;Views\StartView.xaml;
 
 True
 

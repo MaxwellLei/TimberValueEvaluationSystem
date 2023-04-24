@@ -5,8 +5,9 @@
              StartupUri="Views/StartView.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <!--HandyControl控件库引用-->
+            <!--库引用-->
             <ResourceDictionary.MergedDictionaries>
+                <!--HandyControl控件库引用-->
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>

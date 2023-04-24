@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
+using HandyControl.Controls;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using System;
@@ -42,7 +43,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             Nav.Navigate(HomePageView.GetPage());
         }
 
-        //切换主页命令
+        //切换模型命令
         private void ExecuteModelPage()
         {
             Nav.Navigate(ModelPageView.GetPage());

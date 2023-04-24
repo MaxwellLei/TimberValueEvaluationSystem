@@ -1,7 +1,8 @@
 ﻿<Page x:Class="TimberValueEvaluationSystem.Views.MapPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
@@ -10,5 +11,31 @@
       Title="MapPageView">
     <Grid>
         <esri:MapView Map="{Binding Map}" />
+        <ToolBar  Header="工具栏" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <Button Content="图层" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
+            <Button Content="导入Shp文件" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
+            <CheckBox Content="Demo" Margin="10,0,0,0"/>
+        </ToolBar>
+        <!--侧边栏-->
+        <hc:Drawer ShowMode="Push" IsOpen="{Binding IsOpenSidebar}" MaskCanClose="True">
+            <Border Background="{DynamicResource RegionBrush}" BorderThickness="0,1,0,0" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Width="300">
+                        <StackPanel HorizontalAlignment="Stretch">
+                            <TextBlock Text="测试" Width="300"/>
+                            <Button Content="测试" Width="300"/>
+                            <Button Content="测试"/>
+                            <Button Content="测试"/>
+                            <Button Content="测试"/>
+                            <Button Content="测试"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+        </hc:Drawer>
     </Grid>
 </Page>

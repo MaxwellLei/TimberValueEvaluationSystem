@@ -344,3 +344,5 @@ D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Vi
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Views\MSiteQModelView.baml
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\GeneratedInternalTypeHelper.g.cs
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Views\SAboutPageView.g.cs
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Views\SAboutPageView.baml
