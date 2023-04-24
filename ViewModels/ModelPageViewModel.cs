@@ -8,8 +8,6 @@ using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore;
-using Microsoft.ML.OnnxRuntime;
-using Microsoft.ML.OnnxRuntime.Tensors;
 using TimberValueEvaluationSystem.Views;
 using System.Windows.Controls;
 
@@ -49,29 +47,6 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ExecuteSiteQualityPredictionCommand()
         {
 
-            // 加载 ONNX 模型
-            var session = new InferenceSession(@"Resources/PythonModel/SiteQuality_DecisionTree/model.onnx");
-
-            // 准备输入数据
-            float[] inputData = { 3, 3, 3, 3 };
-            var tensor = new DenseTensor<float>(inputData, new[] { 1, 4 });
-
-
-            // 将输入数据包装在 NamedOnnxValue 对象中
-            var namedOnnxValues = new[] { NamedOnnxValue.CreateFromTensor("input", tensor) };
-
-            //运行模型
-            var results = session.Run(namedOnnxValues);
-
-            // 获取预测结果
-            var predictionResult = results.First().AsTensor<Int64>();
-            var predictedLabel = predictionResult.ToArray()[0];
-
-            var b = results.Last();
-            var a = results.Last().Value;
-            var c = a.ToString();
-
-            MessageBox.Show(predictedLabel+ ";" + a);
         }
     }
 

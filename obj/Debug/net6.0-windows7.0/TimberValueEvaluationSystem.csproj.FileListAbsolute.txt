@@ -342,3 +342,5 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\ru
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\runtimes\win-x86\native\libSkiaSharp.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Views\MSiteQModelView.g.cs
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Views\MSiteQModelView.baml
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\GeneratedInternalTypeHelper.g.cs

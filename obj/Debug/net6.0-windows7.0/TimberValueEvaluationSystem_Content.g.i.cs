@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cursors/pointer.cur")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/fonts/alibaba_puhuiti_2.0_65_medium_65_medium.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/iconfont.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/logo_icon.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/logo_icon.png")]

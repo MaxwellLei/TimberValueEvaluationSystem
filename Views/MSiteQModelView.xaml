@@ -4,13 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+      xmlns:sv="clr-namespace:TimberValueEvaluationSystem.Services"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
       mc:Ignorable="d" Background="#f3f3f3"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MSiteQModelView">
-
     <Grid>
+        <Grid.Resources>
+            <sv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*"/>
             <ColumnDefinition/>
@@ -44,6 +48,9 @@
                     <TextBlock Text="输入分类依据的数据，根据指示完成数据分析，可以选择单次分析，也可以导入 CSV 文件或者数据库导入进行批量预测" 
                                    Margin="0 0 0 0" FontSize="16"
                                    Foreground="White" TextWrapping="Wrap"/>
+                    <TextBlock Text="注：该模型参数不存在缺省值" 
+                                   Margin="0 5 0 0" FontSize="16"
+                                   Foreground="Blue" TextWrapping="Wrap"/>
                     <hc:Divider Content="决策树可视化" HorizontalContentAlignment="Left" Foreground="White" 
                                     Margin="0 10 0 5" FontSize="20"/>
                     <Image Source="../Resources/PythonModel/SiteQuality_DecisionTree/model_graph.jpg" PreviewMouseDown="Image_PreviewMouseDown"/>
@@ -71,33 +78,31 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <!--选择输入方式-->
-                    <StackPanel Margin="10 15 0 0">
+                    <StackPanel Margin="10 15 0 0" Visibility="{Binding IsShowStackPannl1, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <hc:ButtonGroup>
                             <RadioButton Content="单项预测" IsChecked="True" Command="{Binding SingleItemCommand}"/>
                             <RadioButton Content="导入CSV" Command="{Binding ImportCSVCommand}"/>
                             <RadioButton Content="数据库导入" Command="{Binding DatabaseImportCommand}"/>
                         </hc:ButtonGroup>
-                        <Border Background="White" CornerRadius="5" Margin="0 5 0 0">
+                        <Border Background="White" CornerRadius="5" Margin="0 5 0 0" >
                             <Grid>
                                 <!--单项预测-->
-                                <hc:ScrollViewer>
-                                    <StackPanel Name="singleItem">
-                                        <Border Style="{StaticResource BorderRegion}" Margin="5 5 5 0" 
+                                <StackPanel Name="singleItem">
+                                    <Border Style="{StaticResource BorderRegion}" Margin="5 5 5 0" 
                                             BorderThickness="5 0 0 0" BorderBrush="Blue" Background="#f3fbff">
-                                            <TextBlock Text="默认选择" VerticalAlignment="Center" 
+                                        <TextBlock Text="默认选择" VerticalAlignment="Center" 
                                                        HorizontalAlignment="Center" Foreground="Black"/>
-                                        </Border>
-                                        <TextBlock TextWrapping="Wrap" Margin="8 8 8 8">
+                                    </Border>
+                                    <TextBlock TextWrapping="Wrap" Margin="8 8 8 8">
                                     📌 依次手动输入数据，进行预测；
-                                        </TextBlock>
-                                        <TextBlock TextWrapping="Wrap" Margin="8 0 8 8">
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap" Margin="8 0 8 8">
                                     📌 执行速度快，结果不可自动导出;
-                                        </TextBlock>
-                                        <TextBlock TextWrapping="Wrap" Margin="8 0 8 8">
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap" Margin="8 0 8 8">
                                     📌 结果不可自动导出;
-                                        </TextBlock>
-                                    </StackPanel>
-                                </hc:ScrollViewer>
+                                    </TextBlock>
+                                </StackPanel>
 
                                 <!--导入CSV-->
                                 <hc:ScrollViewer>
@@ -121,7 +126,7 @@
 
                                 <!--数据库导入-->
                                 <hc:ScrollViewer>
-                                    <StackPanel Name="databaseImport" Visibility="Hidden">
+                                    <StackPanel x:Name="databaseImport" Visibility="Hidden">
                                         <Border Style="{StaticResource BorderRegion}" Margin="5 5 5 0" 
                                             BorderThickness="5 0 0 0" BorderBrush="Blue" Background="#f3fbff">
                                             <TextBlock Text="需要先建立相关数据库" VerticalAlignment="Center" 
@@ -140,39 +145,63 @@
                                 </hc:ScrollViewer>
                             </Grid>
                         </Border>
-                    </StackPanel>
+                    </StackPanel >
                     
                     <!--输入数据-->
-                    <StackPanel Grid.Column="1" Margin="15 15 5 10">
+                    <StackPanel Grid.Column="1" Margin="15 15 5 10" Visibility="{Binding IsShowStackPannl2, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <GroupBox Grid.Row="2" Style="{StaticResource GroupBoxOriginal}" Header="土壤厚度" FontSize="14"
                                   HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left" Margin="0 0 0 8">
-                            <hc:ComboBox ShowClearButton="True" SelectedIndex="0" MaxWidth="160" 
-                                         MinWidth="100" HorizontalAlignment="Stretch"/>
+                            <hc:ComboBox ShowClearButton="True" SelectedIndex="{Binding SoilIndex}" MaxWidth="160"
+                                         MinWidth="100" HorizontalAlignment="Stretch">
+                                <hc:ComboBox.Items>
+                                    <sys:String>薄层土（&lt;20cm）</sys:String>
+                                    <sys:String>中层土（20-40cm）</sys:String>
+                                    <sys:String>厚层土（&gt;40cm）</sys:String>
+                                </hc:ComboBox.Items>
+                            </hc:ComboBox>
                         </GroupBox>
                         <GroupBox Grid.Row="2" Style="{StaticResource GroupBoxOriginal}" Header="坡位" FontSize="14"
                                   HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
-                            <hc:ComboBox ShowClearButton="True" SelectedIndex="0" MaxWidth="160" 
-                                         MinWidth="100" HorizontalAlignment="Stretch"/>
+                            <hc:ComboBox ShowClearButton="True" SelectedIndex="{Binding SlopeIndex}" MaxWidth="160" 
+                                         MinWidth="100" HorizontalAlignment="Stretch">
+                                <hc:ComboBox.Items>
+                                    <sys:String>上坡</sys:String>
+                                    <sys:String>中坡</sys:String>
+                                    <sys:String>下坡</sys:String>
+                                </hc:ComboBox.Items>
+                            </hc:ComboBox>
                         </GroupBox>
                         <GroupBox Grid.Row="2" Style="{StaticResource GroupBoxOriginal}" Header="坡向" FontSize="14"
                                   HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left" Margin="0 8 0 8">
-                            <hc:ComboBox ShowClearButton="True" SelectedIndex="0" MaxWidth="160" 
-                                         MinWidth="100" HorizontalAlignment="Stretch"/>
+                            <hc:ComboBox ShowClearButton="True" SelectedIndex="{Binding AspectIndex}" MaxWidth="160" 
+                                         MinWidth="100" HorizontalAlignment="Stretch">
+                                <hc:ComboBox.Items>
+                                    <sys:String>阴坡</sys:String>
+                                    <sys:String>半阴半阳向</sys:String>
+                                    <sys:String>阳坡</sys:String>
+                                </hc:ComboBox.Items>
+                            </hc:ComboBox>
                         </GroupBox>
                         <GroupBox Grid.Row="2" Style="{StaticResource GroupBoxOriginal}" Header="坡度" FontSize="14"
                                   HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
-                            <hc:ComboBox ShowClearButton="True" SelectedIndex="0" MaxWidth="160" 
-                                         MinWidth="100" HorizontalAlignment="Stretch"/>
+                            <hc:ComboBox ShowClearButton="True" SelectedIndex="{Binding GradientIndex}" MaxWidth="160" 
+                                         MinWidth="100" HorizontalAlignment="Stretch">
+                                <hc:ComboBox.Items>
+                                    <sys:String>险坡（&gt;25°）</sys:String>
+                                    <sys:String>陡坡（15°-25°）</sys:String>
+                                    <sys:String>缓坡（&lt;25°）</sys:String>
+                                </hc:ComboBox.Items>
+                            </hc:ComboBox>
                         </GroupBox>
                     </StackPanel>
                     
                     <!--预测结果-->
-                    <StackPanel Grid.Column="2" Margin="0 15 5 10">
+                    <StackPanel Grid.Column="2" Margin="5 15 5 10">
                         <TextBlock Text="预测正确概率" FontSize="16" FontWeight="Bold"/>
-                        <lvc:PieChart Series="{Binding PieSeries}" MinHeight="120"/>
+                        <lvc:PieChart Series="{Binding PieSeries}" MinHeight="120" Visibility="Visible"/>
                         <GroupBox Grid.Row="2" Style="{StaticResource GroupBoxOriginal}" Header="预测结果" FontSize="16" FontWeight="Bold"
                                   HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left" Margin="0 0 0 8">
-                            <TextBlock Text="立地质量-好" VerticalAlignment="Center" FontWeight="Medium" Margin="5 0 0 0 "/>
+                            <TextBlock Text="{Binding ModelResult}" VerticalAlignment="Center" FontWeight="Medium" Margin="5 0 0 0 "/>
                         </GroupBox>
                     </StackPanel>
                     
@@ -186,17 +215,17 @@
                     <ColumnDefinition Width="0.22*"/>
                     <ColumnDefinition Width="0.22*"/>
                 </Grid.ColumnDefinitions>
-                <hc:StepBar HorizontalAlignment="Stretch">
+                <hc:StepBar Name="stepBar1" HorizontalAlignment="Stretch" StepIndex="{Binding IndexCount}">
                     <hc:StepBarItem Content="选择输入方式"/>
                     <hc:StepBarItem Content="输入数据"/>
                     <hc:StepBarItem Content="预测结果"/>
                 </hc:StepBar>
                 <Border Grid.Column="1">
-                <Button Content="上一步" FontSize="14" Margin="0 0 5 0" MinHeight="40"
+                    <Button Content="上一步" FontSize="14" Margin="0 0 5 0" MinHeight="40" Command="{Binding PrevCommand}"
                     VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                 </Border>
                 <Border Grid.Column="2">
-                    <Button Content="下一步" FontSize="14" Margin="0 0 10 0" MinHeight="40"
+                    <Button Content="下一步" FontSize="14" Margin="0 0 10 0" MinHeight="40" Command="{Binding NextCommand}"
                     VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                 </Border>
             </Grid>
