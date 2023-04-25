@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\DataPageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomePageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -35,6 +38,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\DataPageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\HomePageView.xaml">
       <SubType>Designer</SubType>
     </Page>

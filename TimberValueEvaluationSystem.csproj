@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Database\" />
     <Folder Include="Resources\Style\" />
   </ItemGroup>
 
@@ -46,6 +47,7 @@
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.701" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.12.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
   </ItemGroup>
 
   <ItemGroup>

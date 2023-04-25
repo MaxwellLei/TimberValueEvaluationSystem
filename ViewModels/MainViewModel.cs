@@ -17,7 +17,8 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand MapPage { get; private set; }   //切换地图命令
         public RelayCommand HomePage { get; private set; }  //切换主页命令
         public RelayCommand ModelPage { get; private set; }  //切换模型命令
-        public RelayCommand SettingPage { get; private set; }  //切换模型命令
+        public RelayCommand DataPage { get; private set; }  //切换数据命令
+        public RelayCommand SettingPage { get; private set; }  //切换设置命令
 
         //初始化
         public MainViewModel(Frame nav)
@@ -26,6 +27,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             MapPage = new RelayCommand(ExecuteMapPage);
             HomePage = new RelayCommand(ExecuteHomePage);
             ModelPage = new RelayCommand(ExecuteModelPage);
+            DataPage = new RelayCommand(ExecuteDataPage);
             SettingPage = new RelayCommand(ExecuteSettingPage);
 
             
@@ -48,6 +50,12 @@ namespace TimberValueEvaluationSystem.ViewModels
         {
             Nav.Navigate(ModelPageView.GetPage());
             ModelPageView.RefeshAn();
+        }
+
+        //切换地图命令
+        private void ExecuteDataPage()
+        {
+            Nav.Navigate(DataPageView.GetPage());
         }
 
         //切换设置命令

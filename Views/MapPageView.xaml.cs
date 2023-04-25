@@ -24,6 +24,8 @@ namespace TimberValueEvaluationSystem.Views
         {
             InitializeComponent();
             this.DataContext = new MapPageViewModel();
+            // 在此处将MyMapView对象赋值给MapPageViewModel中的MyMapView属性
+            (this.DataContext as MapPageViewModel).MyMapView = this.MyMapView;
         }
         public static Page GetPage()
         {

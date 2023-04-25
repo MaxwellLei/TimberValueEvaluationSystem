@@ -14,9 +14,12 @@
     <SourceRoot Include="D:\Calculate Software\Visual Studio 2019\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.12.0\build\netstandard2.0\Microsoft.ML.OnnxRuntime.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.12.0\build\netstandard2.0\Microsoft.ML.OnnxRuntime.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\leiming\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\leiming\.nuget\packages\system.data.sqlite.ef6\1.0.117</PkgSystem_Data_SQLite_EF6>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\leiming\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgHandyControl Condition=" '$(PkgHandyControl)' == '' ">C:\Users\leiming\.nuget\packages\handycontrol\3.4.0</PkgHandyControl>
     <PkgEsri_ArcGISRuntime_WPF Condition=" '$(PkgEsri_ArcGISRuntime_WPF)' == '' ">C:\Users\leiming\.nuget\packages\esri.arcgisruntime.wpf\100.9.0</PkgEsri_ArcGISRuntime_WPF>

@@ -10,13 +10,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MapPageView">
     <Grid>
-        <esri:MapView Map="{Binding Map}" />
+        <!--地图-->
+        <esri:MapView x:Name="MyMapView" Map="{Binding Map}" />
+        <!--底层工具栏-->
         <ToolBar  Header="工具栏" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
             <Button Content="图层" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
             <Button Content="导入Shp文件" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
-            <CheckBox Content="Demo" Margin="10,0,0,0"/>
+            <Button Content="截图" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}"/>
+            <Button Content="聚焦" Margin="10,0,0,0" Command="{Binding FocusLayersCommand}"/>
         </ToolBar>
-        <!--侧边栏-->
+        
+        
+        <!--图层侧边栏-->
         <hc:Drawer ShowMode="Push" IsOpen="{Binding IsOpenSidebar}" MaskCanClose="True">
             <Border Background="{DynamicResource RegionBrush}" BorderThickness="0,1,0,0" HorizontalAlignment="Center">
                 <Grid>
@@ -25,14 +30,15 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Border Width="300">
-                        <StackPanel HorizontalAlignment="Stretch">
-                            <TextBlock Text="测试" Width="300"/>
-                            <Button Content="测试" Width="300"/>
-                            <Button Content="测试"/>
-                            <Button Content="测试"/>
-                            <Button Content="测试"/>
-                            <Button Content="测试"/>
-                        </StackPanel>
+                        <ListView ItemsSource="{Binding MapLayers}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="Bold" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Border>
                 </Grid>
             </Border>

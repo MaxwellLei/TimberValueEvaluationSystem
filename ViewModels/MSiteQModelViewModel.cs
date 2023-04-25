@@ -162,8 +162,9 @@ namespace TimberValueEvaluationSystem.ViewModels
                     //第三步
                     IsShowStackPannl2 = false;
                     InputData();
-                    ModelResult = CommonConverter.SiteQualityModelConverter(SiteQualityModel(testdata));
+                    ModelResult = ConverterHelper.SiteQualityModelConverter(SiteQualityModel(testdata));
                     PieChartInit();
+                    Growl.Success("预测成功");
                 }
                 IndexCount += value;
             }

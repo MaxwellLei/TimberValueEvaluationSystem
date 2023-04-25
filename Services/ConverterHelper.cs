@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimberValueEvaluationSystem.Services
 {
-    public class CommonConverter
+    public class ConverterHelper
     {
         public static string SiteQualityModelConverter(long value)
         {
