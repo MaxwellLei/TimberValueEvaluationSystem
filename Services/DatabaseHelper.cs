@@ -12,6 +12,8 @@ namespace TimberValueEvaluationSystem.Services
     //数据库操作类
     public class DatabaseHelper
     {
+        private static string connectionString = "Data Source=";
+
         //新建数据库
         public static bool CreateDatabase()
         {
@@ -40,15 +42,16 @@ namespace TimberValueEvaluationSystem.Services
         //    UpdateDatabase(sql);
         //}
 
-        //创建数据库表
-        public static void CreateMSQMTable(SQLiteConnection connection)
+        //创建数据库——立地质量表
+        public static void CreateMSQMTable()
         {
+            SQLiteConnection connection = ConnectDatabase();
             string sql = "CREATE TABLE YourTableName (" +
-                "id INT PRIMARY KEY AUTO_INCREMENT," +
-                "SoilThickness INT," +
-                "Slope INT," +
-                "Aspect INT," +
-                "Gradient INT," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "SoilThickness TEXT," +
+                "Slope TEXT," +
+                "Aspect TEXT," +
+                "Gradient TEXT," +
                 "SiteQuality TEXT);";
             UpdateDatabase(connection,sql);
         }
@@ -80,22 +83,31 @@ namespace TimberValueEvaluationSystem.Services
         //}
 
         //连接数据库
-        public static SQLiteConnection ConnectDatabase(string dbPath)
+        public static SQLiteConnection ConnectDatabase()
         {
-            //创建数据库连接
-            SQLiteConnection conn = new SQLiteConnection("Data Source=" + dbPath);
-            return conn;
+            connectionString += FileHelper.GetFilePath();
+            if (connectionString == "Data Source=")
+            {
+                Growl.Warning("已取消创建表");
+                return null;
+            }
+            else
+            {
+                //创建数据库连接
+                SQLiteConnection conn = new SQLiteConnection(connectionString);
+                return conn;
+            }
         }
 
-        ////查询数据库内容
-        //public static SQLiteDataReader QueryDatabase(string sql)
-        //{
-        //    SQLiteConnection conn = ConnectDatabase();
-        //    conn.Open();
-        //    SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-        //    SQLiteDataReader reader = cmd.ExecuteReader();
-        //    return reader;
-        //}
+        //查询数据库内容
+        public static SQLiteDataReader QueryDatabase(string sql)
+        {
+            SQLiteConnection conn = ConnectDatabase();
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
 
         //更新数据库内容
         public static void UpdateDatabase(SQLiteConnection connection,string sql)
@@ -106,15 +118,15 @@ namespace TimberValueEvaluationSystem.Services
             connection.Close();
         }
 
-        ////插入数据库内容
-        //public static void InsertDatabase(string sql)
-        //{
-        //    SQLiteConnection conn = ConnectDatabase();
-        //    conn.Open();
-        //    SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-        //    cmd.ExecuteNonQuery();
-        //    conn.Close();
-        //}
+        //插入数据库内容
+        public static void InsertDatabase(string sql)
+        {
+            SQLiteConnection conn = ConnectDatabase();
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        } 
 
         ////删除数据库内容
         //public static void DeleteDatabase(string sql)

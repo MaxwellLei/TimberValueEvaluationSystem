@@ -8,6 +8,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePageView">
+    <Page.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="新建图标" Command="Cut"/>
+            <MenuItem Header="删除图标" Command="Copy"/>
+            <MenuItem Header="粘贴" Command="Paste"/>
+        </ContextMenu>
+    </Page.ContextMenu>
     <Page.Background>
         <ImageBrush ImageSource="../Resources/Image/HomeBg/2.jpg"/>
     </Page.Background>

@@ -8,36 +8,63 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DataPageView">
-
-    <Grid>
-        <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
-            <DataGrid.RowHeaderTemplate>
-                <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                </DataTemplate>
-            </DataGrid.RowHeaderTemplate>
-            <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="这是"/>
-                <DataGridTemplateColumn Width="60" CanUserResize="False">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding ImgPath}" Width="32" Height="32" Stretch="Uniform"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Width="1" Binding="{Binding Name}" Header="一个"/>
-                <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="测试"/>
-                <DataGridComboBoxColumn Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="ce"/>
-                <DataGridTextColumn Width="1" Binding="{Binding Remark}" Header="ces"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <!--底层工具栏-->
-        <ToolBar  Header="工具栏" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
-            <Button Content="新建数据库" Margin="10,0,0,0" Command="{Binding NewDatabaseCommand}"/>
-            <Button Content="查询数据" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
-            <Button Content="删除数据" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
-            <Button Content="插入数据" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}"/>
-            <Button Content="修改数据" Margin="10,0,0,0" Command="{Binding FocusLayersCommand}"/>
-        </ToolBar>
+    <Grid Background="#eeeeee">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*" MinWidth="200" MaxWidth="460"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--左侧栏-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*" MinHeight="320" MaxHeight="540"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Background="#eeeeee">
+                <!--右键菜单-->
+                <Grid.ContextMenu>
+                    <ContextMenu Width="150" Placement="Right" FlowDirection="RightToLeft">
+                        <MenuItem Header="新建数据库" Command="{Binding NewDatabaseCommand}"/>
+                        <MenuItem Header="新建模型表" Command="{Binding NewModelDBTableCommand}"/>
+                        <MenuItem Header="查询数据" Command="{Binding LayerSidebarCommand}"/>
+                        <MenuItem Header="删除数据" Command="{Binding SelectShpFileCommand}"/>
+                        <MenuItem Header="插入数据" Command="{Binding InsertDataCommand}"/>
+                        <MenuItem Header="测试>">
+                            <WrapPanel>
+                                <TextBlock Text="测试"/>
+                                <Button Content="修改数据" Command="{Binding FocusLayersCommand}"/>
+                            </WrapPanel>
+                        </MenuItem>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+                
+            </Grid>
+            
+            <GridSplitter Grid.Row="1" Height="2" HorizontalAlignment="Stretch" BorderThickness="0"
+                  VerticalAlignment="Top" Background="#f7f8f8" Opacity="0.85"/>
+            <Grid Grid.Row="1" Margin="0 2 0 0">
+                
+            </Grid>
+        </Grid>
+        
+        <!--右侧栏-->
+        <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" BorderThickness="0"
+                  VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
+        <Grid Grid.Column="1" Margin="2 0 0 0">
+            <DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+                      ItemsSource="{Binding SiteQModels}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Index}" Header="ID" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding SoilThickness}" Header="土壤厚度"/>
+                    <DataGridTextColumn Binding="{Binding Slope}" Header="坡位"/>
+                    <DataGridTextColumn Binding="{Binding Aspect}" Header="坡向"/>
+                    <DataGridTextColumn Binding="{Binding Gradient}" Header="坡度"/>
+                    <DataGridTextColumn Binding="{Binding SiteQuality}" Header="立地质量"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <hc:Pagination VerticalAlignment="Bottom" HorizontalAlignment="Center" MaxPageCount="10" DataCountPerPage="14"
+                           PageIndex="{Binding PageCount}" IsJumpEnabled="True" Margin="0 0 0 20" 
+                           />
+        </Grid>
     </Grid>
+    
 </Page>

@@ -1,6 +1,7 @@
 ﻿using Esri.ArcGISRuntime.Data;
 using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Mapping;
+using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.UI.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -69,6 +70,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand SelectShpFileCommand { get; private set; }   //导入Shp文件命令
         public RelayCommand ScreenshotCommand { get; private set; }   //截图命令
         public RelayCommand FocusLayersCommand { get; private set; }   //聚焦图层命令
+        public RelayCommand ClickSurfaceCommand { get; private set; }   //点击面命令
 
 
 
@@ -81,7 +83,14 @@ namespace TimberValueEvaluationSystem.ViewModels
             SelectShpFileCommand = new RelayCommand(ExecuteSelectShpFileCommand);
             ScreenshotCommand = new RelayCommand(ExecuteScreenshotCommand);
             FocusLayersCommand = new RelayCommand(ExecuteFocusLayersCommand);
+            ClickSurfaceCommand = new RelayCommand(ExecuteClickSurfaceCommand);
 
+        }
+
+        //点击面
+        private void ExecuteClickSurfaceCommand()
+        {
+            Growl.Info("点击成功");
         }
 
         //聚焦图层
