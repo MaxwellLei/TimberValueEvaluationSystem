@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +22,25 @@ namespace TimberValueEvaluationSystem.Views
     /// </summary>
     public partial class SAboutPageView : Page
     {
+        private static SAboutPageView aboutPage = null;
         public SAboutPageView()
         {
             InitializeComponent();
+        }
+        public static Page GetPage()
+        {
+            if (aboutPage == null)
+            {
+                aboutPage = new SAboutPageView();
+            }
+            return aboutPage;
+        }
+
+        //播放Seraphine语音
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var player = new SoundPlayer(@"Resources/Audio/55158959.wav");
+            player.Play();
         }
     }
 }

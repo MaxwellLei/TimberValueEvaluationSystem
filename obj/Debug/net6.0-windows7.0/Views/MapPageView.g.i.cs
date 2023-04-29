@@ -83,7 +83,7 @@ namespace TimberValueEvaluationSystem.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TimberValueEvaluationSystem;V1.0.0.0;component/views/mappageview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TimberValueEvaluationSystem;component/views/mappageview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\MapPageView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

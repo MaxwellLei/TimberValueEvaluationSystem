@@ -30,7 +30,7 @@
                     </Border>
                     <Border Height="60" Margin="20 0 20 0">
                         <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar2}" GroupName="SettingSideBar"
-                                     Margin="0,0,-300,0" Command="{Binding PredictByPklModelCommand}" >
+                                     Margin="0,0,-300,0" Command="{Binding ExteriorPage}" >
                             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock Text="&#xe7e8;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                                VerticalAlignment="Center" Margin="0 0 8 0"/>
@@ -40,7 +40,7 @@
                     </Border>
                     <Border Height="60" Margin="20 0 20 0">
                         <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar2}" GroupName="SettingSideBar"
-                                     Margin="0,0,-300,0" Command="{Binding PredictByPklModelCommand}" >
+                                     Margin="0,0,-300,0" Command="{Binding AboutPage}" >
                             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock Text="&#xe60b;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                                VerticalAlignment="Center" Margin="0 0 8 0"/>
