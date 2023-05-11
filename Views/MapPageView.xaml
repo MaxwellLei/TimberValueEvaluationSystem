@@ -2,7 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:command="http://www.galasoft.ch/mvvmlight"
+      xmlns:cmd="http://www.galasoft.ch/mvvmlight"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
@@ -11,12 +11,25 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MapPageView">
-    <Grid>
+    <Grid Background="White">
+        <Grid.ContextMenu>
+            <ContextMenu Placement="Right">
+                <MenuItem Header="导入Shp文件"/>
+                <MenuItem Header="取消高亮"/>
+                <MenuItem Header="编辑模式"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
         <!--地图-->
-        <esri:MapView x:Name="MyMapView" Map="{Binding Map}">
+        <esri:MapView x:Name="MyMapView" Map="{Binding Map}" Focusable="True">
             <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonDown">
-                    <command:EventToCommand Command="{Binding ClickSurfaceCommand}"/>
+                <i:EventTrigger EventName="GeoViewTapped">
+                    <cmd:EventToCommand Command="{Binding ClickSurfaceCommand}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="MouseMove">
+                    <cmd:EventToCommand Command="{Binding GetMapInfoCommand}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="PreviewMouseWheel">
+                    <cmd:EventToCommand Command="{Binding WheelChangedCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </esri:MapView>
@@ -24,21 +37,36 @@
         <ToolBar  Header="工具栏" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
             <Button Content="图层" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
             <Button Content="导入Shp文件" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
+            <Button Content="编辑" Margin="10,0,0,0" Command="{Binding EditSurfaceCommand}"/>
             <Button Content="截图" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}"/>
             <Button Content="聚焦" Margin="10,0,0,0" Command="{Binding FocusLayersCommand}"/>
+            <TextBlock Text="{Binding MousePosition}" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding ZoomScale}" Margin="10 0 0 0" VerticalAlignment="Center"/>
         </ToolBar>
         
         
         <!--图层侧边栏-->
         <hc:Drawer ShowMode="Push" IsOpen="{Binding IsOpenSidebar}" MaskCanClose="True">
             <Border Background="{DynamicResource RegionBrush}" BorderThickness="0,1,0,0" HorizontalAlignment="Center">
-                <Grid>
+                <Grid Background="#eeeeee">
+                    <Grid.ContextMenu>
+                        <ContextMenu Placement="Right">
+                            <MenuItem Header="卸载图层"/>
+                            <MenuItem Header="上移图层"/>
+                            <MenuItem Header="下移图层"/>
+                            <MenuItem Header="图层置顶"/>
+                            <MenuItem Header="图层置底"/>
+                            <MenuItem Header="更多">
+                                
+                            </MenuItem>
+                        </ContextMenu>
+                    </Grid.ContextMenu>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Border Width="300">
-                        <ListView ItemsSource="{Binding MapLayers}">
+                        <ListView ItemsSource="{Binding MapLayers}" BorderThickness="0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>

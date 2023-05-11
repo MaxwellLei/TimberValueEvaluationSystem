@@ -12,11 +12,11 @@
     <Grid Margin="10 30 10 30">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5.2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <hc:ScrollViewer Grid.Column="1">
-            <StackPanel HorizontalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch" Margin="0 0 10 0">
                 <!--顶部语音语录-->
                 <Border Style="{StaticResource BorderRegion}" Margin="5 5 5 0"
                                             BorderThickness="5 0 0 0" BorderBrush="#42b983" Background="#ecf8f2">
@@ -36,7 +36,7 @@
                         <ColumnDefinition Width="0.8*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!--左侧图片-->
                     <hc:CompareSlider Value="0" Width="240" Height="320">
                         <hc:CompareSlider.TargetContent>
@@ -54,7 +54,7 @@
                             </Border>
                         </hc:CompareSlider.SourceContent>
                     </hc:CompareSlider>
-                    
+
                     <!--右侧文本-->
                     <StackPanel Grid.Column="1" Margin="10 0 0 0">
                         <WrapPanel>
@@ -64,7 +64,7 @@
                             <hc:Shield Subject="MIT" Status="协议" Margin="4,0,0,0" Color="#ea4335"/>
                             <hc:Shield Subject="Windows" Status=">=7.0" Margin="4,0,0,0" Color="#ea4335"/>
                         </WrapPanel>
-                        
+
                         <TextBlock Text="林木价值评估系统" FontSize="20" FontWeight="Bold" Margin="0 10 0 0"/>
                         <TextBlock Text="项目利用ArcGis地理空间信息和机器学习以及相关价值评估算法，将数据库中的数据进行相关运算辅助操作人员进行林木价值评估。"
                                    FontSize="16" Margin="0 10 0 0" TextWrapping="Wrap"/>
@@ -104,27 +104,46 @@
 
                     </StackPanel>
                 </Grid>
-                
+
                 <!--更新说明部分-->
                 <hc:Divider Content="更新说明" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
                             LineStrokeThickness="5"/>
                 <StackPanel>
+                    <GroupBox Header="【2023/5/11】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
+                            <TextBlock Text="&#9312; 新增：Shp文件面高亮显示" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 新增：地图页面相关信息显示" Foreground="Green"/>
+                            <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
+                            <TextBlock Text="&#9315; 修改：数据页面布局" Foreground="Blue"/>
+                            <TextBlock Text="&#9316; 修复：设置页面滚动异常" Foreground="Red"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="【2023/5/03】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
+                            <TextBlock Text="&#9312; 新增：配置文件" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 新增：配置绑定前端，功能测试" Foreground="Green"/>
+                            <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
+                        </StackPanel>
+                    </GroupBox>
+
                     <GroupBox Header="【2023/4/29】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
                             <TextBlock Text="&#9312; 新增：全部设置页面" Foreground="Green"/>
                         </StackPanel>
                     </GroupBox>
-                    
+
                     <GroupBox Header="【2023/4/28】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
                             <TextBlock Text="&#9312; 新增：引入 SQLite，数据库相关功能" Foreground="Green"/>
                             <TextBlock Text="&#9313; 新增：数据 View 重新布局" Foreground="Green"/>
-                            <TextBlock Text="&#9316; 修复：一些BUG" Foreground="Red"/>
+                            <TextBlock Text="&#9314; 修复：一些BUG" Foreground="Red"/>
                         </StackPanel>
                     </GroupBox>
-                    
+
                     <GroupBox Header="【2023/4/26】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
@@ -135,7 +154,7 @@
                             <TextBlock Text="&#9316; 修复：一些BUG" Foreground="Red"/>
                         </StackPanel>
                     </GroupBox>
-                    
+
                     <GroupBox Header="【2023/4/25】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
@@ -143,7 +162,7 @@
                             <TextBlock Text="&#9313; 修复：一些已知问题" Foreground="Red"/>
                         </StackPanel>
                     </GroupBox>
-                    
+
                     <GroupBox Header="【2023/4/26】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>

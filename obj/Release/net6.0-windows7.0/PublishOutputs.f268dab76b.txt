@@ -1,4 +1,7 @@
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.exe
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Data\Database\Database.db
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Config\App.config
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Audio\55158959.wav
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Cursors\pointer.cur
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Icon\iconfont.ttf
@@ -6,6 +9,8 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\pub
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Icon\logo_icon.png
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\HomeBg\1.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\HomeBg\2.jpg
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\Other\Seraphine1.jpg
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\Other\Seraphine2.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\StartPic\1.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\StartPic\10.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\StartPic\2.jpg
@@ -192,8 +197,11 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\pub
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.deps.json
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.runtimeconfig.json
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.dll.config
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\TimberValueEvaluationSystem.pdb
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\CommonServiceLocator.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\EntityFramework.SqlServer.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\EntityFramework.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Esri.ArcGISRuntime.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Esri.ArcGISRuntime.WPF.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\HandyControl.dll
@@ -213,6 +221,9 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\pub
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\SkiaSharp.HarfBuzz.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\SkiaSharp.Views.Desktop.Common.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\SkiaSharp.Views.WPF.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\System.Data.SQLite.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\System.Data.SqlClient.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\System.Data.SQLite.EF6.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\ar\Esri.ArcGISRuntime.resources.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\bs\Esri.ArcGISRuntime.resources.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\ca\Esri.ArcGISRuntime.resources.dll
@@ -306,7 +317,16 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\pub
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\onnxruntime.lib
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\onnxruntime_providers_shared.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\onnxruntime_providers_shared.lib
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-arm64\native\sni.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\sni.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\sni.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\osx\native\libSkiaSharp.dylib
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-arm64\native\libSkiaSharp.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\libSkiaSharp.dll
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\libSkiaSharp.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\linux-x64\native\SQLite.Interop.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\osx-x64\native\SQLite.Interop.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\SQLite.Interop.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win-x86\native\SQLite.Interop.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

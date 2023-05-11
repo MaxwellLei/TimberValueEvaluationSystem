@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/database/database.db")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/database/test.db")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/config/app.config")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/audio/55158959.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cursors/pointer.cur")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/fonts/alibaba_puhuiti_2.0_65_medium_65_medium.ttf")]

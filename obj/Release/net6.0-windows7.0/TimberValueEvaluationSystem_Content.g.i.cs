@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/database/database.db")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/config/app.config")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/audio/55158959.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cursors/pointer.cur")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/fonts/alibaba_puhuiti_2.0_65_medium_65_medium.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/iconfont.ttf")]
@@ -15,6 +18,8 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/logo_icon.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/homebg/1.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/homebg/2.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/other/seraphine1.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/other/seraphine2.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/startpic/1.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/startpic/10.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/startpic/2.jpg")]

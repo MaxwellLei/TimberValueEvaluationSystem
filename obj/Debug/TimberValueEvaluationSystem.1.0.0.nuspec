@@ -12,6 +12,7 @@
         <dependency id="LiveChartsCore.SkiaSharpView.WPF" version="2.0.0-beta.701" exclude="Build,Analyzers" />
         <dependency id="Microsoft.ML.OnnxRuntime" version="1.12.0" exclude="Build,Analyzers" />
         <dependency id="MvvmLightLibs" version="5.4.1.1" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SQLite" version="1.0.117" exclude="Build,Analyzers" />
       </group>
     </dependencies>
     <frameworkReferences>
@@ -20,6 +21,9 @@
       </group>
     </frameworkReferences>
     <contentFiles>
+      <files include="any/net6.0-windows7.0/Data/Database/Database.db" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Config/App.config" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Audio/55158959.wav" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Cursors/pointer.cur" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Fonts/Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Icon/iconfont.ttf" buildAction="Content" />
@@ -27,6 +31,8 @@
       <files include="any/net6.0-windows7.0/Resources/Icon/logo_icon.png" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/1.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/2.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/Other/Seraphine1.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/Other/Seraphine2.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/StartPic/1.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/StartPic/10.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/StartPic/2.jpg" buildAction="Content" />
@@ -212,6 +218,12 @@
   <files>
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\TimberValueEvaluationSystem.runtimeconfig.json" target="lib\net6.0-windows7.0\TimberValueEvaluationSystem.runtimeconfig.json" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\TimberValueEvaluationSystem.dll" target="lib\net6.0-windows7.0\TimberValueEvaluationSystem.dll" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Data\Database\Database.db" target="content\Data\Database\Database.db" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Data\Database\Database.db" target="contentFiles\any\net6.0-windows7.0\Data\Database\Database.db" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Config\App.config" target="content\Resources\Config\App.config" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Config\App.config" target="contentFiles\any\net6.0-windows7.0\Resources\Config\App.config" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Audio\55158959.wav" target="content\Resources\Audio\55158959.wav" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Audio\55158959.wav" target="contentFiles\any\net6.0-windows7.0\Resources\Audio\55158959.wav" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Cursors\pointer.cur" target="content\Resources\Cursors\pointer.cur" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Cursors\pointer.cur" target="contentFiles\any\net6.0-windows7.0\Resources\Cursors\pointer.cur" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf" target="content\Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf" />
@@ -226,6 +238,10 @@
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="content\Resources\Image\HomeBg\2.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine1.jpg" target="content\Resources\Image\Other\Seraphine1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\Other\Seraphine1.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine2.jpg" target="content\Resources\Image\Other\Seraphine2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine2.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\Other\Seraphine2.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\1.jpg" target="content\Resources\Image\StartPic\1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\StartPic\1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\StartPic\10.jpg" target="content\Resources\Image\StartPic\10.jpg" />

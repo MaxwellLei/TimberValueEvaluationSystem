@@ -368,3 +368,6 @@ D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Vi
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Image\Other\Seraphine1.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Audio\55158959.wav
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Image\Other\Seraphine2.jpg
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Config\App.config
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Data\Database\Database.db
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Data\Database\test.db

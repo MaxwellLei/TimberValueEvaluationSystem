@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimberValueEvaluationSystem.ViewModels;
 
 namespace TimberValueEvaluationSystem.Views
 {
@@ -24,6 +25,7 @@ namespace TimberValueEvaluationSystem.Views
         public SCommonPageView()
         {
             InitializeComponent();
+            this.DataContext = new SCommonPageViewModel();
         }
         public static Page GetPage()
         {

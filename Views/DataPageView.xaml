@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:hc="https://handyorg.github.io/handycontrol"
-      xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
+      xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views" xmlns:viewmodels="clr-namespace:TimberValueEvaluationSystem.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:DataPageViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DataPageView">
@@ -14,44 +14,131 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <!--左侧栏-->
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1.2*" MinHeight="320" MaxHeight="540"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid Background="#eeeeee">
-                <!--右键菜单-->
-                <Grid.ContextMenu>
-                    <ContextMenu Width="150" Placement="Right" FlowDirection="RightToLeft">
-                        <MenuItem Header="新建数据库" Command="{Binding NewDatabaseCommand}"/>
-                        <MenuItem Header="新建模型表" Command="{Binding NewModelDBTableCommand}"/>
-                        <MenuItem Header="查询数据" Command="{Binding LayerSidebarCommand}"/>
-                        <MenuItem Header="删除数据" Command="{Binding SelectShpFileCommand}"/>
-                        <MenuItem Header="插入数据" Command="{Binding InsertDataCommand}"/>
-                        <MenuItem Header="测试>">
-                            <WrapPanel>
-                                <TextBlock Text="测试"/>
-                                <Button Content="修改数据" Command="{Binding FocusLayersCommand}"/>
-                            </WrapPanel>
-                        </MenuItem>
-                    </ContextMenu>
-                </Grid.ContextMenu>
+        <Grid Background="#eeeeee">
+            <!--右键菜单-->
+            <!--<Grid.ContextMenu>
+                <ContextMenu Width="150" Placement="Right" FlowDirection="RightToLeft">
+                    <MenuItem Header="新建数据库" Command="{Binding NewDatabaseCommand}"/>
+                    <MenuItem Header="新建模型表" Command="{Binding NewModelDBTableCommand}"/>
+                    <MenuItem Header="查询数据" Command="{Binding LayerSidebarCommand}"/>
+                    <MenuItem Header="删除数据" Command="{Binding SelectShpFileCommand}"/>
+                    <MenuItem Header="插入数据" Command="{Binding InsertDataCommand}"/>
+                    <MenuItem Header="测试>">
+                        <WrapPanel>
+                            <TextBlock Text="测试"/>
+                            <Button Content="修改数据" Command="{Binding FocusLayersCommand}"/>
+                        </WrapPanel>
+                    </MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>-->
+            <TabControl Margin="5" Style="{StaticResource TabControlInLine}" Background="#eff0f1">
                 
-            </Grid>
-            
-            <GridSplitter Grid.Row="1" Height="2" HorizontalAlignment="Stretch" BorderThickness="0"
-                  VerticalAlignment="Top" Background="#f7f8f8" Opacity="0.85"/>
-            <Grid Grid.Row="1" Margin="0 2 0 0">
+                <!--数据库-->
+                <TabItem Header="数据库" Background="#eff0f1">
+                    <Grid Background="#eff0f1">
+                        <Grid.ContextMenu>
+                            <ContextMenu Placement="Right">
+                                <MenuItem Header="设定数据库位置" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="新建数据库" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="添加远程数据库" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="删除数据库" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="打开文件所在位置" Command="{Binding NewDatabaseCommand}"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="360"/>
+                            <RowDefinition MinHeight="120"/>
+                        </Grid.RowDefinitions>
+                        <!--左侧数据库上半部分-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.12*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
+                                <TextBlock Text="💾 本地数据库" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontWeight="Bold" FontSize="14"/>
+                            </Border>
+                            <TreeView ItemsSource="{Binding DatabaseTree}" BorderThickness="0" 
+                                      Background="#eff0f1" Grid.Row="1">
+                                <TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate ItemsSource="{Binding DatabaseTreeItem}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding IconType}" Margin="5 0 5 0"/>
+                                            <TextBlock Text="{Binding FName}"/>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>
+                            <TextBlock Text="本地数据库为空" Grid.Row="1"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+
+                        <GridSplitter Grid.Row="1" Height="2" Background="#f6f7f7" VerticalAlignment="Top"
+                                      BorderThickness="0" HorizontalAlignment="Stretch"/>
+                        <Grid Grid.Row="2" Margin="0 2 0 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.15*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
+                                <TextBlock Text="☁️ 远程数据库" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontWeight="Bold" FontSize="14"/>
+                            </Border>
+                            <!--<TreeView ItemsSource="{Binding DatabaseTree}" BorderThickness="0" 
+                                      Background="#eff0f1" Grid.Row="1">
+                                <TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate ItemsSource="{Binding DatabaseTreeItem}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding IconType}" Margin="5 0 5 0"/>
+                                            <TextBlock Text="{Binding FName}"/>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>-->
+                            <TextBlock Text="远程数据库为空" Grid.Row="1"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
                 
-            </Grid>
+                <!--数据表-->
+                <TabItem Header="数据表" Background="#eff0f1">
+                    <Grid Background="#eff0f1">
+                        <Grid.ContextMenu>
+                            <ContextMenu Placement="Right">
+                                <MenuItem Header="新建数据表" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="删除数据表" Command="{Binding NewDatabaseCommand}"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                        <!--<TreeView ItemsSource="{Binding DatabaseTreeItems}" BorderThickness="0" Background="#eff0f1">
+                            <TreeView.Items>
+                                <TreeViewItem>
+                                    <TreeViewItem.Header>
+                                        <WrapPanel>
+                                            <TextBlock Text="c"/>
+                                            <TextBlock Text="name"/>
+                                        </WrapPanel>
+                                    </TreeViewItem.Header>
+                                    <TreeViewItem.Items>
+                                        <TreeViewItem Header="数据表1.1"/>
+                                        <TreeViewItem Header="数据表1.2"/>
+                                    </TreeViewItem.Items>
+                                </TreeViewItem>
+                            </TreeView.Items>
+                        </TreeView>-->
+                        <TextBlock Text="数据表为空" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
         </Grid>
-        
+
         <!--右侧栏-->
         <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" BorderThickness="0"
                   VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
         <Grid Grid.Column="1" Margin="2 0 0 0">
             <DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
-                      ItemsSource="{Binding SiteQModels}">
+                      ItemsSource="{Binding SiteQModels}" Background="#eff0f1">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Index}" Header="ID" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding SoilThickness}" Header="土壤厚度"/>
