@@ -56,8 +56,19 @@ namespace TimberValueEvaluationSystem.Services
             }
         }
 
-        
-
+        //打开文件所在路径
+        public static bool Openxplorer(string path)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("explorer.exe", path);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
     }
 }

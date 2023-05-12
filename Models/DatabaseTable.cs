@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TimberValueEvaluationSystem.Models
+{
+    class DatabaseTable
+    {
+        public string TName { get; set; }
+    }
+}

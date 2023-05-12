@@ -99,6 +99,23 @@ namespace TimberValueEvaluationSystem.Services
             }
         }
 
+        //链接数据库重载
+        public static SQLiteConnection ConnectDatabase(string path)
+        {
+            connectionString += path;
+            if (connectionString == "Data Source=")
+            {
+                Growl.Warning("已取消创建表");
+                return null;
+            }
+            else
+            {
+                //创建数据库连接
+                SQLiteConnection conn = new SQLiteConnection(connectionString);
+                return conn;
+            }
+        }
+
         //查询数据库内容
         public static SQLiteDataReader QueryDatabase(string sql)
         {
@@ -137,5 +154,21 @@ namespace TimberValueEvaluationSystem.Services
         //    cmd.ExecuteNonQuery();
         //    conn.Close();
         //}
+
+        //查找数据库中的所有表
+        public static List<string> FindAllTables(string path)
+        {
+            SQLiteConnection conn = ConnectDatabase(path);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List<string> tables = new List<string>();
+            while (reader.Read())
+            {
+                tables.Add(reader.GetString(0));
+            }
+            conn.Close();
+            return tables;
+        }
     }
 }

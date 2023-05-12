@@ -12,6 +12,5 @@ namespace TimberValueEvaluationSystem.Models
         public string IconType { get; set; } // 图标类型
         public string FName { get; set; } // 文件的名称
         public string Path { get; set; } // 表示是文件还是文件夹
-
     }
 }
