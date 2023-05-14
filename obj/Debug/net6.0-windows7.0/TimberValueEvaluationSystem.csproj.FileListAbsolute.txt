@@ -370,4 +370,7 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Re
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Image\Other\Seraphine2.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Config\App.config
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Data\Database\Database.db
-D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Data\Database\test.db
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\NewDatabaseView.g.cs
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\NewDatabaseView.baml
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\DeleteDatabaseView.g.cs
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\DeleteDatabaseView.baml

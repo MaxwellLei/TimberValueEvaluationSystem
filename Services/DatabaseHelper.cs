@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace TimberValueEvaluationSystem.Services
         private static string connectionString = "Data Source=";
 
         //新建数据库
-        public static bool CreateDatabase()
+        //传入数据库的名称
+        //手动指定文件路径，然后创建数据库
+        public static bool CreateDatabase(string dbName)
         {
             string filepath = FileHelper.GetFolderPath();
             if (filepath == null)
@@ -26,13 +29,35 @@ namespace TimberValueEvaluationSystem.Services
             else
             {
                 //数据库文件路径
-                string dbPath = System.IO.Path.Combine(filepath, "Database.db");
+                string dbPath = System.IO.Path.Combine(filepath, $"{dbName}.db");
                 //创建数据库
                 SQLiteConnection.CreateFile(dbPath);
                 Growl.Info("创建数据库成功");
                 return true;
             }
         }
+
+        //新建数据库
+        //传入路径和数据库的名称
+        //手动指定文件路径，然后创建数据库
+        public static bool CreateDatabase(string filepath,string dbName)
+        {
+            if (filepath == null)
+            {
+                Growl.Warning("已取消创建");
+                return false;
+            }
+            else
+            {
+                //数据库文件路径
+                string dbPath = System.IO.Path.Combine(filepath, $"{dbName}.db");
+                //创建数据库
+                SQLiteConnection.CreateFile(dbPath);
+                Growl.Info("创建数据库成功");
+                return true;
+            }
+        }
+
 
         ////创建数据库表
         //public static void CreateTable()
@@ -85,6 +110,7 @@ namespace TimberValueEvaluationSystem.Services
         //连接数据库
         public static SQLiteConnection ConnectDatabase()
         {
+            connectionString = "Data Source=";
             connectionString += FileHelper.GetFilePath();
             if (connectionString == "Data Source=")
             {
@@ -102,6 +128,7 @@ namespace TimberValueEvaluationSystem.Services
         //链接数据库重载
         public static SQLiteConnection ConnectDatabase(string path)
         {
+            connectionString = "Data Source=";
             connectionString += path;
             if (connectionString == "Data Source=")
             {
@@ -116,7 +143,7 @@ namespace TimberValueEvaluationSystem.Services
             }
         }
 
-        //查询数据库内容
+        //根据sql语句查询数据库内容
         public static SQLiteDataReader QueryDatabase(string sql)
         {
             SQLiteConnection conn = ConnectDatabase();
@@ -126,7 +153,7 @@ namespace TimberValueEvaluationSystem.Services
             return reader;
         }
 
-        //更新数据库内容
+        //根据sql语句更新数据库内容
         public static void UpdateDatabase(SQLiteConnection connection,string sql)
         {
             connection.Open();
@@ -135,7 +162,7 @@ namespace TimberValueEvaluationSystem.Services
             connection.Close();
         }
 
-        //插入数据库内容
+        //根据sql语句插入数据库内容
         public static void InsertDatabase(string sql)
         {
             SQLiteConnection conn = ConnectDatabase();
@@ -169,6 +196,64 @@ namespace TimberValueEvaluationSystem.Services
             }
             conn.Close();
             return tables;
+        }
+
+        //查找数据库中所有表的数量
+        public static int FindAllTablesCount(string path)
+        {
+            SQLiteConnection conn = ConnectDatabase(path);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count++;
+            }
+            conn.Close();
+            return count;
+        }
+
+        //从指定表中获取数据返回datatable
+        public static DataTable GetDataTable(string path,string tableName,int countLocation)
+        {
+            SQLiteConnection conn = ConnectDatabase(path);
+            conn.Open();
+            string query = $"SELECT * FROM {tableName} LIMIT 10 OFFSET {countLocation}; ";
+            //SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM " + tableName, conn);
+            //SQLiteDataReader reader = cmd.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, conn);
+            adapter.Fill(dt);
+
+            //for (int i = 0; i < reader.FieldCount; i++)
+            //{
+            //    dt.Columns.Add(reader.GetName(i));
+            //}
+            //while (reader.Read())
+            //{
+            //    System.Data.DataRow dr = dt.NewRow();
+            //    for (int i = 0; i < reader.FieldCount; i++)
+            //    {
+            //        dr[i] = reader[i];
+            //    }
+            //    dt.Rows.Add(dr);
+            //}
+
+            conn.Close();
+            return dt;
+        }
+
+        //获取指定表的总行数
+        public static int GetTableCount(string path,string tableName)
+        {
+            SQLiteConnection conn = ConnectDatabase(path);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand($"SELECT COUNT(*) FROM {tableName}", conn);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+            return count;
         }
     }
 }

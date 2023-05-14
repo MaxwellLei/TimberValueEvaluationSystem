@@ -112,6 +112,16 @@
                     <GroupBox Header="【2023/5/12】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
+                            <TextBlock Text="&#9312; 新增：弹窗类" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 新增：相关功能指示说明" Foreground="Green"/>
+                            <TextBlock Text="&#9314; 修改：优化了数据库公共类相关代码" Foreground="Blue"/>
+                            <TextBlock Text="&#9315; 修改：优化了数据模块相关逻辑" Foreground="Blue"/>
+                            <TextBlock Text="&#9316; 修复：新建和删除数据库失效问题" Foreground="Red"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="【2023/5/12】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
                             <TextBlock Text="&#9312; 修改：优化了数据页面部分代码" Foreground="Blue"/>
                             <TextBlock Text="&#9313; 修改：优化了公共类相关逻辑" Foreground="Blue"/>
                             <TextBlock Text="&#9314; 修改：优化了配置文件相关代码" Foreground="Blue"/>

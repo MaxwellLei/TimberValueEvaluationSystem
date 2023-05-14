@@ -34,7 +34,7 @@ namespace TimberValueEvaluationSystem
                 To = new Thickness(0, 0, 0, 0),
                 EasingFunction = new QuadraticEase()
             };
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i < 6; i++)
             {
                 Storyboard.SetTargetName(marginAnim, "RadioButton" + i);
                 Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));

@@ -54,17 +54,17 @@
                                 <TextBlock Text="数据" Foreground="White"/>
                             </WrapPanel>
                         </RadioButton>
-                        <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                        <!--<RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe640;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
                                 <TextBlock Text="导出" Foreground="White"/>
                             </WrapPanel>
-                        </RadioButton>
+                        </RadioButton>-->
                     </StackPanel>
 
-                    <RadioButton Name="RadioButton6" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
+                    <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding SettingPage}">
                         <WrapPanel Orientation="Vertical">
                             <TextBlock Text="&#xe8b8;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"

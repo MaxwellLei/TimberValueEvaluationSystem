@@ -3,6 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:sv="clr-namespace:TimberValueEvaluationSystem.Services"
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
@@ -34,8 +36,8 @@
                                 <ContextMenu Placement="Right">
                                     <MenuItem Header="刷新" Command="{Binding RefreshDbCommand}"/>
                                     <MenuItem Header="设定数据库位置" Command="{Binding SetDatabaseLocationCommand}"/>
-                                    <MenuItem Header="新建数据库" Command="{Binding NewModelDBTableCommand}"/>
-                                    <MenuItem Header="删除数据库" Command="{Binding NewDatabaseCommand}"/>
+                                    <MenuItem Header="新建数据库" Command="{Binding NewDBTableCommand}"/>
+                                    <MenuItem Header="删除数据库" Command="{Binding DeleteDBTableCommand}"/>
                                     <MenuItem Header="打开文件所在位置" Command="{Binding OpenDbFolderCommand}"/>
                                 </ContextMenu>
                             </Grid.ContextMenu>
@@ -48,7 +50,7 @@
                                        FontWeight="Bold" FontSize="14"/>
                             </Border>
                             <ListBox  BorderThickness="0" ItemsSource="{Binding DatabaseTree}"
-                                      Background="#eff0f1" Grid.Row="1" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                                      Background="#eff0f1" Grid.Row="1" SelectedItem="{Binding SelectedDbItem, Mode=TwoWay}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -74,17 +76,16 @@
                                 <TextBlock Text="☁️ 远程数据库" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="14"/>
                             </Border>
-                            <TreeView ItemsSource="{Binding DatabaseTree}" BorderThickness="0" 
-                                      Background="#eff0f1" Grid.Row="1">
-                                <TreeView.ItemTemplate>
-                                    <HierarchicalDataTemplate>
+                            <!--<ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
+                                 SelectedItem="{Binding SelectedTableItem, Mode=TwoWay}" Background="#eff0f1" Grid.Row="1">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding IconType}" Margin="5 0 5 0"/>
-                                            <Button Content="{Binding FName}" BorderThickness="0" Background="Transparent"/>
+                                            <TextBlock Text="{Binding TName}" Margin="5 0 5 0"/>
                                         </StackPanel>
-                                    </HierarchicalDataTemplate>
-                                </TreeView.ItemTemplate>
-                            </TreeView>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>-->
                             <TextBlock Text="远程数据库为空" Grid.Row="1"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
@@ -102,7 +103,7 @@
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
-                                      Background="#eff0f1" Grid.Row="1">
+                                 SelectedItem="{Binding SelectedTableItem, Mode=TwoWay}" Background="#eff0f1" Grid.Row="1">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -111,8 +112,8 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <TextBlock Text="数据表为空" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Visibility="{Binding IsListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="未指定数据库 或 数据库为空" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
+                                   Visibility="{Binding IsTableListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </TabItem>
             </TabControl>
@@ -122,20 +123,35 @@
         <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" BorderThickness="0"
                   VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
         <Grid Grid.Column="1" Margin="2 0 0 0">
-            <DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
-                      ItemsSource="{Binding SiteQModels}" Background="#eff0f1">
-                <DataGrid.Columns>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.08*"/>
+            </Grid.RowDefinitions>
+            <!--<DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+                      ItemsSource="{Binding DataTable}" Background="#eff0f1">-->
+            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding DataTable}" Background="#eff0f1"
+                      BorderThickness="0" RowHeight="44">
+                <!--<DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Index}" Header="ID" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding SoilThickness}" Header="土壤厚度"/>
                     <DataGridTextColumn Binding="{Binding Slope}" Header="坡位"/>
                     <DataGridTextColumn Binding="{Binding Aspect}" Header="坡向"/>
                     <DataGridTextColumn Binding="{Binding Gradient}" Header="坡度"/>
                     <DataGridTextColumn Binding="{Binding SiteQuality}" Header="立地质量"/>
-                </DataGrid.Columns>
+                </DataGrid.Columns>-->
             </DataGrid>
-            <hc:Pagination VerticalAlignment="Bottom" HorizontalAlignment="Center" MaxPageCount="10" DataCountPerPage="14"
-                           PageIndex="{Binding PageCount}" IsJumpEnabled="True" Margin="0 0 0 20" 
-                           />
+            <hc:Pagination VerticalAlignment="Bottom" HorizontalAlignment="Center" DataCountPerPage="14"
+                           PageIndex="{Binding PageCount, Mode=TwoWay}" IsJumpEnabled="True" Margin="0 0 0 20" Grid.Row="1"
+                           MaxPageCount="{Binding MaxPageCount}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PageUpdated">
+                        <cmd:EventToCommand Command="{Binding PageChangedCommand}" PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </hc:Pagination>
+            <TextBlock Text="表内数据为空" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Visibility="{Binding IsTableDataEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
         </Grid>
     </Grid>
     

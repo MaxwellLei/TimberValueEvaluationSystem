@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ViewsPopUp\DataPage\NewDatabaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DataPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ViewsPopUp\DataPage\DeleteDatabaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsPopUp\DataPage\NewDatabaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DataPageView.xaml">
       <SubType>Designer</SubType>
     </Page>

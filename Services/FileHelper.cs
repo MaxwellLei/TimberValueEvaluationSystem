@@ -5,6 +5,7 @@ using HandyControl.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,5 +71,55 @@ namespace TimberValueEvaluationSystem.Services
             }
         }
 
+        //删除指定路径文件
+        public static bool DeleteFile(string path)
+        {
+            try
+            {
+                File.Delete(path);
+                Growl.Success("删除成功");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        //检查文件是否被占用
+        public static bool IsFileInUse(string path)
+        {
+            try
+            {
+                System.IO.FileStream fs = System.IO.File.Open(path, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite, System.IO.FileShare.None);
+                fs.Close();
+                return false;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
+
+        //解除文件占用
+        public static bool ReleaseFile(string path)
+        {
+            try
+            {
+                System.IO.FileStream fs = System.IO.File.Open(path, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite, System.IO.FileShare.None);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        //检查文件是否存在
+        public static bool IsFileExist(string path)
+        {
+            return System.IO.File.Exists(path);
+        }
     }
 }

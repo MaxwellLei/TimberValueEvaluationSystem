@@ -1,15 +1,21 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
+using HandyControl.Interactivity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using TimberValueEvaluationSystem.Models;
 using TimberValueEvaluationSystem.Services;
+using TimberValueEvaluationSystem.Views;
+using TimberValueEvaluationSystem.ViewsPopUp.DataPage;
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -17,15 +23,26 @@ namespace TimberValueEvaluationSystem.ViewModels
     {
         public RelayCommand SetDatabaseLocationCommand { get; private set; }   //设定数据库位置
         public RelayCommand RefreshDbCommand { get; private set; }   //刷新数据库
-        public RelayCommand NewModelDBTableCommand { get; private set; }   //新建数据库
+        public RelayCommand NewDBTableCommand { get; private set; }   //新建数据库
+        public RelayCommand DeleteDBTableCommand { get; private set; }   //删除数据库
         public RelayCommand OpenDbFolderCommand { get; private set; }   //打开数据库位置
+        public RelayCommand PageChangedCommand { get; private set; }   //选择&跳转页数
+
 
         //选中的本地数据库列表项目
-        private DatabaseTree _selectedItem;
-        public DatabaseTree SelectedItem
+        private DatabaseTree _selectedDbItem;
+        public DatabaseTree SelectedDbItem
         {
-            get { return _selectedItem; }
-            set { Set(ref _selectedItem, value); OnSelectedItemChanged(); }
+            get { return _selectedDbItem; }
+            set { Set(ref _selectedDbItem, value); OnSelectedDbItemChanged(); }
+        }
+
+        //选中的本地数据表列表项目
+        private DatabaseTable _selectedTableItem;
+        public DatabaseTable SelectedTableItem
+        {
+            get { return _selectedTableItem; }
+            set { Set(ref _selectedTableItem, value); OnSelectedTableItemChanged(0); }
         }
 
         //左侧数据库列表
@@ -61,7 +78,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref _isTableListEmpty, value); }
         }
 
-        //模型表
+        //立地质量模型表
         List<SiteQModel> siteQModels;
         public List<SiteQModel> SiteQModels
         {
@@ -69,28 +86,110 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref siteQModels, value);}
         }
 
+        //通用数据表
+        private DataTable _dataTable;
+        public DataTable DataTable
+        {
+            get { return _dataTable; }
+            set { Set(ref _dataTable, value); }
+        }
+
+        //数据表是否为空
+        private bool _isTableDataEmpty;
+        public bool IsTableDataEmpty
+        {
+            get { return _isTableDataEmpty; }
+            set { Set(ref _isTableDataEmpty, value); }
+        }
+
+        //跳转页数
+        private string _pageCount;
+        public string PageCount
+        {
+            get { return _pageCount; }
+            set { Set(ref _pageCount, value); }
+        }
+
+        //最大页数
+        private string _maxPageCount;
+        public string MaxPageCount
+        {
+            get { return _maxPageCount; }
+            set { Set(ref _maxPageCount, value); }
+        }
+
 
         //初始化
         public DataPageViewModel()
         {
+            //命令绑定
             SetDatabaseLocationCommand = new RelayCommand(ExecuteSetDatabaseLocationCommand);
-            NewModelDBTableCommand = new RelayCommand(ExecuteNewModelDBTableCommand);
+            NewDBTableCommand = new RelayCommand(ExecuteNewDBCommandAsync);
+            DeleteDBTableCommand = new RelayCommand(ExecuteDeleteDBCommand);
             RefreshDbCommand = new RelayCommand(ExecuteRefreshDbCommand);
             OpenDbFolderCommand = new RelayCommand(ExecuteOpenDbFolderCommand);
+            PageChangedCommand = new RelayCommand(ExecutePageChangedCommand);
             SiteQModels = new List<SiteQModel>();
 
-            InitList();
+            InitList();     //初始化数据库
+            IsTableListEmpty = true;    //初始化数据表提示显示
+            IsTableDataEmpty = false;   //初始化数据表是否为空
+            MaxPageCount = "10";    //初始化最大导航页数
+        }
+
+        //最大页码显示页数计算
+        private void MaxPageCountCalculate()
+        {
+            int temp = DatabaseHelper.GetTableCount(SelectedDbItem.Path, SelectedTableItem.TName);
+            if(temp != 0)
+            {
+                if(temp % 10 == 0)
+                {
+                    MaxPageCount = (temp / 10).ToString();
+                }
+                else
+                {
+                    MaxPageCount = (temp / 10 + 1).ToString();
+                }
+            }
+            else
+            {
+                MaxPageCount = "1";
+                IsTableDataEmpty = true;
+            }
+        }
+
+        //选择&跳转页数
+        private void ExecutePageChangedCommand()
+        {
+            OnSelectedTableItemChanged((Convert.ToInt32(PageCount)-1)*10);
+            //Growl.Info($"选中的页数：{PageCount}");
         }
 
         //选中数据库触发
-        private void OnSelectedItemChanged()
+        private void OnSelectedDbItemChanged()
         {
-            //if (SelectedItem != null)
-            //{
-            //    // 在这里执行你需要的操作，例如显示一个MessageBox
-            //    MessageBox.Show($"选中的项目是: {SelectedItem.FName}{SelectedItem.Path}");
-            //}
-            InitTableList();
+            int temp = 0;
+            if (SelectedDbItem != null)
+            {
+                temp = DatabaseHelper.FindAllTablesCount(SelectedDbItem.Path);
+            }
+            if (temp != 0 && temp !=null)
+            {
+                InitTableList();
+            }
+            else
+            {
+                DatabaseTable = null;
+                IsTableListEmpty = true;
+            }
+        }
+
+        //选中数据表触发
+        private void OnSelectedTableItemChanged(int countLocation)
+        {
+            DataTable = DatabaseHelper.GetDataTable(SelectedDbItem.Path, SelectedTableItem.TName,countLocation);
+            MaxPageCountCalculate();
         }
 
         //初始化左侧列表&刷新数据库
@@ -142,9 +241,9 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void InitTableList()
         {
             //如果选中了数据库
-            if(SelectedItem != null)
+            if (SelectedDbItem != null)
             {
-                List<string> strings = DatabaseHelper.FindAllTables(SelectedItem.Path);
+                List<string> strings = DatabaseHelper.FindAllTables(SelectedDbItem.Path);
                 DatabaseTable = new ObservableCollection<DatabaseTable>();
                 foreach(var table in strings)
                 {
@@ -154,6 +253,10 @@ namespace TimberValueEvaluationSystem.ViewModels
                         {
                             TName = table
                         });
+                        IsTableListEmpty = false;
+                    }else
+                    {
+                        IsTableListEmpty = true;
                     }
                 }
             }
@@ -186,14 +289,66 @@ namespace TimberValueEvaluationSystem.ViewModels
 
         }
 
-        //新建模型表
-        private void ExecuteNewModelDBTableCommand()
+        //新建数据库
+        private async void ExecuteNewDBCommandAsync()
         {
+            //获取异步任务
+            CancellationTokenSource cts = cts = new CancellationTokenSource();
+            //创建获取信息窗口
+            var newDatabaseView = new NewDatabaseView();
+            Dialog.Show(newDatabaseView);
+            Task task = Task.Run(() =>
+            {
+                while (!cts.IsCancellationRequested && !newDatabaseView.IsEnd)
+                {
+                    if (newDatabaseView.DatabaseName != null)
+                    {
+                        // 新建数据库
+                        DatabaseHelper.CreateDatabase(ConfigHelper.GetConfig("database_location_path"), newDatabaseView.DatabaseName);
+                        // 刷新列表
+                        InitList();
+                        cts.Cancel(); // 成功执行后立刻取消任务
+                    }
+                }
+            }, cts.Token);
+
+            await task;
             //DatabaseHelper.CreateMSQMTable();
-            Growl.Info(Convert.ToString(SelectedItem));
+            //Growl.Info(Convert.ToString(SelectedDbItem));
             //Growl.Info("创建表成功");
         }
 
+        //删除数据库
+        private async void ExecuteDeleteDBCommand()
+        {
+            //管道通信传递数据
+            CommunicationChannel.text = SelectedDbItem.FName;
+            //获取异步任务
+            CancellationTokenSource cts = new CancellationTokenSource(); 
+            //创建获取信息窗口
+            var deleteDatabaseView = new DeleteDatabaseView();
+            Dialog.Show(deleteDatabaseView);
+            Task task = Task.Run(() =>
+            {
+                while (deleteDatabaseView.IsEnd >= 0)
+                {
+                    if (deleteDatabaseView.IsEnd > 0)
+                    {
+                        //删除数据库
+                        if (FileHelper.DeleteFile(SelectedDbItem.Path) == true)
+                        {
+                            //刷新列表
+                            InitList();
+                            deleteDatabaseView.IsEnd -= 2;
+                            cts.Cancel();
+                        }
+                    }
+                }
+                CommunicationChannel.text = null;
+            }, cts.Token);
+            await task;
+        }
+        
         //打开数据库文件夹
         private void ExecuteOpenDbFolderCommand()
         {
