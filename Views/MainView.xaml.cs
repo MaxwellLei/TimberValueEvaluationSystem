@@ -49,54 +49,59 @@ namespace TimberValueEvaluationSystem
                 
             }
 
-            // 创建 NotifyIcon 对象
-            System.Windows.Forms.NotifyIcon notifyIcon = new()
-            {
-                // 设置托盘图标
-                Icon = new Icon(@"Resources/Icon/logo_icon.ico"),
+            //// 创建 NotifyIcon 对象
+            //System.Windows.Forms.NotifyIcon notifyIcon = new()
+            //{
+            //    // 设置托盘图标
+            //    Icon = new Icon(@"Resources/Icon/logo_icon.ico"),
 
-                // 设置鼠标移动时的文本
-                Text = "林木价值评价系统",
+            //    // 设置鼠标移动时的文本
+            //    Text = "林木价值评价系统",
 
-                // 显示托盘图标
-                Visible = true
-            };
+            //    // 显示托盘图标
+            //    Visible = true
+            //};
 
-            // 创建菜单项
-            ToolStripMenuItem restoreItem = new("显示");
-            restoreItem.Click += RestoreItem_Click;
+            //// 创建菜单项
+            //ToolStripMenuItem restoreItem = new("显示");
+            //restoreItem.Click += RestoreItem_Click;
 
-            ToolStripMenuItem exitItem = new("退出");
-            exitItem.Click += ExitItem_Click;
+            //ToolStripMenuItem exitItem = new("退出");
+            //exitItem.Click += ExitItem_Click;
 
-            // 创建右键菜单
-            ContextMenuStrip menu = new();
-            menu.Items.Add(restoreItem);
-            menu.Items.Add(exitItem);
+            //// 创建右键菜单
+            //ContextMenuStrip menu = new();
+            //menu.Items.Add(restoreItem);
+            //menu.Items.Add(exitItem);
 
-            // 将右键菜单分配给 NotifyIcon 对象
-            notifyIcon.ContextMenuStrip = menu;
-            notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_MouseClick);
+            //// 将右键菜单分配给 NotifyIcon 对象
+            //notifyIcon.ContextMenuStrip = menu;
+            //notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_MouseClick);
+
 
             // 加载自定义的鼠标样式
             System.Windows.Input.Cursor myCursor = new System.Windows.Input.Cursor(@"Resources/Cursors/pointer.cur");
             rootborder.Cursor = myCursor;
+
         }
 
 
+        ////显示窗口
+        //private void RestoreItem_Click(object? sender, EventArgs? e)
+        //{
+        //    // 显示恢复窗口
+        //    this.WindowState = WindowState.Normal;
+        //    this.Visibility = Visibility.Visible;
+        //}
 
-        private void RestoreItem_Click(object? sender, EventArgs? e)
-        {
-            // 显示恢复窗口
-            this.WindowState = WindowState.Normal;
-            this.Visibility = Visibility.Visible;
-        }
-        private void ExitItem_Click(object? sender, EventArgs? e)
-        {
-            // 关闭应用程序
-            System.Windows.Application.Current.Shutdown();
-        }
+        ////关闭
+        //private void ExitItem_Click(object? sender, EventArgs? e)
+        //{
+        //    // 关闭应用程序
+        //    System.Windows.Application.Current.Shutdown();
+        //}
 
+        //窗体关闭触发
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // 将窗口隐藏并最小化到托盘
@@ -105,26 +110,32 @@ namespace TimberValueEvaluationSystem
             this.WindowState = WindowState.Minimized;
         }
 
-        private void NotifyIcon_MouseClick(object? sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            // 在单击托盘图标时显示窗口并将其前置
-            if (e.Button == MouseButtons.Left)
-            {
-                // 显示窗口并将其置于屏幕的最顶层
-                this.Show();
-                this.WindowState = WindowState.Normal;
-                this.Topmost = true;
-                this.Activate();
+        //private void NotifyIcon_MouseClick(object? sender, System.Windows.Forms.MouseEventArgs e)
+        //{
+        //    // 在单击托盘图标时显示窗口并将其前置
+        //    if (e.Button == MouseButtons.Left)
+        //    {
+        //        // 显示窗口并将其置于屏幕的最顶层
+        //        this.Show();
+        //        this.WindowState = WindowState.Normal;
+        //        this.Topmost = true;
+        //        this.Activate();
 
-                // 将置顶属性重置为 false，在窗口获得焦点时再次激活
-                Dispatcher.BeginInvoke(new Action(() => { this.Topmost = false; }));
-            }
-        }
+        //        // 将置顶属性重置为 false，在窗口获得焦点时再次激活
+        //        Dispatcher.BeginInvoke(new Action(() => { this.Topmost = false; }));
+        //    }
+        //}
 
         //关闭
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        //最小化窗体
+        private void MinButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
 
         //最大化
@@ -142,5 +153,27 @@ namespace TimberValueEvaluationSystem
 
             }
         }
+
+        //显示窗口
+        private void ShowWindow(object sender, RoutedEventArgs e)
+        {
+            // 显示窗口并将其置于屏幕的最顶层
+            this.Show();
+            this.WindowState = WindowState.Normal;
+            this.Topmost = true;
+            this.Activate();
+
+            // 将置顶属性重置为 false，在窗口获得焦点时再次激活
+            Dispatcher.BeginInvoke(new Action(() => { this.Topmost = false; }));
+        }
+
+        //关闭窗口
+        private void ShutDownWindow(object sender, RoutedEventArgs e)
+        {
+            // 关闭应用程序
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        
     }
 }

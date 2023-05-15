@@ -31,6 +31,7 @@
       <files include="any/net6.0-windows7.0/Resources/Icon/logo_icon.png" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/1.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/HomeBg/2.jpg" buildAction="Content" />
+      <files include="any/net6.0-windows7.0/Resources/Image/Other/Seraphine0.png" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/Other/Seraphine1.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/Other/Seraphine2.jpg" buildAction="Content" />
       <files include="any/net6.0-windows7.0/Resources/Image/StartPic/1.jpg" buildAction="Content" />
@@ -238,6 +239,8 @@
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="content\Resources\Image\HomeBg\2.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\HomeBg\2.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\HomeBg\2.jpg" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine0.png" target="content\Resources\Image\Other\Seraphine0.png" />
+    <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine0.png" target="contentFiles\any\net6.0-windows7.0\Resources\Image\Other\Seraphine0.png" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine1.jpg" target="content\Resources\Image\Other\Seraphine1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine1.jpg" target="contentFiles\any\net6.0-windows7.0\Resources\Image\Other\Seraphine1.jpg" />
     <file src="D:\Work Space\Project\TimberValueEvaluationSystem\Resources\Image\Other\Seraphine2.jpg" target="content\Resources\Image\Other\Seraphine2.jpg" />

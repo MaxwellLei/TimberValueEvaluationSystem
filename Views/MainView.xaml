@@ -11,21 +11,32 @@
     </WindowChrome.WindowChrome>
 
     <!--主窗体-->
-    <Border Name="rootborder" CornerRadius="0 0 8 8">
+    <Border Name="rootborder" CornerRadius="8" Background="#35383e">
         <Grid> 
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.04*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <hc:NotifyIcon Name="notifyIcon" Text="测试" IsBlink="False" Visibility="Visible" Icon="../Resources/Icon/logo_icon.png">
+                <hc:NotifyIcon.ContextMenu>
+                    <ContextMenu Width="160" Placement="Right">
+                        <MenuItem Header="显示" Click="ShowWindow"/>
+                        <!--<Separator/>-->
+                        <MenuItem Header="退出" Click="ShutDownWindow"/>
+                    </ContextMenu>
+                 </hc:NotifyIcon.ContextMenu>
+            </hc:NotifyIcon>
             <!--标题栏-->
-            <Border Background="#35383e" CornerRadius="8 8 0 0">
+            <Border Background="#35383e" CornerRadius="8 8 0 0" >
                 <Grid>
                     <!--<Image Source="../Resources/Image/Other/Seraphine0.png"  HorizontalAlignment="Left" Margin="5 0 0 0"/>-->
                     <TextBlock Text="林木评价系统" Foreground="White"
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 2 0">
-                        <Button Content="&#xe67a;" WindowChrome.IsHitTestVisibleInChrome="True"
+                        <Button Content="&#xe607;" WindowChrome.IsHitTestVisibleInChrome="True"
                                 Style="{StaticResource TitleButtonStyle2}"/>
+                        <Button Content="&#xe67a;" WindowChrome.IsHitTestVisibleInChrome="True"
+                                Style="{StaticResource TitleButtonStyle2}" Click="MinButton_Click"/>
                         <Button Content="&#xf2b2;" WindowChrome.IsHitTestVisibleInChrome="True"
                                 Style="{StaticResource TitleButtonStyle2}" Click="MaxMinButton_Click"/>
                         <Button Content="&#xeaf2;" WindowChrome.IsHitTestVisibleInChrome="True"
@@ -41,7 +52,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <!--左侧控制栏-->
-                <Border Background="#35383e" CornerRadius="0 0 0 8">
+                <Border Background="#35383e" CornerRadius="0 0 0 8" >
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>

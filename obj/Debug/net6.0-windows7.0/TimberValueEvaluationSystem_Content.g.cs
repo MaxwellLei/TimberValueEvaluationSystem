@@ -16,7 +16,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/iconfont.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/logo_icon.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon/logo_icon.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/homebg/01.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/homebg/1.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/homebg/2.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/image/other/seraphine0.png")]

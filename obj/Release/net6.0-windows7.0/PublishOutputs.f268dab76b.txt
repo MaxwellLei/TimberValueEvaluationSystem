@@ -9,6 +9,7 @@ D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\pub
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Icon\logo_icon.png
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\HomeBg\1.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\HomeBg\2.jpg
+D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\Other\Seraphine0.png
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\Other\Seraphine1.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\Other\Seraphine2.jpg
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Release\net6.0-windows\publish\Resources\Image\StartPic\1.jpg

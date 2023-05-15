@@ -375,4 +375,3 @@ D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\Vi
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\DeleteDatabaseView.g.cs
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows7.0\ViewsPopUp\DataPage\DeleteDatabaseView.baml
 D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Image\Other\Seraphine0.png
-D:\Work Space\Project\TimberValueEvaluationSystem\bin\Debug\net6.0-windows7.0\Resources\Image\HomeBg\01.jpg
