@@ -1,10 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -133,12 +135,22 @@ namespace TimberValueEvaluationSystem.ViewModels
             }
         }
 
+        public RelayCommand OpenFileFolderCommand { get; private set; }   //打开文件夹命令
 
         //初始化
         public SCommonPageViewModel()
         {
+            OpenFileFolderCommand = new RelayCommand(ExecuteOpenFileFolderCommand);
+
             ReadConfig();   //读取配置文件
             changeConfig = true;
+        }
+
+        //打开指定文件夹
+        private void ExecuteOpenFileFolderCommand()
+        {
+            FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
+            Growl.Success("打开文件夹成功");
         }
 
         //读取配置文件
@@ -146,18 +158,8 @@ namespace TimberValueEvaluationSystem.ViewModels
         {
             //读取数据文件设置
             DbLocation = int.Parse(Services.ConfigHelper.GetConfig("database_location"));
-            if (DbLocation == 1)
-            {
-                Growl.Info("自定义路径");
-            }
-
             //读取工作区设置
             WpLocation = int.Parse(Services.ConfigHelper.GetConfig("workspace_location"));
-            if (WpLocation == 1)
-            {
-                Growl.Info("自定义路径");
-            }
-
             Language = int.Parse(Services.ConfigHelper.GetConfig("language"));  //读取语言
             Font = int.Parse(Services.ConfigHelper.GetConfig("font"));  //读取字体
             FontSize = int.Parse(Services.ConfigHelper.GetConfig("font_size"));  //读取字体大小

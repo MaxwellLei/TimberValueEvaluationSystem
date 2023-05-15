@@ -120,5 +120,27 @@ namespace TimberValueEvaluationSystem
                 Dispatcher.BeginInvoke(new Action(() => { this.Topmost = false; }));
             }
         }
+
+        //关闭
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        //最大化
+        private void MaxMinButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+                this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+                this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+
+            }
+        }
     }
 }

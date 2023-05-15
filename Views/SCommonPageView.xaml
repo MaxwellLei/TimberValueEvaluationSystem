@@ -27,7 +27,7 @@
                                 <sys:String>自定义文件位置</sys:String>
                             </ComboBox.Items>
                         </ComboBox>
-                        <Button Content="打开文件位置" Margin="10 0 0 0"/>
+                        <Button Content="打开文件位置" Margin="10 0 0 0" Command="{Binding OpenFileFolderCommand}"/>
                     </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="工作区位置" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 

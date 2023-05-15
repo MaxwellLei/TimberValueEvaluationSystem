@@ -5,56 +5,82 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="林木价值评价系统" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent"
         BorderThickness="0" MinHeight="720" MinWidth="1080" Loaded="Window_Loaded" Icon="../Resources/Icon/logo_icon.png"
-        Closing="Window_Closing">
-    <!--主窗体-->
-    <Border CornerRadius="8" Name="rootborder">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        Closing="Window_Closing" WindowStyle="None" AllowsTransparency="True"> 
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
 
-            <!--左侧控制栏-->
-            <Border CornerRadius="0 0 0 8">
-                <Grid Background="#35383e">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="0.15*"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                        <RadioButton Name="RadioButton1" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+    <!--主窗体-->
+    <Border Name="rootborder" CornerRadius="0 0 8 8">
+        <Grid> 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.04*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--标题栏-->
+            <Border Background="#35383e" CornerRadius="8 8 0 0">
+                <Grid>
+                    <!--<Image Source="../Resources/Image/Other/Seraphine0.png"  HorizontalAlignment="Left" Margin="5 0 0 0"/>-->
+                    <TextBlock Text="林木评价系统" Foreground="White"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 2 0">
+                        <Button Content="&#xe67a;" WindowChrome.IsHitTestVisibleInChrome="True"
+                                Style="{StaticResource TitleButtonStyle2}"/>
+                        <Button Content="&#xf2b2;" WindowChrome.IsHitTestVisibleInChrome="True"
+                                Style="{StaticResource TitleButtonStyle2}" Click="MaxMinButton_Click"/>
+                        <Button Content="&#xeaf2;" WindowChrome.IsHitTestVisibleInChrome="True"
+                                Style="{StaticResource TitleButtonStyle}" Click="CloseButton_Click"/>
+                    </WrapPanel>
+                </Grid>
+            </Border>
+            
+            <!--主体-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--左侧控制栏-->
+                <Border Background="#35383e" CornerRadius="0 0 0 8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.15*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel>
+                            <RadioButton Name="RadioButton1" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" IsChecked="True" Command="{Binding HomePage}">
-                            <WrapPanel Orientation="Vertical">
-                                <TextBlock Text="&#xe679;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                                <WrapPanel Orientation="Vertical">
+                                    <TextBlock Text="&#xe679;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                <TextBlock Text="主页" Foreground="White"/>
-                            </WrapPanel>
-                        </RadioButton>
-                        <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                                    <TextBlock Text="主页" Foreground="White"/>
+                                </WrapPanel>
+                            </RadioButton>
+                            <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding MapPage}">
-                            <WrapPanel Orientation="Vertical">
-                                <TextBlock Text="&#xe65e;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                                <WrapPanel Orientation="Vertical">
+                                    <TextBlock Text="&#xe65e;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                <TextBlock Text="地图" Foreground="White"/>
-                            </WrapPanel>
-                        </RadioButton>
-                        <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                                    <TextBlock Text="地图" Foreground="White"/>
+                                </WrapPanel>
+                            </RadioButton>
+                            <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding ModelPage}">
-                            <WrapPanel Orientation="Vertical">
-                                <TextBlock Text="&#xe614;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                                <WrapPanel Orientation="Vertical">
+                                    <TextBlock Text="&#xe614;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                <TextBlock Text="模型" Foreground="White"/>
-                            </WrapPanel>
-                        </RadioButton>
-                        <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                                    <TextBlock Text="模型" Foreground="White"/>
+                                </WrapPanel>
+                            </RadioButton>
+                            <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding DataPage}">
-                            <WrapPanel Orientation="Vertical">
-                                <TextBlock Text="&#xe6ed;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                                <WrapPanel Orientation="Vertical">
+                                    <TextBlock Text="&#xe6ed;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                <TextBlock Text="数据" Foreground="White"/>
-                            </WrapPanel>
-                        </RadioButton>
-                        <!--<RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
+                                    <TextBlock Text="数据" Foreground="White"/>
+                                </WrapPanel>
+                            </RadioButton>
+                            <!--<RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0">
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe640;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
@@ -62,29 +88,32 @@
                                 <TextBlock Text="导出" Foreground="White"/>
                             </WrapPanel>
                         </RadioButton>-->
-                    </StackPanel>
+                        </StackPanel>
 
-                    <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
+                        <RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" Grid.Row="1" GroupName="SideBar"
                                      Width="60" Height="60" Margin="-200,0,0,0" Command="{Binding SettingPage}">
-                        <WrapPanel Orientation="Vertical">
-                            <TextBlock Text="&#xe8b8;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
+                            <WrapPanel Orientation="Vertical">
+                                <TextBlock Text="&#xe8b8;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                            <TextBlock Text="设置" Foreground="White"/>
-                        </WrapPanel>
-                    </RadioButton>
-                </Grid>
-            </Border>
-            
-            <!--右侧显示栏-->
-            <Border CornerRadius="0" Grid.Column="1">
-                <Grid>
-                    <Frame Name="Nav" BorderThickness="0" NavigationUIVisibility="Hidden"/>
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" 
+                                <TextBlock Text="设置" Foreground="White"/>
+                            </WrapPanel>
+                        </RadioButton>
+                    </Grid>
+                </Border>
+
+
+                <!--右侧显示栏-->
+                <Border Grid.Column="1" CornerRadius="0 0 8 0">
+                    <Grid>
+                        <Frame Name="Nav" BorderThickness="0" NavigationUIVisibility="Hidden"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" 
                                   HorizontalAlignment="Right">
-                        <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top"/>
-                    </ScrollViewer>
-                </Grid>
-            </Border>
+                            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top"/>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
+        
     </Border>
 </Window>
