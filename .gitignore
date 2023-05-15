@@ -11,7 +11,6 @@ Release/
 *.pdb
 *.cache
 
-packages/
 
 _ReSharper*/
 *.crproj

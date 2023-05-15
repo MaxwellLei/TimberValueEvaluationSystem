@@ -82,8 +82,7 @@ namespace TimberValueEvaluationSystem.ViewsPopUp.DataPage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TimberValueEvaluationSystem;V1.0.0.0;component/viewspopup/datapage/newdatabasevi" +
-                    "ew.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TimberValueEvaluationSystem;component/viewspopup/datapage/newdatabaseview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\ViewsPopUp\DataPage\NewDatabaseView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

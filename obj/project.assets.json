@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {
+    "net6.0-windows7.0": {
       "CommonServiceLocator/2.0.2": {
         "type": "package",
         "dependencies": {
@@ -46,133 +46,166 @@
       },
       "Esri.ArcGISRuntime/100.9.0": {
         "type": "package",
+        "dependencies": {
+          "Esri.ArcGISRuntime.runtimes.win": "100.9.0"
+        },
         "compile": {
-          "lib/netstandard2.0/Esri.ArcGISRuntime.dll": {
+          "lib/netcoreapp3.1/Esri.ArcGISRuntime.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Esri.ArcGISRuntime.dll": {
+          "lib/netcoreapp3.1/Esri.ArcGISRuntime.dll": {
             "related": ".xml"
           }
         },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
         "resource": {
-          "lib/netstandard2.0/ar/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ar/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ar"
           },
-          "lib/netstandard2.0/bs/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/bs/Esri.ArcGISRuntime.resources.dll": {
             "locale": "bs"
           },
-          "lib/netstandard2.0/ca/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ca/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ca"
           },
-          "lib/netstandard2.0/cs/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/cs/Esri.ArcGISRuntime.resources.dll": {
             "locale": "cs"
           },
-          "lib/netstandard2.0/da/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/da/Esri.ArcGISRuntime.resources.dll": {
             "locale": "da"
           },
-          "lib/netstandard2.0/de/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/de/Esri.ArcGISRuntime.resources.dll": {
             "locale": "de"
           },
-          "lib/netstandard2.0/el/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/el/Esri.ArcGISRuntime.resources.dll": {
             "locale": "el"
           },
-          "lib/netstandard2.0/es/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/es/Esri.ArcGISRuntime.resources.dll": {
             "locale": "es"
           },
-          "lib/netstandard2.0/et/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/et/Esri.ArcGISRuntime.resources.dll": {
             "locale": "et"
           },
-          "lib/netstandard2.0/fi/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/fi/Esri.ArcGISRuntime.resources.dll": {
             "locale": "fi"
           },
-          "lib/netstandard2.0/fr/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/fr/Esri.ArcGISRuntime.resources.dll": {
             "locale": "fr"
           },
-          "lib/netstandard2.0/he/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/he/Esri.ArcGISRuntime.resources.dll": {
             "locale": "he"
           },
-          "lib/netstandard2.0/hr/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/hr/Esri.ArcGISRuntime.resources.dll": {
             "locale": "hr"
           },
-          "lib/netstandard2.0/hu/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/hu/Esri.ArcGISRuntime.resources.dll": {
             "locale": "hu"
           },
-          "lib/netstandard2.0/id/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/id/Esri.ArcGISRuntime.resources.dll": {
             "locale": "id"
           },
-          "lib/netstandard2.0/it/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/it/Esri.ArcGISRuntime.resources.dll": {
             "locale": "it"
           },
-          "lib/netstandard2.0/ja/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ja/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ja"
           },
-          "lib/netstandard2.0/ko/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ko/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ko"
           },
-          "lib/netstandard2.0/lt/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/lt/Esri.ArcGISRuntime.resources.dll": {
             "locale": "lt"
           },
-          "lib/netstandard2.0/lv/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/lv/Esri.ArcGISRuntime.resources.dll": {
             "locale": "lv"
           },
-          "lib/netstandard2.0/nb-NO/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/nb-NO/Esri.ArcGISRuntime.resources.dll": {
             "locale": "nb-NO"
           },
-          "lib/netstandard2.0/nl/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/nl/Esri.ArcGISRuntime.resources.dll": {
             "locale": "nl"
           },
-          "lib/netstandard2.0/no/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/no/Esri.ArcGISRuntime.resources.dll": {
             "locale": "no"
           },
-          "lib/netstandard2.0/pl/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/pl/Esri.ArcGISRuntime.resources.dll": {
             "locale": "pl"
           },
-          "lib/netstandard2.0/pt-BR/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/pt-BR/Esri.ArcGISRuntime.resources.dll": {
             "locale": "pt-BR"
           },
-          "lib/netstandard2.0/pt-PT/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/pt-PT/Esri.ArcGISRuntime.resources.dll": {
             "locale": "pt-PT"
           },
-          "lib/netstandard2.0/ro/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ro/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ro"
           },
-          "lib/netstandard2.0/ru/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/ru/Esri.ArcGISRuntime.resources.dll": {
             "locale": "ru"
           },
-          "lib/netstandard2.0/sl/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/sl/Esri.ArcGISRuntime.resources.dll": {
             "locale": "sl"
           },
-          "lib/netstandard2.0/sr/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/sr/Esri.ArcGISRuntime.resources.dll": {
             "locale": "sr"
           },
-          "lib/netstandard2.0/sv/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/sv/Esri.ArcGISRuntime.resources.dll": {
             "locale": "sv"
           },
-          "lib/netstandard2.0/th/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/th/Esri.ArcGISRuntime.resources.dll": {
             "locale": "th"
           },
-          "lib/netstandard2.0/tr/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/tr/Esri.ArcGISRuntime.resources.dll": {
             "locale": "tr"
           },
-          "lib/netstandard2.0/uk/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/uk/Esri.ArcGISRuntime.resources.dll": {
             "locale": "uk"
           },
-          "lib/netstandard2.0/vi/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/vi/Esri.ArcGISRuntime.resources.dll": {
             "locale": "vi"
           },
-          "lib/netstandard2.0/zh-CN/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/zh-CN/Esri.ArcGISRuntime.resources.dll": {
             "locale": "zh-CN"
           },
-          "lib/netstandard2.0/zh-HK/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/zh-HK/Esri.ArcGISRuntime.resources.dll": {
             "locale": "zh-HK"
           },
-          "lib/netstandard2.0/zh-Hans/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/zh-Hans/Esri.ArcGISRuntime.resources.dll": {
             "locale": "zh-Hans"
           },
-          "lib/netstandard2.0/zh-TW/Esri.ArcGISRuntime.resources.dll": {
+          "lib/netcoreapp3.1/zh-TW/Esri.ArcGISRuntime.resources.dll": {
             "locale": "zh-TW"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/Esri.ArcGISRuntime.targets": {}
+        }
+      },
+      "Esri.ArcGISRuntime.runtimes.win/100.9.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/net461/Esri.ArcGISRuntime.runtimes.win.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/runtimecore.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/runtimecorenet.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/runtimecore.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/runtimecorenet.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
           }
         }
       },
@@ -182,17 +215,20 @@
           "Esri.ArcGISRuntime": "100.9.0"
         },
         "compile": {
-          "lib/net461/Esri.ArcGISRuntime.WPF.dll": {
+          "lib/netcoreapp3.1/Esri.ArcGISRuntime.WPF.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net461/Esri.ArcGISRuntime.WPF.dll": {
+          "lib/netcoreapp3.1/Esri.ArcGISRuntime.WPF.dll": {
             "related": ".xml"
           }
         },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
         "build": {
-          "buildTransitive/net461/Esri.ArcGISRuntime.WPF.targets": {}
+          "buildTransitive/netcoreapp3.1/Esri.ArcGISRuntime.WPF.targets": {}
         },
         "runtimeTargets": {
           "runtimes/win-x64/native/runtimecorenet.wpf.dll": {
@@ -208,12 +244,12 @@
       "HandyControl/3.4.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.0/HandyControl.dll": {
+          "lib/net6.0/HandyControl.dll": {
             "related": ".deps.json;.xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.0/HandyControl.dll": {
+          "lib/net6.0/HandyControl.dll": {
             "related": ".deps.json;.xml"
           }
         }
@@ -225,12 +261,12 @@
           "HarfBuzzSharp.NativeAssets.macOS": "2.8.2.3"
         },
         "compile": {
-          "lib/netstandard2.1/HarfBuzzSharp.dll": {
+          "lib/net6.0/HarfBuzzSharp.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/HarfBuzzSharp.dll": {
+          "lib/net6.0/HarfBuzzSharp.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -238,10 +274,10 @@
       "HarfBuzzSharp.NativeAssets.macOS/2.8.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libHarfBuzzSharp.dylib": {
@@ -253,10 +289,10 @@
       "HarfBuzzSharp.NativeAssets.Win32/2.8.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win-arm64/native/libHarfBuzzSharp.dll": {
@@ -315,16 +351,13 @@
       },
       "LiveChartsCore/2.0.0-beta.701": {
         "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.2"
-        },
         "compile": {
-          "lib/netcoreapp2.0/LiveChartsCore.dll": {
+          "lib/net6.0/LiveChartsCore.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp2.0/LiveChartsCore.dll": {
+          "lib/net6.0/LiveChartsCore.dll": {
             "related": ".xml"
           }
         }
@@ -337,12 +370,12 @@
           "SkiaSharp.HarfBuzz": "2.88.3"
         },
         "compile": {
-          "lib/netcoreapp2.0/LiveChartsCore.SkiaSharpView.dll": {
+          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp2.0/LiveChartsCore.SkiaSharpView.dll": {
+          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {
             "related": ".xml"
           }
         }
@@ -354,15 +387,18 @@
           "SkiaSharp.Views.WPF": "2.88.3"
         },
         "compile": {
-          "lib/net462/LiveChartsCore.SkiaSharpView.WPF.dll": {
+          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net462/LiveChartsCore.SkiaSharpView.WPF.dll": {
+          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {
             "related": ".xml"
           }
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
         "type": "package"
@@ -624,12 +660,12 @@
           "System.Memory": "4.5.3"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.ML.OnnxRuntime.dll": {
+          "lib/net6.0/Microsoft.ML.OnnxRuntime.dll": {
             "related": ".pdb"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.ML.OnnxRuntime.dll": {
+          "lib/net6.0/Microsoft.ML.OnnxRuntime.dll": {
             "related": ".pdb"
           }
         },
@@ -908,19 +944,6 @@
           "System.Xml.XDocument": "4.0.11"
         }
       },
-      "Newtonsoft.Json/13.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "runtime.native.System/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1028,12 +1051,12 @@
           "SkiaSharp.NativeAssets.macOS": "2.88.3"
         },
         "compile": {
-          "lib/netstandard2.1/SkiaSharp.dll": {
+          "lib/net6.0/SkiaSharp.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/SkiaSharp.dll": {
+          "lib/net6.0/SkiaSharp.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -1045,12 +1068,12 @@
           "SkiaSharp": "2.88.3"
         },
         "compile": {
-          "lib/netstandard2.1/SkiaSharp.HarfBuzz.dll": {
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/SkiaSharp.HarfBuzz.dll": {
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -1058,10 +1081,10 @@
       "SkiaSharp.NativeAssets.macOS/2.88.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
@@ -1073,10 +1096,10 @@
       "SkiaSharp.NativeAssets.Win32/2.88.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win-arm64/native/libSkiaSharp.dll": {
@@ -1100,12 +1123,12 @@
           "System.Drawing.Common": "4.5.1"
         },
         "compile": {
-          "lib/netstandard2.0/SkiaSharp.Views.Desktop.Common.dll": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/SkiaSharp.Views.Desktop.Common.dll": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -1117,12 +1140,12 @@
           "SkiaSharp.Views.Desktop.Common": "2.88.3"
         },
         "compile": {
-          "lib/net462/SkiaSharp.Views.WPF.dll": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net462/SkiaSharp.Views.WPF.dll": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -1323,9 +1346,7 @@
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
-          "System.Diagnostics.DiagnosticSource": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0",
-          "System.Text.Encoding.CodePages": "4.7.0",
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "compile": {
@@ -1387,8 +1408,15 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.7.0": {
+      "System.Diagnostics.DiagnosticSource/4.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Tracing": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
         "compile": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
@@ -2371,19 +2399,6 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.7.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Runtime.Extensions/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -2829,24 +2844,33 @@
           }
         }
       },
-      "System.Text.Encoding.CodePages/4.7.0": {
+      "System.Text.Encoding.CodePages/4.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.7.0"
+          "Microsoft.NETCore.Platforms": "1.0.1",
+          "System.Collections": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Handles": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
+          "ref/netstandard1.3/_._": {
             "related": ".xml"
           }
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll": {
+          "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -3494,6 +3518,27 @@
         "lib/xamarinios10/zh-Hans/Esri.ArcGISRuntime.resources.dll",
         "lib/xamarinios10/zh-TW/Esri.ArcGISRuntime.resources.dll",
         "resources/network_analyst/strings.bin"
+      ]
+    },
+    "Esri.ArcGISRuntime.runtimes.win/100.9.0": {
+      "sha512": "ykOEJlhGdt61cZJNNqUGJluoskdC39C79J3HxEFGt9+yxnG1bt4Ji+HfFZwE7xyKll/a014UTuh9NTdrDl+f4A==",
+      "type": "package",
+      "path": "esri.arcgisruntime.runtimes.win/100.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net461/Esri.ArcGISRuntime.runtimes.win.targets",
+        "buildTransitive/net461/Esri.ArcGISRuntime.runtimes.win.targets",
+        "esri.arcgisruntime.runtimes.win.100.9.0.nupkg.sha512",
+        "esri.arcgisruntime.runtimes.win.nuspec",
+        "icon.png",
+        "legal/Copyright_and_Trademarks.pdf",
+        "legal/EULA.txt",
+        "legal/open-source-acknowledgements.pdf",
+        "runtimes/win-x64/native/runtimecore.dll",
+        "runtimes/win-x64/native/runtimecorenet.dll",
+        "runtimes/win-x86/native/runtimecore.dll",
+        "runtimes/win-x86/native/runtimecorenet.dll"
       ]
     },
     "Esri.ArcGISRuntime.WPF/100.9.0": {
@@ -4614,36 +4659,6 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/13.0.2": {
-      "sha512": "R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
-      "type": "package",
-      "path": "newtonsoft.json/13.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "README.md",
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.xml",
-        "lib/net6.0/Newtonsoft.Json.dll",
-        "lib/net6.0/Newtonsoft.Json.xml",
-        "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "newtonsoft.json.13.0.2.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "packageIcon.png"
-      ]
-    },
     "runtime.native.System/4.0.0": {
       "sha512": "QfS/nQI7k/BLgmLrw7qm7YBoULEvgWnPI+cYsbfCVFTW8Aj+i8JhccxcFMu1RWms0YZzF+UHguNBK4Qn89e2Sg==",
       "type": "package",
@@ -5654,17 +5669,14 @@
         "system.diagnostics.debug.nuspec"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/4.7.0": {
-      "sha512": "oJjw3uFuVDJiJNbCD8HB4a2p3NYLdt1fiT5OGsPLw+WTOuG0KpP4OXelMmmVKpClueMsit6xOlzy4wNKQFiBLg==",
+    "System.Diagnostics.DiagnosticSource/4.0.0": {
+      "sha512": "YKglnq4BMTJxfcr6nuT08g+yJ0UxdePIHxosiLuljuHIUR6t4KhFsyaHOaOc1Ofqp0PUvJ0EmcgiEz6T7vEx3w==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/4.7.0",
+      "path": "system.diagnostics.diagnosticsource/4.0.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net45/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net45/System.Diagnostics.DiagnosticSource.xml",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "lib/net46/System.Diagnostics.DiagnosticSource.dll",
         "lib/net46/System.Diagnostics.DiagnosticSource.xml",
         "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.dll",
@@ -5673,10 +5685,8 @@
         "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.xml",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
-        "system.diagnostics.diagnosticsource.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "system.diagnostics.diagnosticsource.4.0.0.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.nuspec"
       ]
     },
     "System.Diagnostics.FileVersionInfo/4.0.0": {
@@ -7959,31 +7969,6 @@
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.7.0": {
-      "sha512": "IpU1lcHz8/09yDr9N+Juc7SCgNUz+RohkCQI+KsWKR67XxpFr8Z6c8t1iENCXZuRuNCc4HBwme/MDHNVCwyAKg==",
-      "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Runtime.Extensions/4.1.0": {
       "sha512": "CUOHjTT/vgP0qGW22U4/hDlOqXmcPq5YicBaXdUR2UiUoLwBT+olO6we4DVbq57jeX5uXH2uerVZhf0qGj+sVQ==",
       "type": "package",
@@ -8877,44 +8862,43 @@
         "system.text.encoding.nuspec"
       ]
     },
-    "System.Text.Encoding.CodePages/4.7.0": {
-      "sha512": "aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
+    "System.Text.Encoding.CodePages/4.0.1": {
+      "sha512": "h4z6rrA/hxWf4655D18IIZ0eaLRa3tQC/j+e26W+VinIHY0l07iEXaAvO0YSYq3MvCjMYy8Zs5AdC1sxNQOB7Q==",
       "type": "package",
-      "path": "system.text.encoding.codepages/4.7.0",
+      "path": "system.text.encoding.codepages/4.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net46/System.Text.Encoding.CodePages.dll",
-        "lib/net461/System.Text.Encoding.CodePages.dll",
-        "lib/net461/System.Text.Encoding.CodePages.xml",
-        "lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
-        "lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
+        "ref/netstandard1.3/System.Text.Encoding.CodePages.dll",
+        "ref/netstandard1.3/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/de/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/es/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/fr/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/it/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/ja/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/ko/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/ru/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/zh-hans/System.Text.Encoding.CodePages.xml",
+        "ref/netstandard1.3/zh-hant/System.Text.Encoding.CodePages.xml",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "runtimes/win/lib/net461/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/net461/System.Text.Encoding.CodePages.xml",
-        "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.xml",
+        "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
-        "system.text.encoding.codepages.4.7.0.nupkg.sha512",
-        "system.text.encoding.codepages.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "system.text.encoding.codepages.4.0.1.nupkg.sha512",
+        "system.text.encoding.codepages.nuspec"
       ]
     },
     "System.Text.Encoding.Extensions/4.0.11": {
@@ -9735,7 +9719,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": [
+    "net6.0-windows7.0": [
       "Esri.ArcGISRuntime.WPF >= 100.9.0",
       "HandyControl >= 3.4.0",
       "LiveChartsCore.SkiaSharpView.WPF >= 2.0.0-beta.701",
@@ -9766,7 +9750,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -9774,8 +9758,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.0": {
-          "targetAlias": "netcoreapp3.0",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "projectReferences": {}
         }
       },
@@ -9786,8 +9770,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.0": {
-        "targetAlias": "netcoreapp3.0",
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
         "dependencies": {
           "Esri.ArcGISRuntime.WPF": {
             "target": "Package",
@@ -9825,24 +9809,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.0.3, 3.0.3]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -9860,40 +9826,20 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“.NETCoreApp,Version=v3.0”还原包“Esri.ArcGISRuntime.WPF 100.9.0”。此包可能与项目不完全兼容。",
-      "libraryId": "Esri.ArcGISRuntime.WPF",
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0-windows7.0”还原包“Esri.ArcGISRuntime.runtimes.win 100.9.0”。此包可能与项目不完全兼容。",
+      "libraryId": "Esri.ArcGISRuntime.runtimes.win",
       "targetGraphs": [
-        ".NETCoreApp,Version=v3.0"
+        "net6.0-windows7.0"
       ]
     },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“.NETCoreApp,Version=v3.0”还原包“LiveChartsCore.SkiaSharpView.WPF 2.0.0-beta.701”。此包可能与项目不完全兼容。",
-      "libraryId": "LiveChartsCore.SkiaSharpView.WPF",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“.NETCoreApp,Version=v3.0”还原包“MvvmLightLibs 5.4.1.1”。此包可能与项目不完全兼容。",
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0-windows7.0”还原包“MvvmLightLibs 5.4.1.1”。此包可能与项目不完全兼容。",
       "libraryId": "MvvmLightLibs",
       "targetGraphs": [
-        ".NETCoreApp,Version=v3.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“.NETCoreApp,Version=v3.0”还原包“SkiaSharp.Views.WPF 2.88.3”。此包可能与项目不完全兼容。",
-      "libraryId": "SkiaSharp.Views.WPF",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.0"
+        "net6.0-windows7.0"
       ]
     }
   ]
