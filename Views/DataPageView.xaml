@@ -24,7 +24,7 @@
             <TabControl Margin="5" Style="{StaticResource TabControlInLine}" Background="#eff0f1">
                 
                 <!--数据库-->
-                <TabItem Header="数据库" Background="#eff0f1">
+                <TabItem Header="{DynamicResource Database}" Background="#eff0f1">
                     <Grid Background="#eff0f1">
                         <Grid.RowDefinitions>
                             <RowDefinition MinHeight="360"/>

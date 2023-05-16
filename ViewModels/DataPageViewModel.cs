@@ -352,14 +352,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         //打开数据库文件夹
         private void ExecuteOpenDbFolderCommand()
         {
-            if (ConfigHelper.GetConfig("database_location") == "0")
-            {
-                FileHelper.Openxplorer(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-            }
-            else
-            {
-                FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
-            }
+            FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
             Growl.Success("打开文件位置成功");
         }
 

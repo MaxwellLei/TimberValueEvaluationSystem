@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Esri.ArcGISRuntime.Location;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem.ViewModels
@@ -13,7 +15,8 @@ namespace TimberValueEvaluationSystem.ViewModels
     //常规设置页面的ViewModel
     class SCommonPageViewModel: ViewModelBase
     {
-        private bool changeConfig = false;
+        private bool changeConfig = false;  //是否第一次进入设置页面
+        private bool isInsideChange = false;    //是否是代码层面改变设置的值
 
         private string dbLocationPath;  //数据库路径
         private string wpLocationPath;  //数据库路径
@@ -22,39 +25,21 @@ namespace TimberValueEvaluationSystem.ViewModels
         public int DbLocation
         {
             get { return dbLocation; }
-            set { Set(ref dbLocation, value); 
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref dbLocation, value);}
         }
 
         private int wpLocation;     //工作区位置设置(0是默认位置，即文档；1是自定义位置)
         public int WpLocation
         {
             get { return wpLocation; }
-            set { Set(ref wpLocation, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref wpLocation, value);}
         }
 
         private int language;     //语言设置(0是中文;1是英文)
         public int Language
         {
             get { return language; }
-            set { Set(ref language, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref language, value);}
         }
 
         private int font;     //字体设置(0是微软雅黑;1是添加字体)
@@ -135,19 +120,116 @@ namespace TimberValueEvaluationSystem.ViewModels
             }
         }
 
-        public RelayCommand OpenFileFolderCommand { get; private set; }   //打开文件夹命令
+        public RelayCommand OpenDbFolderCommand { get; private set; }   //打开数据库文件夹命令
+        public RelayCommand OpenWsFolderCommand { get; private set; }   //打开工作区文件夹命令
+        public RelayCommand DbLocationChangedCommand { get; private set; }   //修改数据库位置命令
+        public RelayCommand WsLocationChangedCommand { get; private set; }   //修改工作区位置命令
+
+        public RelayCommand LanguageChangedCommand { get; private set; }   //修改工作区位置命令
 
         //初始化
         public SCommonPageViewModel()
         {
-            OpenFileFolderCommand = new RelayCommand(ExecuteOpenFileFolderCommand);
+            OpenDbFolderCommand = new RelayCommand(ExecuteOpenDbFolderCommand);
+            OpenWsFolderCommand = new RelayCommand(ExecuteOpenWsFolderCommand);
+            DbLocationChangedCommand = new RelayCommand(ExecuteDbLocationChangedCommand);
+            WsLocationChangedCommand = new RelayCommand(ExecuteWsLocationChangedCommand);
+            LanguageChangedCommand = new RelayCommand(ExecuteLanguageChangedCommand);
 
             ReadConfig();   //读取配置文件
             changeConfig = true;
         }
 
+        //修改语言
+        private void ExecuteLanguageChangedCommand()
+        {
+            if (Language == 0)
+            {
+                LanguageHelper.ChangeLanguage("zh-CN");
+            }
+            else
+            {
+                LanguageHelper.ChangeLanguage("en-US");
+            }
+        }
+
+        //修改数据库位置
+        private void ExecuteDbLocationChangedCommand()
+        {
+            //保存数据库位置设置
+            if (DbLocation == 0)
+            {
+                if (!isInsideChange)
+                {
+                    Services.ConfigHelper.SetConfig("database_location", "0");
+                    Services.ConfigHelper.SetConfig("database_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的数据库位置
+                    Growl.Info("修改成功");
+                }
+                isInsideChange = false;
+            }
+            else
+            {
+                dbLocationPath = FileHelper.GetFolderPath();  //获取文件夹路径
+                if (dbLocationPath != null)
+                {
+                    Services.ConfigHelper.SetConfig("database_location", "1");
+                    Services.ConfigHelper.SetConfig("database_location_path", dbLocationPath);  //如果是自定义设置，则保存配置文件中的数据库位置
+                    Growl.Info("修改成功");
+                }
+                else
+                {
+                    isInsideChange = true;
+                    DbLocation = 0;
+                    Growl.Warning("取消修改");
+                }
+            }
+        }
+
+        //修改工作区的位置
         //打开指定文件夹
-        private void ExecuteOpenFileFolderCommand()
+        private void ExecuteWsLocationChangedCommand()
+        {
+            //保存工作区位置设置
+            if (WpLocation == 0)
+            {
+                if (!isInsideChange)
+                {
+                    Services.ConfigHelper.SetConfig("workspace_location", "0");
+                    Services.ConfigHelper.SetConfig("workspace_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的工作区位置
+                    Growl.Info("修改成功");
+                }
+                isInsideChange = false;
+            }
+            else
+            {
+                wpLocationPath = FileHelper.GetFolderPath();  //获取文件夹路径
+                if (wpLocationPath != null)
+                {
+                    Services.ConfigHelper.SetConfig("workspace_location", "1");
+                    Services.ConfigHelper.SetConfig("workspace_location_path", wpLocationPath);  //如果是自定义设置，则保存配置文件中的工作区位置
+                    Growl.Info("修改成功");
+                }
+                else
+                {
+                    isInsideChange = true;
+                    WpLocation = 0;
+                    Growl.Warning("取消修改");
+                }
+
+            }
+        }
+
+
+
+        //打开指定数据库文件夹
+        private void ExecuteOpenDbFolderCommand()
+        {
+            FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
+            Growl.Success("打开文件夹成功");
+        }
+
+        //打开指定工作区文件夹
+        private void ExecuteOpenWsFolderCommand()
         {
             FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
             Growl.Success("打开文件夹成功");
@@ -156,10 +238,18 @@ namespace TimberValueEvaluationSystem.ViewModels
         //读取配置文件
         void ReadConfig()
         {
-            //读取数据文件设置
-            DbLocation = int.Parse(Services.ConfigHelper.GetConfig("database_location"));
-            //读取工作区设置
-            WpLocation = int.Parse(Services.ConfigHelper.GetConfig("workspace_location"));
+            if(ConfigHelper.GetConfig("database_location_path") == "")
+            {
+                Services.ConfigHelper.SetConfig("database_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的数据库位置
+            }
+
+            if (ConfigHelper.GetConfig("workspace_location_path") == "")
+            {
+                Services.ConfigHelper.SetConfig("workspace_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的数据库位置
+            }
+
+            DbLocation = int.Parse(Services.ConfigHelper.GetConfig("database_location"));   //读取数据文件设置
+            WpLocation = int.Parse(Services.ConfigHelper.GetConfig("workspace_location"));  //读取工作区设置
             Language = int.Parse(Services.ConfigHelper.GetConfig("language"));  //读取语言
             Font = int.Parse(Services.ConfigHelper.GetConfig("font"));  //读取字体
             FontSize = int.Parse(Services.ConfigHelper.GetConfig("font_size"));  //读取字体大小
@@ -172,24 +262,6 @@ namespace TimberValueEvaluationSystem.ViewModels
         //保存修改后的配置文件
         void SaveConfig()
         {
-            //保存数据库位置设置
-            if (DbLocation == 0)
-            {
-                Services.ConfigHelper.SetConfig("database_location", null);  //如果是默认设置，则删除配置文件中的数据库位置
-            }
-            else
-            {
-                Services.ConfigHelper.SetConfig("database_location", dbLocationPath);  //如果是自定义设置，则保存配置文件中的数据库位置
-            }
-            //保存工作区位置设置
-            if (WpLocation == 0)
-            {
-                Services.ConfigHelper.SetConfig("workspace_location", null);  //如果是默认设置，则删除配置文件中的工作区位置
-            }
-            else
-            {
-                Services.ConfigHelper.SetConfig("workspace_location", wpLocationPath);  //如果是自定义设置，则保存配置文件中的工作区位置
-            }
             Services.ConfigHelper.SetConfig("language", Language.ToString());  //保存语言设置
             Services.ConfigHelper.SetConfig("font", Font.ToString());  //保存字体设置
             Services.ConfigHelper.SetConfig("font_size", FontSize.ToString());  //保存字体大小设置
@@ -198,5 +270,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             Services.ConfigHelper.SetConfig("auto_check_update", AutoCheck.ToString());  //保存是否自动检查更新设置
             Services.ConfigHelper.SetConfig("exit_program_mode", ExitMode.ToString());  //保存退出方式设置
         }
+
+
     }
 }

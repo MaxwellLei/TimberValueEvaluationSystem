@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\Icon\logo_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,10 +41,6 @@
     <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\modeltest.onnx" />
     <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg" />
     <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Style\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -143,6 +140,15 @@
     <Compile Update="ViewsPopUp\DataPage\DeleteDatabaseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Resources\Language\en-US.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Update="Resources\Language\zh-CN.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
 
 </Project>

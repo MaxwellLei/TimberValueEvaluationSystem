@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--主窗体-->
+    <s:String x:Key="Show">显示</s:String>
+    <s:String x:Key="Quit">退出</s:String>
+    <s:String x:Key="Title">林木评价系统</s:String>
+    <s:String x:Key="Home">主页</s:String>
+    <s:String x:Key="Map">地图</s:String>
+    <s:String x:Key="Model">模型</s:String>
+    <s:String x:Key="Data">数据</s:String>
+    <s:String x:Key="Setting">设置</s:String>
+    
+    <!--主页Page-->
+    <s:String x:Key="NewCard">新建卡片</s:String>
+    <s:String x:Key="DeleteCard">删除卡片</s:String>
+    
+    <!--地图Page-->
+    <s:String x:Key="ImportFile">导入文件</s:String>
+    <s:String x:Key="Unhighlight">取消高亮</s:String>
+    <s:String x:Key="EditMode">编辑模式</s:String>
+    <s:String x:Key="ToolBar">工具栏</s:String>
+    <s:String x:Key="Layers">图层</s:String>
+    <s:String x:Key="ImportSHPFile">导入Shp文件</s:String>
+    <s:String x:Key="Screenshot">截图</s:String>
+    <s:String x:Key="Focus">截图</s:String>
+    <s:String x:Key="UnloadLayer">卸载图层</s:String>
+    <s:String x:Key="MoveLayerUp">上移图层</s:String>
+    <s:String x:Key="MoveLayerDown">下移图层</s:String>
+    <s:String x:Key="LayerOnTop">图层置顶</s:String>
+    <s:String x:Key="LayerBottom">图层置底</s:String>
+    <s:String x:Key="More">更多</s:String>
+
+    <!--模型Page-->
+    <s:String x:Key="SiteQualityModel">立地质量模型</s:String>
+    <s:String x:Key="ImportModel">导入模型</s:String>
+    
+    <!--数据Page-->
+    <s:String x:Key="Database">数据库</s:String>
+
+    <!--设置Page-->
+
+</ResourceDictionary>

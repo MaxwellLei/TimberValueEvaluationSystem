@@ -14,9 +14,9 @@
     <Grid Background="White">
         <Grid.ContextMenu>
             <ContextMenu Placement="Right">
-                <MenuItem Header="导入Shp文件"/>
-                <MenuItem Header="取消高亮"/>
-                <MenuItem Header="编辑模式"/>
+                <MenuItem Header="{DynamicResource ImportFile}"/>
+                <MenuItem Header="{DynamicResource Unhighlight}"/>
+                <MenuItem Header="{DynamicResource EditMode}"/>
             </ContextMenu>
         </Grid.ContextMenu>
         <!--地图-->
@@ -34,12 +34,12 @@
             </i:Interaction.Triggers>
         </esri:MapView>
         <!--底层工具栏-->
-        <ToolBar  Header="工具栏" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
-            <Button Content="图层" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
-            <Button Content="导入Shp文件" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
-            <Button Content="编辑" Margin="10,0,0,0" Command="{Binding EditSurfaceCommand}"/>
-            <Button Content="截图" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}"/>
-            <Button Content="聚焦" Margin="10,0,0,0" Command="{Binding FocusLayersCommand}"/>
+        <ToolBar  Header="{DynamicResource ToolBar}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <Button Content="{DynamicResource Layers}" Margin="10,0,0,0" Command="{Binding LayerSidebarCommand}"/>
+            <Button Content="{DynamicResource ImportSHPFile}" Margin="10,0,0,0" Command="{Binding SelectShpFileCommand}"/>
+            <Button Content="{DynamicResource EditMode}" Margin="10,0,0,0" Command="{Binding EditSurfaceCommand}"/>
+            <Button Content="{DynamicResource Screenshot}" Margin="10,0,0,0" Command="{Binding ScreenshotCommand}"/>
+            <Button Content="{DynamicResource Focus}" Margin="10,0,0,0" Command="{Binding FocusLayersCommand}"/>
             <TextBlock Text="{Binding MousePosition}" Margin="10,0,0,0" VerticalAlignment="Center"/>
             <TextBlock Text="{Binding ZoomScale}" Margin="10 0 0 0" VerticalAlignment="Center"/>
         </ToolBar>
@@ -51,12 +51,12 @@
                 <Grid Background="#eeeeee">
                     <Grid.ContextMenu>
                         <ContextMenu Placement="Right">
-                            <MenuItem Header="卸载图层"/>
-                            <MenuItem Header="上移图层"/>
-                            <MenuItem Header="下移图层"/>
-                            <MenuItem Header="图层置顶"/>
-                            <MenuItem Header="图层置底"/>
-                            <MenuItem Header="更多">
+                            <MenuItem Header="{DynamicResource UnloadLayer}"/>
+                            <MenuItem Header="{DynamicResource MoveLayerUp}"/>
+                            <MenuItem Header="{DynamicResource MoveLayerDown}"/>
+                            <MenuItem Header="{DynamicResource LayerOnTop}"/>
+                            <MenuItem Header="{DynamicResource LayerBottom}"/>
+                            <MenuItem Header="{DynamicResource More}">
                                 
                             </MenuItem>
                         </ContextMenu>

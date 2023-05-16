@@ -25,7 +25,7 @@ namespace TimberValueEvaluationSystem.Services
         //设置配置文件中的值
         //传入 key value 写入配置文件并刷新配置文件
         public static void SetConfig(string key, string value)
-        {
+         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             if (config.AppSettings.Settings[key] == null)
             {

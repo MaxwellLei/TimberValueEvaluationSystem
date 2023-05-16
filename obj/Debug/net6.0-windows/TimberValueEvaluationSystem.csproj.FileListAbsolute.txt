@@ -375,3 +375,5 @@ D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Views
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Views\SCommonPageView.baml
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Views\SettingPageView.baml
 D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Views\SExteriorPageView.baml
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Resources\Language\zh-CN.baml
+D:\Work Space\Project\TimberValueEvaluationSystem\obj\Debug\net6.0-windows\Resources\Language\en-US.baml

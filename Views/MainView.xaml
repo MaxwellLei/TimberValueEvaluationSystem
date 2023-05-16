@@ -17,12 +17,12 @@
                 <RowDefinition Height="0.04*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <hc:NotifyIcon Name="notifyIcon" Text="测试" IsBlink="False" Visibility="Visible" Icon="../Resources/Icon/logo_icon.png">
+            <hc:NotifyIcon Name="notifyIcon" Text="{DynamicResource Title}" IsBlink="False" Visibility="Visible" Icon="../Resources/Icon/logo_icon.png">
                 <hc:NotifyIcon.ContextMenu>
                     <ContextMenu Width="160" Placement="Right">
-                        <MenuItem Header="显示" Click="ShowWindow"/>
+                        <MenuItem Header="{DynamicResource Show}" Click="ShowWindow"/>
                         <!--<Separator/>-->
-                        <MenuItem Header="退出" Click="ShutDownWindow"/>
+                        <MenuItem Header="{DynamicResource Quit}" Click="ShutDownWindow"/>
                     </ContextMenu>
                  </hc:NotifyIcon.ContextMenu>
             </hc:NotifyIcon>
@@ -30,7 +30,7 @@
             <Border Background="#35383e" CornerRadius="8 8 0 0" >
                 <Grid>
                     <!--<Image Source="../Resources/Image/Other/Seraphine0.png"  HorizontalAlignment="Left" Margin="5 0 0 0"/>-->
-                    <TextBlock Text="林木评价系统" Foreground="White"
+                    <TextBlock Text="{DynamicResource Title}" Foreground="White"
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 2 0">
                         <Button Content="&#xe607;" WindowChrome.IsHitTestVisibleInChrome="True"
@@ -64,7 +64,7 @@
                                 <WrapPanel Orientation="Vertical">
                                     <TextBlock Text="&#xe679;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                    <TextBlock Text="主页" Foreground="White"/>
+                                    <TextBlock Text="{DynamicResource Home}" Foreground="White"/>
                                 </WrapPanel>
                             </RadioButton>
                             <RadioButton Name="RadioButton2" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
@@ -72,7 +72,7 @@
                                 <WrapPanel Orientation="Vertical">
                                     <TextBlock Text="&#xe65e;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                    <TextBlock Text="地图" Foreground="White"/>
+                                    <TextBlock Text="{DynamicResource Map}" Foreground="White"/>
                                 </WrapPanel>
                             </RadioButton>
                             <RadioButton Name="RadioButton3" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
@@ -80,7 +80,7 @@
                                 <WrapPanel Orientation="Vertical">
                                     <TextBlock Text="&#xe614;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                    <TextBlock Text="模型" Foreground="White"/>
+                                    <TextBlock Text="{DynamicResource Model}" Foreground="White"/>
                                 </WrapPanel>
                             </RadioButton>
                             <RadioButton Name="RadioButton4" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
@@ -88,7 +88,7 @@
                                 <WrapPanel Orientation="Vertical">
                                     <TextBlock Text="&#xe6ed;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                    <TextBlock Text="数据" Foreground="White"/>
+                                    <TextBlock Text="{DynamicResource Data}" Foreground="White"/>
                                 </WrapPanel>
                             </RadioButton>
                             <!--<RadioButton Name="RadioButton5" Style="{DynamicResource SideControlBar}" GroupName="SideBar"
@@ -106,7 +106,7 @@
                             <WrapPanel Orientation="Vertical">
                                 <TextBlock Text="&#xe8b8;" Foreground="White" FontFamily="../Resources/Icon/#iconfont"
                                            HorizontalAlignment="Center" FontSize="24"/>
-                                <TextBlock Text="设置" Foreground="White"/>
+                                <TextBlock Text="{DynamicResource Setting}" Foreground="White"/>
                             </WrapPanel>
                         </RadioButton>
                     </Grid>

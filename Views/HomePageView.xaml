@@ -10,9 +10,8 @@
       Title="HomePageView">
     <Page.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="新建图标" Command="Cut"/>
-            <MenuItem Header="删除图标" Command="Copy"/>
-            <MenuItem Header="粘贴" Command="Paste"/>
+            <MenuItem Header="{DynamicResource NewCard}"/>
+            <MenuItem Header="{DynamicResource DeleteCard}"/>
         </ContextMenu>
     </Page.ContextMenu>
     <Page.Background>

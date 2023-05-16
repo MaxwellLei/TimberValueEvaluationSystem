@@ -7,6 +7,9 @@
         <ResourceDictionary>
             <!--库引用-->
             <ResourceDictionary.MergedDictionaries>
+                <!--多语言-->
+                <ResourceDictionary Source="/TimberValueEvaluationSystem;component/Resources/Language/en-US.xaml"/>
+                <ResourceDictionary Source="/TimberValueEvaluationSystem;component/Resources/Language/zh-CN.xaml"/>
                 <!--HandyControl控件库引用-->
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
