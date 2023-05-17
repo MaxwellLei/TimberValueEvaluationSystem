@@ -1,10 +1,20 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿  <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--消息通知-->
+    <s:String x:Key="SuccessfullyModified">修改成功</s:String>
+    <s:String x:Key="CancelModified">取消修改</s:String>
+    <s:String x:Key="OpenFolderSuccessfully">打开文件成功</s:String>
+    <s:String x:Key="FileReadSuccessfully">文件读取成功</s:String>
+      
+      
+    <!--启动窗体-->
+    <s:String x:Key="Loading">正在启动中...</s:String>
+      
     <!--主窗体-->
     <s:String x:Key="Show">显示</s:String>
     <s:String x:Key="Quit">退出</s:String>
-    <s:String x:Key="Title">林木评价系统</s:String>
+    <s:String x:Key="Title">林木价值评估系统</s:String>
     <s:String x:Key="Home">主页</s:String>
     <s:String x:Key="Map">地图</s:String>
     <s:String x:Key="Model">模型</s:String>
@@ -23,13 +33,15 @@
     <s:String x:Key="Layers">图层</s:String>
     <s:String x:Key="ImportSHPFile">导入Shp文件</s:String>
     <s:String x:Key="Screenshot">截图</s:String>
-    <s:String x:Key="Focus">截图</s:String>
+    <s:String x:Key="Focus">聚焦</s:String>
     <s:String x:Key="UnloadLayer">卸载图层</s:String>
     <s:String x:Key="MoveLayerUp">上移图层</s:String>
     <s:String x:Key="MoveLayerDown">下移图层</s:String>
     <s:String x:Key="LayerOnTop">图层置顶</s:String>
     <s:String x:Key="LayerBottom">图层置底</s:String>
     <s:String x:Key="More">更多</s:String>
+    <s:String x:Key="Scale">比例尺:</s:String>
+    <s:String x:Key="Coordinate">坐标:</s:String>
 
     <!--模型Page-->
     <s:String x:Key="SiteQualityModel">立地质量模型</s:String>
@@ -37,7 +49,70 @@
     
     <!--数据Page-->
     <s:String x:Key="Database">数据库</s:String>
+    <s:String x:Key="Refresh">刷新</s:String>
+    <s:String x:Key="SetDatabaseLocation">设定数据库位置</s:String>
+    <s:String x:Key="NewDatabase">新建数据库</s:String>
+    <s:String x:Key="DeleteDatabase">删除数据库</s:String>
+    <s:String x:Key="OpenFileLocation">打开文件位置</s:String>
+    <s:String x:Key="LocalDatabase">💾 本地数据库</s:String>
+    <s:String x:Key="LocalDatabaseNull">本地数据库为空</s:String>
+    <s:String x:Key="CloudDatabase">☁️ 远程数据库</s:String>
+    <s:String x:Key="CloudDatabaseNull">远程数据库为空</s:String>
+    <s:String x:Key="DataTable">数据表</s:String>
+    <s:String x:Key="NewDataTable">新建数据表</s:String>
+    <s:String x:Key="DeleteDataTable">删除数据表</s:String>
+    <s:String x:Key="DatabaseNull">未指定数据库 或 数据库为空</s:String>
+    <s:String x:Key="TableDataNull">表内数据为空</s:String>
 
     <!--设置Page-->
-
+    <s:String x:Key="GeneralSettings">常规设置</s:String>
+    <s:String x:Key="PersonalizedSettings">个性化设置</s:String>
+    <s:String x:Key="About">关于</s:String>
+    <s:String x:Key="RelativePath">相关路径</s:String>
+    <s:String x:Key="DatabasePath">数据库位置</s:String>
+    <s:String x:Key="DefaultPath">默认位置</s:String>
+    <s:String x:Key="CustomPath">自定义文件位置</s:String>
+    <s:String x:Key="WorkspacePath">工作区位置</s:String>
+    <s:String x:Key="LanguageAndFont">语言 &amp; 字体</s:String>
+    <s:String x:Key="Language">语言</s:String>
+    <s:String x:Key="Font">字体</s:String>
+    <s:String x:Key="FontSize">字体大小</s:String>
+    <s:String x:Key="Notification">消息通知</s:String>
+    <s:String x:Key="NotificationAutoCloseTime">自动关闭时间</s:String>
+    <s:String x:Key="Second5">5秒</s:String>
+    <s:String x:Key="Second4">4秒</s:String>
+    <s:String x:Key="Second3">3秒</s:String>
+    <s:String x:Key="Second2">2秒</s:String>
+    <s:String x:Key="Other">其他</s:String>
+    <s:String x:Key="Boot">开机启动</s:String>
+    <s:String x:Key="AutomaticallyCheckForUpdates">自动检查更新</s:String>
+    <s:String x:Key="CheckForUpdates">检查更新</s:String>
+    <s:String x:Key="ExitProgramMode">退出程序方式</s:String>
+    <s:String x:Key="MinimizeToTray">最小化到托盘</s:String>
+    <s:String x:Key="Exit">直接退出</s:String>
+    <s:String x:Key="StartAndInterface">启动 &amp; 界面</s:String>
+    <s:String x:Key="ThemeMode">应用主题</s:String>
+    <s:String x:Key="LightColor">浅色</s:String>
+    <s:String x:Key="DarkColor">深色</s:String>
+    <s:String x:Key="FollowTheSystem">跟随系统</s:String>
+    <s:String x:Key="StartImg">启动图</s:String>
+    <s:String x:Key="DefaultRandom">默认随机</s:String>
+    <s:String x:Key="FixedDisplay">固定显示</s:String>
+    <s:String x:Key="AddStartImg">添加启动图</s:String>
+    <s:String x:Key="LayerPopupModel">图层弹出方式</s:String>
+    <s:String x:Key="Cover">覆盖</s:String>
+    <s:String x:Key="Press">挤压</s:String>
+    <s:String x:Key="Push">推拉</s:String>
+    <s:String x:Key="SeraphineWords">渺小的声音从不知道害怕，转过街角，你的故事从此遍及天下</s:String>
+    <s:String x:Key="ProgramNotes0">项目利用ArcGis地理空间信息和机器学习以及相关价值评估算法，将数据库中的数据进行相关运算辅助操作人员进行林木价值评估。</s:String>
+    <s:String x:Key="ProgramNotes1">如果你感兴趣，请给我的项目 Star ♥️</s:String>
+    <s:String x:Key="Quote">引用感谢支持</s:String>
+    <s:String x:Key="Version">（版本：</s:String>
+    <s:String x:Key="Quote1">📌地理信息相关：</s:String>
+    <s:String x:Key="Quote2">📌部分控件：</s:String>
+    <s:String x:Key="Quote3">📌图表支持：</s:String>
+    <s:String x:Key="Quote4">📌机器学习CLR：</s:String>
+    <s:String x:Key="Quote5">📌架构工具：</s:String>
+    <s:String x:Key="Quote6">📌数据库支持：</s:String>
+    <s:String x:Key="ReleaseNotes">更新说明</s:String>
 </ResourceDictionary>

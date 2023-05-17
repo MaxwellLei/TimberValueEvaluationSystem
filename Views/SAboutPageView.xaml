@@ -21,7 +21,7 @@
                 <Border Style="{StaticResource BorderRegion}" Margin="5 5 5 0"
                                             BorderThickness="5 0 0 0" BorderBrush="#42b983" Background="#ecf8f2">
                     <WrapPanel>
-                        <TextBlock Text="渺小的声音从不知道害怕，转过街角，你的故事从此遍及天下" VerticalAlignment="Center" 
+                        <TextBlock Text="{DynamicResource SeraphineWords}" VerticalAlignment="Center" 
                                HorizontalAlignment="Stretch" Foreground="Black" FontSize="16"/>
                         <Button Content="🎵" FontSize="16" BorderThickness="1" 
                                 Margin="5 0 0 0" Click="Button_Click"/>
@@ -29,7 +29,7 @@
                 </Border>
 
                 <!--关于部分-->
-                <hc:Divider Content="关于" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+                <hc:Divider Content="{DynamicResource About}" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
                             LineStrokeThickness="5"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -65,54 +65,70 @@
                             <hc:Shield Subject="Windows" Status=">=7.0" Margin="4,0,0,0" Color="#ea4335"/>
                         </WrapPanel>
 
-                        <TextBlock Text="林木价值评估系统" FontSize="20" FontWeight="Bold" Margin="0 10 0 0"/>
-                        <TextBlock Text="项目利用ArcGis地理空间信息和机器学习以及相关价值评估算法，将数据库中的数据进行相关运算辅助操作人员进行林木价值评估。"
+                        <TextBlock Text="{DynamicResource Title}" FontSize="20" FontWeight="Bold" Margin="0 10 0 0"/>
+                        <TextBlock Text="{DynamicResource ProgramNotes0}"
                                    FontSize="16" Margin="0 10 0 0" TextWrapping="Wrap"/>
-                        <TextBlock Text="如果你感兴趣，请给我的项目 Star ♥️" Foreground="Blue" FontSize="16" 
+                        <TextBlock Text="{DynamicResource ProgramNotes1}" Foreground="Blue" FontSize="16" 
                                    Margin="0 5 0 0" FontWeight="Bold"/>
-                        <TextBlock Text="引用感谢支持" FontSize="20" FontWeight="Bold" Margin="0 10 0 0"/>
+                        <TextBlock Text="{DynamicResource Quote}" FontSize="20" FontWeight="Bold" Margin="0 10 0 0"/>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌地理信息相关：" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote1}" FontSize="16"/>
                             <TextBlock Text="ArcGIS" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：100.9.0）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="100.9.0）" FontSize="16"/>
                         </WrapPanel>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌部分控件：" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote2}" FontSize="16"/>
                             <TextBlock Text="HandyControl" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：3.4.0）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="3.4.0）" FontSize="16"/>
                         </WrapPanel>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌图表支持：" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote3}" FontSize="16"/>
                             <TextBlock Text="LiveCharts2" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：2.0.0-beta）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="2.0.0-beta）" FontSize="16"/>
                         </WrapPanel>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌机器学习CLR：" FontSize="16"/>
-                            <TextBlock Text="微软 OnnxRuntime" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：1.12.0）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote4}" FontSize="16"/>
+                            <TextBlock Text="OnnxRuntime" FontSize="16" Foreground="#1182c3"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="1.12.0）" FontSize="16"/>
                         </WrapPanel>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌架构工具：" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote5}" FontSize="16"/>
                             <TextBlock Text="MvvmLightLibs" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：5.4.1.1）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="5.4.1.1）" FontSize="16"/>
                         </WrapPanel>
                         <WrapPanel Margin="0 5 0 0">
-                            <TextBlock Text="📌数据库支持：" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Quote6}" FontSize="16"/>
                             <TextBlock Text="SQLite" FontSize="16" Foreground="#1182c3"/>
-                            <TextBlock Text="（版本：1.0.117）" FontSize="16"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="1.0.117）" FontSize="16"/>
                         </WrapPanel>
 
                     </StackPanel>
                 </Grid>
 
                 <!--更新说明部分-->
-                <hc:Divider Content="更新说明" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
-                            LineStrokeThickness="5"/>
+                <hc:Divider Content="{DynamicResource ReleaseNotes}" HorizontalContentAlignment="Left" 
+                            FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
                 <StackPanel>
+                    <GroupBox Header="【2023/5/16】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
+                            <TextBlock Text="&#9312; 新增：多语言文本及其切换基本完成" Foreground="Green"/>
+                            <TextBlock Text="&#9312; 新增：开机自动启动" Foreground="Green"/>
+                            <TextBlock Text="&#9312; 新增：通知定时关闭" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 修复：切换英文部分控件显示异常问题" Foreground="Red"/>
+                        </StackPanel>
+                    </GroupBox>
                     <GroupBox Header="【2023/5/15】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
-                            <TextBlock Text="&#9312; 修复：设置部分功能导致程序崩溃问题" Foreground="Red"/>
+                            <TextBlock Text="&#9312; 新增：多语言适配" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 修复：设置部分功能导致程序崩溃问题" Foreground="Red"/>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="【2023/5/14】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"

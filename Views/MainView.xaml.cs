@@ -11,6 +11,7 @@ using HandyControl.Controls;
 using TimberValueEvaluationSystem.Views;
 using System.Windows.Input;
 using System.Runtime.Serialization.Json;
+using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem
 {
@@ -22,6 +23,8 @@ namespace TimberValueEvaluationSystem
             //绑定ViewModel
             this.DataContext = new MainViewModel(Nav);
             Nav.Navigate(HomePageView.GetPage());
+
+            
         }
 
         //窗体加载完成后的按钮动画

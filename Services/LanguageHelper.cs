@@ -9,6 +9,21 @@ namespace TimberValueEvaluationSystem.Services
 {
     public static class LanguageHelper
     {
+        //初始化语言
+        public static void InitializeLanguage()
+        {
+            string language = ConfigHelper.GetConfig("language");
+            if (language != "")
+            {
+                LanguageHelper.ChangeLanguage(
+                    ConverterHelper.LanguageConverter(Convert.ToInt32(language)));
+            }
+            else
+            {
+                LanguageHelper.ChangeLanguage("zh-CN");
+            }
+            
+        }
         //切换语言
         public static void ChangeLanguage(string language)
         {

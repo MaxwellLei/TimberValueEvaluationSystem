@@ -164,7 +164,7 @@ namespace TimberValueEvaluationSystem.ViewModels
                     InputData();
                     ModelResult = ConverterHelper.SiteQualityModelConverter(SiteQualityModel(testdata));
                     PieChartInit();
-                    Growl.Success("预测成功");
+                    MessageHelper.Success("预测成功");
                 }
                 IndexCount += value;
             }

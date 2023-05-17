@@ -46,13 +46,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public int Font
         {
             get { return font; }
-            set { Set(ref font, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref font, value);}
         }
 
         private int fontSize;     //字体大小设置(0是12;1是13;2是14;3是15;4是16)
@@ -72,26 +66,14 @@ namespace TimberValueEvaluationSystem.ViewModels
         public int AutoOffTime
         {
             get { return autoOffTime; }
-            set { Set(ref autoOffTime, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref autoOffTime, value);}
         }
 
         private bool boot;  //开机自动启动
         public bool Boot
         {
             get { return boot; }
-            set { Set(ref boot, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref boot, value);}
         }
 
         private bool autoCheck;  //自动检查更新
@@ -124,8 +106,9 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand OpenWsFolderCommand { get; private set; }   //打开工作区文件夹命令
         public RelayCommand DbLocationChangedCommand { get; private set; }   //修改数据库位置命令
         public RelayCommand WsLocationChangedCommand { get; private set; }   //修改工作区位置命令
-
-        public RelayCommand LanguageChangedCommand { get; private set; }   //修改工作区位置命令
+        public RelayCommand AutoOffTimeChangedCommand { get; private set; }   //修改通知自动关闭时间命令
+        public RelayCommand LanguageChangedCommand { get; private set; }   //修改语言命令
+        public RelayCommand BootCommand { get; private set; }   //开机启动命令
 
         //初始化
         public SCommonPageViewModel()
@@ -135,9 +118,38 @@ namespace TimberValueEvaluationSystem.ViewModels
             DbLocationChangedCommand = new RelayCommand(ExecuteDbLocationChangedCommand);
             WsLocationChangedCommand = new RelayCommand(ExecuteWsLocationChangedCommand);
             LanguageChangedCommand = new RelayCommand(ExecuteLanguageChangedCommand);
-
+            AutoOffTimeChangedCommand = new RelayCommand(ExecuteAutoOffTimeChangedCommand);
+            BootCommand = new RelayCommand(ExecuteBootCommand);
             ReadConfig();   //读取配置文件
             changeConfig = true;
+        }
+
+        //开机自动启动
+        private void ExecuteBootCommand()
+        {
+            BootHelper.SetAutoRun(Boot);
+            MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
+        }
+
+        //修改消息通知时间
+        private void ExecuteAutoOffTimeChangedCommand()
+        {
+            switch (AutoOffTime)
+            {
+                case 0:
+                    MessageHelper.waitTime = 5;
+                    break;
+                case 1:
+                    MessageHelper.waitTime = 4;
+                    break;
+                case 2:
+                    MessageHelper.waitTime = 3;
+                    break;
+                case 3:
+                    MessageHelper.waitTime = 2;
+                    break;
+            }
+            MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
         }
 
         //修改语言
@@ -146,11 +158,14 @@ namespace TimberValueEvaluationSystem.ViewModels
             if (Language == 0)
             {
                 LanguageHelper.ChangeLanguage("zh-CN");
+                ConfigHelper.SetConfig("language", "0");
             }
             else
             {
                 LanguageHelper.ChangeLanguage("en-US");
+                ConfigHelper.SetConfig("language", "1");
             }
+            MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
         }
 
         //修改数据库位置
@@ -163,7 +178,7 @@ namespace TimberValueEvaluationSystem.ViewModels
                 {
                     Services.ConfigHelper.SetConfig("database_location", "0");
                     Services.ConfigHelper.SetConfig("database_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的数据库位置
-                    Growl.Info("修改成功");
+                    MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
                 }
                 isInsideChange = false;
             }
@@ -174,13 +189,13 @@ namespace TimberValueEvaluationSystem.ViewModels
                 {
                     Services.ConfigHelper.SetConfig("database_location", "1");
                     Services.ConfigHelper.SetConfig("database_location_path", dbLocationPath);  //如果是自定义设置，则保存配置文件中的数据库位置
-                    Growl.Info("修改成功");
+                    MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
                 }
                 else
                 {
                     isInsideChange = true;
                     DbLocation = 0;
-                    Growl.Warning("取消修改");
+                    MessageHelper.Warning((string)Application.Current.Resources["CancelModified"]);
                 }
             }
         }
@@ -194,9 +209,10 @@ namespace TimberValueEvaluationSystem.ViewModels
             {
                 if (!isInsideChange)
                 {
-                    Services.ConfigHelper.SetConfig("workspace_location", "0");
-                    Services.ConfigHelper.SetConfig("workspace_location_path", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的工作区位置
-                    Growl.Info("修改成功");
+                    ConfigHelper.SetConfig("workspace_location", "0");
+                    ConfigHelper.SetConfig("workspace_location_path", 
+                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));  //如果是默认设置，则删除配置文件中的工作区位置
+                    MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
                 }
                 isInsideChange = false;
             }
@@ -207,13 +223,13 @@ namespace TimberValueEvaluationSystem.ViewModels
                 {
                     Services.ConfigHelper.SetConfig("workspace_location", "1");
                     Services.ConfigHelper.SetConfig("workspace_location_path", wpLocationPath);  //如果是自定义设置，则保存配置文件中的工作区位置
-                    Growl.Info("修改成功");
+                    MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
                 }
                 else
                 {
                     isInsideChange = true;
                     WpLocation = 0;
-                    Growl.Warning("取消修改");
+                    MessageHelper.Warning((string)Application.Current.Resources["CancelModified"]);
                 }
 
             }
@@ -225,14 +241,14 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ExecuteOpenDbFolderCommand()
         {
             FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
-            Growl.Success("打开文件夹成功");
+            MessageHelper.Success((string)Application.Current.Resources["OpenFolderSuccessfully"]);
         }
 
         //打开指定工作区文件夹
         private void ExecuteOpenWsFolderCommand()
         {
             FileHelper.Openxplorer(ConfigHelper.GetConfig("database_location_path"));
-            Growl.Success("打开文件夹成功");
+            MessageHelper.Success((string)Application.Current.Resources["OpenFolderSuccessfully"]);
         }
 
         //读取配置文件

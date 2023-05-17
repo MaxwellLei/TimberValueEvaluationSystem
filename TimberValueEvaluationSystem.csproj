@@ -9,10 +9,15 @@
     <ApplicationIcon>Resources\Icon\logo_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Data\Database\Database.db" />
+    <None Remove="Resources\Audio\Seraphine_Quote_en-US.wav" />
+    <None Remove="Resources\Audio\Seraphine_Quote_zh-CN.wav" />
     <None Remove="Resources\Config\App.config" />
-    <None Remove="Resources\Audio\55158959.wav" />
     <None Remove="Resources\Cursors\pointer.cur" />
     <None Remove="Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf" />
     <None Remove="Resources\Icon\iconfont.ttf" />
@@ -56,10 +61,13 @@
     <Content Include="Data\Database\Database.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Audio\Seraphine_Quote_en-US.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Config\App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Audio\55158959.wav">
+    <Content Include="Resources\Audio\Seraphine_Quote_zh-CN.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Cursors\pointer.cur">

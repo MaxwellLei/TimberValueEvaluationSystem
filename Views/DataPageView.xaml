@@ -34,11 +34,11 @@
                         <Grid>
                             <Grid.ContextMenu>
                                 <ContextMenu Placement="Right">
-                                    <MenuItem Header="刷新" Command="{Binding RefreshDbCommand}"/>
-                                    <MenuItem Header="设定数据库位置" Command="{Binding SetDatabaseLocationCommand}"/>
-                                    <MenuItem Header="新建数据库" Command="{Binding NewDBTableCommand}"/>
-                                    <MenuItem Header="删除数据库" Command="{Binding DeleteDBTableCommand}"/>
-                                    <MenuItem Header="打开文件所在位置" Command="{Binding OpenDbFolderCommand}"/>
+                                    <MenuItem Header="{DynamicResource Refresh}" Command="{Binding RefreshDbCommand}"/>
+                                    <MenuItem Header="{DynamicResource SetDatabaseLocation}" Command="{Binding SetDatabaseLocationCommand}"/>
+                                    <MenuItem Header="{DynamicResource NewDatabase}" Command="{Binding NewDBTableCommand}"/>
+                                    <MenuItem Header="{DynamicResource DeleteDatabase}" Command="{Binding DeleteDBTableCommand}"/>
+                                    <MenuItem Header="{DynamicResource OpenFileLocation}" Command="{Binding OpenDbFolderCommand}"/>
                                 </ContextMenu>
                             </Grid.ContextMenu>
                             <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
-                                <TextBlock Text="💾 本地数据库" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                <TextBlock Text="{DynamicResource LocalDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="14"/>
                             </Border>
                             <ListBox  BorderThickness="0" ItemsSource="{Binding DatabaseTree}"
@@ -60,7 +60,7 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                            <TextBlock Text="本地数据库为空" Grid.Row="1" HorizontalAlignment="Center" 
+                            <TextBlock Text="{DynamicResource LocalDatabaseNull}" Grid.Row="1" HorizontalAlignment="Center" 
                                        Visibility="{Binding IsListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"
                                        VerticalAlignment="Center"/>
                         </Grid>
@@ -73,7 +73,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
-                                <TextBlock Text="☁️ 远程数据库" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                <TextBlock Text="{DynamicResource CloudDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="14"/>
                             </Border>
                             <!--<ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
@@ -86,20 +86,20 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>-->
-                            <TextBlock Text="远程数据库为空" Grid.Row="1"
+                            <TextBlock Text="{DynamicResource CloudDatabaseNull}" Grid.Row="1"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                 </TabItem>
                 
                 <!--数据表-->
-                <TabItem Header="数据表" Background="#eff0f1">
+                <TabItem Header="{DynamicResource DataTable}" Background="#eff0f1">
                     <Grid Background="#eff0f1">
                         <Grid.ContextMenu>
                             <ContextMenu Placement="Right">
-                                <MenuItem Header="刷新" Command="{Binding NewDatabaseCommand}"/>
-                                <MenuItem Header="新建数据表" Command="{Binding NewDatabaseCommand}"/>
-                                <MenuItem Header="删除数据表" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="{DynamicResource Refresh}" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="{DynamicResource NewDataTable}" Command="{Binding NewDatabaseCommand}"/>
+                                <MenuItem Header="{DynamicResource DeleteDataTable}" Command="{Binding NewDatabaseCommand}"/>
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
@@ -112,7 +112,7 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <TextBlock Text="未指定数据库 或 数据库为空" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
+                        <TextBlock Text="{DynamicResource DatabaseNull}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
                                    Visibility="{Binding IsTableListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </TabItem>
@@ -149,7 +149,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </hc:Pagination>
-            <TextBlock Text="表内数据为空" HorizontalAlignment="Center" VerticalAlignment="Center"
+            <TextBlock Text="{DynamicResource TableDataNull}" HorizontalAlignment="Center" VerticalAlignment="Center"
                        Visibility="{Binding IsTableDataEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
         </Grid>

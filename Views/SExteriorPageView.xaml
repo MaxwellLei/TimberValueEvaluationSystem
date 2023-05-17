@@ -17,42 +17,42 @@
         </Grid.ColumnDefinitions>
         <hc:ScrollViewer Grid.Column="1">
             <StackPanel HorizontalAlignment="Stretch">
-                <hc:Divider Content="启动 &amp; 界面" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
-                <GroupBox Header="应用主题" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                <hc:Divider Content="{DynamicResource StartAndInterface}" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
+                <GroupBox Header="{DynamicResource ThemeMode}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
                               FontSize="16" Margin="0 0 0 5">
                     <ComboBox SelectedIndex="0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right">
                         <ComboBox.Items>
-                            <sys:String>浅色</sys:String>
-                            <sys:String>深色</sys:String>
-                            <sys:String>跟随系统</sys:String>
+                            <TextBlock Text="{DynamicResource LightColor}"/>
+                            <TextBlock Text="{DynamicResource DarkColor}"/>
+                            <TextBlock Text="{DynamicResource FollowTheSystem}"/>
                         </ComboBox.Items>
                     </ComboBox>
                 </GroupBox>
-                <GroupBox Header="启动图" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                <GroupBox Header="{DynamicResource StartImg}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5">
                     <StackPanel>
                         <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right">
                             <ComboBox SelectedIndex="0" FontSize="12" >
                                 <ComboBox.Items>
-                                    <sys:String>默认随机</sys:String>
-                                    <sys:String>固定显示</sys:String>
+                                    <TextBlock Text="{DynamicResource DefaultRandom}"/>
+                                    <TextBlock Text="{DynamicResource FixedDisplay}"/>
                                 </ComboBox.Items>
                             </ComboBox>
-                            <Button Content="添加启动图" Margin="10 0 0 0"/>
+                            <Button Content="{DynamicResource AddStartImg}" Margin="10 0 0 0"/>
                         </WrapPanel>
                         <hc:CoverFlow x:Name="CoverFlowMain" VerticalAlignment="Stretch" Height="270"/>
                     </StackPanel>
                 </GroupBox>
 
 
-                <hc:Divider Content="地图" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
-                <GroupBox Header="图层弹出方式" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                <hc:Divider Content="{DynamicResource Map}" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
+                <GroupBox Header="{DynamicResource LayerPopupModel}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
                               FontSize="16" Margin="0 0 0 5">
                     <ComboBox SelectedIndex="0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right">
                         <ComboBox.Items>
-                            <sys:String>推拉</sys:String>
-                            <sys:String>覆盖</sys:String>
-                            <sys:String>挤压</sys:String>
+                            <TextBlock Text="{DynamicResource Push}"/>
+                            <TextBlock Text="{DynamicResource Press}"/>
+                            <TextBlock Text="{DynamicResource Cover}"/>
                         </ComboBox.Items>
                     </ComboBox>
                 </GroupBox>

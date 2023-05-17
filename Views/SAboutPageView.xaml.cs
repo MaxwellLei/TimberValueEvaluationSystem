@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem.Views
 {
@@ -39,7 +41,15 @@ namespace TimberValueEvaluationSystem.Views
         //播放Seraphine语音
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var player = new SoundPlayer(@"Resources/Audio/55158959.wav");
+            SoundPlayer player;
+            if (Services.ConfigHelper.GetConfig("language") == "0")
+            {
+                player = new SoundPlayer(@"Resources/Audio/Seraphine_Quote_zh-CN.wav");
+            }
+            else
+            {
+                player = new SoundPlayer(@"Resources/Audio/Seraphine_Quote_en-US.wav");
+            }
             player.Play();
         }
     }

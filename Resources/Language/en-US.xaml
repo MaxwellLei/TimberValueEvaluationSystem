@@ -1,6 +1,117 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--消息通知-->
+    <s:String x:Key="SuccessfullyModified">Modified Successfully</s:String>
+    <s:String x:Key="CancelModified">Cancel Modified</s:String>
+    <s:String x:Key="OpenFolderSuccessfully">Open Folder Successfully</s:String>
+    <s:String x:Key="FileReadSuccessfully">File Read Successfully</s:String>
+    
+    <!--启动窗体-->
+    <s:String x:Key="Loading">Loading...</s:String>
+
+    <!--主窗体-->
+    <s:String x:Key="Show">Show</s:String>
+    <s:String x:Key="Quit">Quit</s:String>
     <s:String x:Key="Title">TimberValueEvaluationSystem</s:String>
     <s:String x:Key="Home">Home</s:String>
+    <s:String x:Key="Map">Map</s:String>
+    <s:String x:Key="Model">Model</s:String>
+    <s:String x:Key="Data">Data</s:String>
+    <s:String x:Key="Setting">Setting</s:String>
+
+    <!--主页Page-->
+    <s:String x:Key="NewCard">New Card</s:String>
+    <s:String x:Key="DeleteCard">Delete Card</s:String>
+
+    <!--地图Page-->
+    <s:String x:Key="ImportFile">Import File</s:String>
+    <s:String x:Key="Unhighlight">Unhighlight</s:String>
+    <s:String x:Key="EditMode">Edit Mode</s:String>
+    <s:String x:Key="ToolBar">ToolBar</s:String>
+    <s:String x:Key="Layers">Layers</s:String>
+    <s:String x:Key="ImportSHPFile">Import SHP File</s:String>
+    <s:String x:Key="Screenshot">Screenshot</s:String>
+    <s:String x:Key="Focus">Focus</s:String>
+    <s:String x:Key="UnloadLayer">Unload Layer</s:String>
+    <s:String x:Key="MoveLayerUp">Move Layer Up</s:String>
+    <s:String x:Key="MoveLayerDown">Move Layer Down</s:String>
+    <s:String x:Key="LayerOnTop">Layer On Top</s:String>
+    <s:String x:Key="LayerBottom">Layer Bottom</s:String>
+    <s:String x:Key="More">More</s:String>
+    <s:String x:Key="Scale">Scale:</s:String>
+    <s:String x:Key="Coordinate">Coordinate:</s:String>
+
+    <!--模型Page-->
+    <s:String x:Key="SiteQualityModel">Site Quality Model</s:String>
+    <s:String x:Key="ImportModel">Import Model</s:String>
+
+    <!--数据Page-->
+    <s:String x:Key="Database">Database</s:String>
+    <s:String x:Key="Refresh">Refresh</s:String>
+    <s:String x:Key="SetDatabaseLocation">Set Database Location</s:String>
+    <s:String x:Key="NewDatabase">New Database</s:String>
+    <s:String x:Key="DeleteDatabase">Delete Database</s:String>
+    <s:String x:Key="OpenFileLocation">Open File Location</s:String>
+    <s:String x:Key="LocalDatabase">💾 Local Database</s:String>
+    <s:String x:Key="LocalDatabaseNull">Local Database is Empty</s:String>
+    <s:String x:Key="CloudDatabase">☁️ Cloud Database</s:String>
+    <s:String x:Key="CloudDatabaseNull">Cloud Database is Empty</s:String>
+    <s:String x:Key="DataTable">DataTable</s:String>
+    <s:String x:Key="NewDataTable">New DataTable</s:String>
+    <s:String x:Key="DeleteDataTable">Delete DataTable</s:String>
+    <s:String x:Key="DatabaseNull">No database specified or database is empty</s:String>
+    <s:String x:Key="TableDataNull">The data in the table is empty</s:String>
+
+    <!--设置Page-->
+    <s:String x:Key="GeneralSettings">General</s:String>
+    <s:String x:Key="PersonalizedSettings">Personalized</s:String>
+    <s:String x:Key="About">About</s:String>
+    <s:String x:Key="RelativePath">Relative path</s:String>
+    <s:String x:Key="DatabasePath">Database location</s:String>
+    <s:String x:Key="DefaultPath">Default location</s:String>
+    <s:String x:Key="CustomPath">Custom file location</s:String>
+    <s:String x:Key="WorkspacePath">Workspace location</s:String>
+    <s:String x:Key="LanguageAndFont">Language &amp; Font</s:String>
+    <s:String x:Key="Language">Language</s:String>
+    <s:String x:Key="Font">Font</s:String>
+    <s:String x:Key="FontSize">FontSize</s:String>
+    <s:String x:Key="Notification">Notification</s:String>
+    <s:String x:Key="NotificationAutoCloseTime">Auto off time</s:String>
+    <s:String x:Key="Second5">5 Second</s:String>
+    <s:String x:Key="Second4">4 Second</s:String>
+    <s:String x:Key="Second3">3 Second</s:String>
+    <s:String x:Key="Second2">2 Second</s:String>
+    <s:String x:Key="Other">Other</s:String>
+    <s:String x:Key="Boot">Boot</s:String>
+    <s:String x:Key="AutomaticallyCheckForUpdates">Automatically check for updates</s:String>
+    <s:String x:Key="CheckForUpdates">Check for updates</s:String>
+    <s:String x:Key="ExitProgramMode">Exit program mode</s:String>
+    <s:String x:Key="MinimizeToTray">Minimize to tray</s:String>
+    <s:String x:Key="Exit">Exit</s:String>
+    <s:String x:Key="StartAndInterface">Start &amp; Interface</s:String>
+    <s:String x:Key="ThemeMode">Theme</s:String>
+    <s:String x:Key="LightColor">Light</s:String>
+    <s:String x:Key="DarkColor">Dark</s:String>
+    <s:String x:Key="FollowTheSystem">Follow System</s:String>
+    <s:String x:Key="StartImg">Start Image</s:String>
+    <s:String x:Key="DefaultRandom">Random</s:String>
+    <s:String x:Key="FixedDisplay">Fixed Display</s:String>
+    <s:String x:Key="AddStartImg">Add Start Image</s:String>
+    <s:String x:Key="LayerPopupModel">Layer PopUp Model</s:String>
+    <s:String x:Key="Cover">Cover</s:String>
+    <s:String x:Key="Press">Press</s:String>
+    <s:String x:Key="Push">Push</s:String>
+    <s:String x:Key="SeraphineWords">Maybe the world's not ready for me. I don't mind waiting</s:String>
+    <s:String x:Key="ProgramNotes0">The project uses ArcGis geospatial information, machine learning and related value evaluation algorithms to perform related calculations on the data in the database to assist operators in forest tree value evaluation.</s:String>
+    <s:String x:Key="ProgramNotes1">If you are interested, please give me a Star ♥️</s:String>
+    <s:String x:Key="Quote">Thanks for the support</s:String>
+    <s:String x:Key="Version">（Version：</s:String>
+    <s:String x:Key="Quote1">📌Geographical Information：</s:String>
+    <s:String x:Key="Quote2">📌Controls：</s:String>
+    <s:String x:Key="Quote3">📌Chart Support：</s:String>
+    <s:String x:Key="Quote4">📌Machine Learning：</s:String>
+    <s:String x:Key="Quote5">📌Architecture Tool：</s:String>
+    <s:String x:Key="Quote6">📌Database Support：</s:String>
+    <s:String x:Key="ReleaseNotes">Release Notes</s:String>
 </ResourceDictionary>

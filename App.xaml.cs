@@ -14,6 +14,10 @@ namespace TimberValueEvaluationSystem
     /// </summary>
     public partial class App : Application
     {
-
+        App()
+        {
+            
+            
+        }
     }
 }

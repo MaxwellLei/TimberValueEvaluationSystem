@@ -119,7 +119,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ExecuteWheelChangedCommand()
         {
             //获取缩放倍数
-            ZoomScale = "比例尺" + "1" + ":" + Math.Floor(MyMapView.MapScale);
+            ZoomScale = (string)Application.Current.Resources["Scale"] + "1" + ":" + Math.Floor(MyMapView.MapScale);
         }
 
         //获取前端的信息
@@ -133,7 +133,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             if(mousePosition != null)
             {
                 //改变数据通知前端
-                MousePosition = "位置:" + Math.Floor(mousePosition.X) + " m" + "," + Math.Floor(mousePosition.Y) + " m";
+                MousePosition = (string)Application.Current.Resources["Coordinate"] + Math.Floor(mousePosition.X) + " m" + "," + Math.Floor(mousePosition.Y) + " m";
             }
 
             //SpatialReference spatialRef = MyMapView.Map.SpatialReference;
@@ -170,7 +170,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             ReadShpFileAsync(ShpFilePath);  //打开Shp文件
             MapLayers = new ObservableCollection<Layer>(Map.OperationalLayers);     //更新图层数据
             //ExecuteWheelChangedCommand();   //更新比例尺
-            Growl.Success("文件读取成功");
+            MessageHelper.Success((string)Application.Current.Resources["FileReadSuccessfully"]);
         }
 
         //高亮显示面

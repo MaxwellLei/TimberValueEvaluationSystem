@@ -5,6 +5,7 @@ using LiveChartsCore.SkiaSharpView;
 using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using TimberValueEvaluationSystem.Services;
 using TimberValueEvaluationSystem.Views;
 
 
@@ -30,7 +31,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             DataPage = new RelayCommand(ExecuteDataPage);
             SettingPage = new RelayCommand(ExecuteSettingPage);
 
-            
+            FunInit();
         }
 
         //切换地图命令
@@ -63,6 +64,14 @@ namespace TimberValueEvaluationSystem.ViewModels
         {
             Nav.Navigate(SettingPageView.GetPage());
             SettingPageView.RefeshAn();
+        }
+
+        //功能初始化
+        private void FunInit()
+        {
+            //初始化自动关闭时间
+            MessageHelper.waitTime = Convert.ToInt32(
+                ConfigHelper.GetConfig("auto_off_time"));
         }
     }
 }

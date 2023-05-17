@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using TimberValueEvaluationSystem.Services;
 using TimberValueEvaluationSystem.Views;
 
 namespace TimberValueEvaluationSystem.Views
@@ -22,6 +23,7 @@ namespace TimberValueEvaluationSystem.Views
         public StartView()
         {
             InitializeComponent();
+            LanguageHelper.InitializeLanguage();
             // 异步执行启动过程
             Task.Run(() =>
             {
