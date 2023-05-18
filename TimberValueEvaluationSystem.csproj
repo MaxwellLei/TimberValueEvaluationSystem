@@ -1,0 +1,162 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\Icon\logo_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Database\Database.db" />
+    <None Remove="Resources\Audio\Seraphine_Quote_en-US.wav" />
+    <None Remove="Resources\Audio\Seraphine_Quote_zh-CN.wav" />
+    <None Remove="Resources\Config\App.config" />
+    <None Remove="Resources\Cursors\pointer.cur" />
+    <None Remove="Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf" />
+    <None Remove="Resources\Icon\iconfont.ttf" />
+    <None Remove="Resources\Icon\logo_icon.ico" />
+    <None Remove="Resources\Icon\logo_icon.png" />
+    <None Remove="Resources\Image\HomeBg\1.jpg" />
+    <None Remove="Resources\Image\HomeBg\2.jpg" />
+    <None Remove="Resources\Image\Other\Seraphine0.png" />
+    <None Remove="Resources\Image\Other\Seraphine1.jpg" />
+    <None Remove="Resources\Image\Other\Seraphine2.jpg" />
+    <None Remove="Resources\Image\StartPic\1.jpg" />
+    <None Remove="Resources\Image\StartPic\10.jpg" />
+    <None Remove="Resources\Image\StartPic\11.jpg" />
+    <None Remove="Resources\Image\StartPic\12.jpg" />
+    <None Remove="Resources\Image\StartPic\13.jpg" />
+    <None Remove="Resources\Image\StartPic\2.jpg" />
+    <None Remove="Resources\Image\StartPic\3.jpg" />
+    <None Remove="Resources\Image\StartPic\4.jpg" />
+    <None Remove="Resources\Image\StartPic\5.jpg" />
+    <None Remove="Resources\Image\StartPic\6.jpg" />
+    <None Remove="Resources\Image\StartPic\7.jpg" />
+    <None Remove="Resources\Image\StartPic\8.jpg" />
+    <None Remove="Resources\Image\StartPic\9.jpg" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\Classificationmodel.png" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model.onnx" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\modeltest.onnx" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg" />
+    <None Remove="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Esri.ArcGISRuntime.WPF" Version="100.9.0" />
+    <PackageReference Include="HandyControl" Version="3.4.0" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.701" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.12.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Database\Database.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Audio\Seraphine_Quote_en-US.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Config\App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Audio\Seraphine_Quote_zh-CN.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Cursors\pointer.cur">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Fonts\Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon\iconfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon\logo_icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon\logo_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\HomeBg\1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\HomeBg\2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\Other\Seraphine0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\Other\Seraphine1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\Other\Seraphine2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Image\StartPic\9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\Classificationmodel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\modeltest.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\PythonModel\SiteQuality_DecisionTree\model_graph.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewsPopUp\DataPage\DeleteDatabaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Resources\Language\en-US.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Update="Resources\Language\zh-CN.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
+</Project>
