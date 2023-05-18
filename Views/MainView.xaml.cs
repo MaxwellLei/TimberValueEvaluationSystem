@@ -12,6 +12,7 @@ using TimberValueEvaluationSystem.Views;
 using System.Windows.Input;
 using System.Runtime.Serialization.Json;
 using TimberValueEvaluationSystem.Services;
+using System.Diagnostics;
 
 namespace TimberValueEvaluationSystem
 {
@@ -107,10 +108,13 @@ namespace TimberValueEvaluationSystem
         //窗体关闭触发
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // 将窗口隐藏并最小化到托盘
-            e.Cancel = true;
-            this.Visibility = Visibility.Hidden;
-            this.WindowState = WindowState.Minimized;
+            if (ConfigHelper.GetConfig("exit_program_mode") == "0")
+            {
+                // 将窗口隐藏并最小化到托盘
+                e.Cancel = true;
+                this.Visibility = Visibility.Hidden;
+                this.WindowState = WindowState.Minimized;
+            }
         }
 
         //private void NotifyIcon_MouseClick(object? sender, System.Windows.Forms.MouseEventArgs e)
@@ -177,6 +181,19 @@ namespace TimberValueEvaluationSystem
             System.Windows.Application.Current.Shutdown();
         }
 
-        
+        //帮助按钮
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://github.com/L-Seraphine/TimberValueEvaluationSystem/wiki/";
+            //拉起浏览器
+            try
+            {
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+            }
+            catch (Exception ex)
+            {
+                MessageHelper.Warning((string)System.Windows.Application.Current.Resources["OpenBrowserError"] + ex.Message);
+            }
+        }
     }
 }

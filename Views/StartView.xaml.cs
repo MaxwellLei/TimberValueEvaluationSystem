@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -58,14 +60,35 @@ namespace TimberValueEvaluationSystem.Views
             };
             progressBar.BeginAnimation(ProgressBar.ValueProperty, animation);
 
-            //启动窗体的背景图片
-            int pic = new Random().Next(1, 11); 
-            Uri uri = new(@"Resources/Image/StartPic/"+pic+".jpg", UriKind.Relative);
+            DisplayRandomImage();
+        }
+
+        //随机启动图
+        private bool DisplayRandomImage()
+        {
+            //设置图片文件夹的路径
+            string folderPath = System.IO.Path.Combine(Environment.CurrentDirectory, "Resources", "Image", "StartPic");
+
+            //从文件夹中读取所有图片文件
+            string[] files = Directory.GetFiles(folderPath, "*.jpg", SearchOption.TopDirectoryOnly);
+
+            //如果没有找到图片文件，返回
+            if (files.Length == 0)
+            {
+                return false;
+            }
+
+            // 生成一个随机数
+            Random random = new Random();
+            int randomIndex = random.Next(files.Length);
+
+            //将随机选择的图片显示为背景
             ImageBrush imageBrush = new()
             {
-                ImageSource = new BitmapImage(uri)
+                ImageSource = new BitmapImage(new Uri(files[randomIndex], UriKind.Absolute))
             };
             Basemap.Background = imageBrush;
+            return true;
         }
 
         //窗体启动动画
@@ -84,10 +107,10 @@ namespace TimberValueEvaluationSystem.Views
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                // 获取当前鼠标按下的位置
+                //获取当前鼠标按下的位置
                 startPoint = e.GetPosition(this);
 
-                // 设置拖动标记为 true
+                //设置拖动标记为 true
                 isDragging = true;
             }
         }
@@ -96,16 +119,16 @@ namespace TimberValueEvaluationSystem.Views
         {
             if (isDragging)
             {
-                // 获取窗体当前的位置
+                //获取窗体当前的位置
                 double left = this.Left;
                 double top = this.Top;
 
-                // 获取鼠标在窗体内的移动量，并计算出窗体应该移动到的位置
+                //获取鼠标在窗体内的移动量，并计算出窗体应该移动到的位置
                 Point currentPoint = e.GetPosition(this);
                 double newLeft = left + currentPoint.X - startPoint.X;
                 double newTop = top + currentPoint.Y - startPoint.Y;
 
-                // 设置窗体的位置
+                //设置窗体的位置
                 this.Left = newLeft;
                 this.Top = newTop;
             }
@@ -115,7 +138,7 @@ namespace TimberValueEvaluationSystem.Views
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                // 重置拖动标记为 false
+                //重置拖动标记为 false
                 isDragging = false;
             }
         }

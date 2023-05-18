@@ -117,23 +117,37 @@
                           hc:TitleElement.TitlePlacement="Left" FontSize="16" Margin="0 0 0 5" >
                     <ToggleButton Style="{StaticResource ToggleButtonSwitch}" IsChecked="{Binding Boot}" 
                                   HorizontalAlignment="Right">
-                        <i:Interaction.Triggers>
+                        <!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="Checked">
                                 <cmd:EventToCommand Command="{Binding BootCommand}"/>
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        </i:Interaction.Triggers>-->
                     </ToggleButton>
                 </GroupBox>
-                <GroupBox Header="{DynamicResource AutomaticallyCheckForUpdates}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
-                              FontSize="16" Margin="0 0 0 5">
+                <GroupBox Header="{DynamicResource AutomaticallyCheckForUpdates}" Style="{StaticResource GroupBoxOriginal}" 
+                          hc:TitleElement.TitlePlacement="Left" FontSize="16" Margin="0 0 0 5">
                     <StackPanel>
-                        <ToggleButton Style="{StaticResource ToggleButtonSwitch}" HorizontalAlignment="Right" IsChecked="{Binding AutoCheck}"/>
-                        <Button Width="125" Content="{DynamicResource CheckForUpdates}" HorizontalAlignment="Right" Margin="0 10 0 5" />
+                        <ToggleButton Style="{StaticResource ToggleButtonSwitch}" HorizontalAlignment="Right" 
+                                      IsChecked="{Binding AutoCheck}">
+                            <!--<i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Checked">
+                                    <cmd:EventToCommand Command="{Binding AutoCheckUpdateCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>-->
+                        </ToggleButton>
+                        <Button Width="125" Content="{DynamicResource CheckForUpdates}" HorizontalAlignment="Right" 
+                                Margin="0 10 0 5" Command="{Binding CheckUpdateCommand}"/>
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Header="{DynamicResource ExitProgramMode}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
-                              FontSize="16" Margin="0 0 0 5">
-                    <ComboBox SelectedIndex="{Binding ExitMode}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <GroupBox Header="{DynamicResource ExitProgramMode}" Style="{StaticResource GroupBoxOriginal}" 
+                          hc:TitleElement.TitlePlacement="Left" FontSize="16" Margin="0 0 0 5">
+                    <ComboBox SelectedIndex="{Binding ExitMode}" FontSize="12" VerticalAlignment="Center" 
+                              HorizontalAlignment="Right">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding ExitProgrmModeCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <ComboBox.Items>
                             <TextBlock Text="{DynamicResource MinimizeToTray}"/>
                             <TextBlock Text="{DynamicResource Exit}"/>

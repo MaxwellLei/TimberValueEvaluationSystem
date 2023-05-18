@@ -46,7 +46,7 @@
         
         
         <!--图层侧边栏-->
-        <hc:Drawer ShowMode="Push" IsOpen="{Binding IsOpenSidebar}" MaskCanClose="True">
+        <hc:Drawer ShowMode="{Binding DrawerMode}" IsOpen="{Binding IsOpenSidebar}" MaskCanClose="True">
             <Border Background="{DynamicResource RegionBrush}" BorderThickness="0,1,0,0" HorizontalAlignment="Center">
                 <Grid Background="#eeeeee">
                     <Grid.ContextMenu>

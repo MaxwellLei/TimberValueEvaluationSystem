@@ -14,7 +14,7 @@
     <Border Name="rootborder" CornerRadius="8" Background="#35383e">
         <Grid> 
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.04*"/>
+                <RowDefinition Height="36"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <hc:NotifyIcon Name="notifyIcon" Text="{DynamicResource Title}" IsBlink="False" Visibility="Visible" Icon="../Resources/Icon/logo_icon.png">
@@ -27,14 +27,14 @@
                  </hc:NotifyIcon.ContextMenu>
             </hc:NotifyIcon>
             <!--标题栏-->
-            <Border Background="#35383e" CornerRadius="8 8 0 0" >
+            <Border Background="#35383e" CornerRadius="8 8 0 0">
                 <Grid>
-                    <!--<Image Source="../Resources/Image/Other/Seraphine0.png"  HorizontalAlignment="Left" Margin="5 0 0 0"/>-->
+                    <!--<Image Source="../Resources/Image/Other/Seraphine0.png"  HorizontalAlignment="Left" Margin="-2 0 0 0"/>-->
                     <TextBlock Text="{DynamicResource Title}" Foreground="White"
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 2 0">
+                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0">
                         <Button Content="&#xe607;" WindowChrome.IsHitTestVisibleInChrome="True"
-                                Style="{StaticResource TitleButtonStyle2}"/>
+                                Style="{StaticResource TitleButtonStyle2}" Click="Button_Click"/>
                         <Button Content="&#xe67a;" WindowChrome.IsHitTestVisibleInChrome="True"
                                 Style="{StaticResource TitleButtonStyle2}" Click="MinButton_Click"/>
                         <Button Content="&#xf2b2;" WindowChrome.IsHitTestVisibleInChrome="True"

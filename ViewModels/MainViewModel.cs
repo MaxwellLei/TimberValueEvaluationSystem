@@ -72,6 +72,11 @@ namespace TimberValueEvaluationSystem.ViewModels
             //初始化自动关闭时间
             MessageHelper.waitTime = Convert.ToInt32(
                 ConfigHelper.GetConfig("auto_off_time"));
+            //自动更新
+            if(ConfigHelper.GetConfig("auto_check_update") == "True")
+            {
+                UpdateHelper.CheckForUpdatesAsync();
+            }
         }
     }
 }

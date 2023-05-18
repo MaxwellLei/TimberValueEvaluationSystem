@@ -6,14 +6,19 @@
     <s:String x:Key="CancelModified">Cancel Modified</s:String>
     <s:String x:Key="OpenFolderSuccessfully">Open Folder Successfully</s:String>
     <s:String x:Key="FileReadSuccessfully">File Read Successfully</s:String>
-    
+    <s:String x:Key="FindNewVersion">Found a new version, do you want to update?</s:String>
+    <s:String x:Key="FindNewVersionError">An error occurred while checking for updates:</s:String>
+    <s:String x:Key="StartImageCopySuccessfully">Startup Image added successfully！</s:String>
+    <s:String x:Key="StartImageCopyError">Failed to add startup image：</s:String>
+    <s:String x:Key="OpenBrowserError">Can't open browser</s:String>
+
     <!--启动窗体-->
     <s:String x:Key="Loading">Loading...</s:String>
 
     <!--主窗体-->
     <s:String x:Key="Show">Show</s:String>
     <s:String x:Key="Quit">Quit</s:String>
-    <s:String x:Key="Title">TimberValueEvaluationSystem</s:String>
+    <s:String x:Key="Title">Timber Value Evaluation System</s:String>
     <s:String x:Key="Home">Home</s:String>
     <s:String x:Key="Map">Map</s:String>
     <s:String x:Key="Model">Model</s:String>
@@ -23,6 +28,7 @@
     <!--主页Page-->
     <s:String x:Key="NewCard">New Card</s:String>
     <s:String x:Key="DeleteCard">Delete Card</s:String>
+    
 
     <!--地图Page-->
     <s:String x:Key="ImportFile">Import File</s:String>
@@ -94,6 +100,13 @@
     <s:String x:Key="LightColor">Light</s:String>
     <s:String x:Key="DarkColor">Dark</s:String>
     <s:String x:Key="FollowTheSystem">Follow System</s:String>
+    <s:String x:Key="HomePageBackground">Home Background</s:String>
+    <s:String x:Key="Default">Default</s:String>
+    <s:String x:Key="CustomBackground">Custom Background</s:String>
+    <s:String x:Key="HomePageSearchEngine">Home Search Engine</s:String>
+    <s:String x:Key="BaiDu">BaiDu</s:String>
+    <s:String x:Key="Bing">Bing"</s:String>
+    <s:String x:Key="Google">Google</s:String>
     <s:String x:Key="StartImg">Start Image</s:String>
     <s:String x:Key="DefaultRandom">Random</s:String>
     <s:String x:Key="FixedDisplay">Fixed Display</s:String>

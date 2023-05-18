@@ -118,6 +118,14 @@
                     <GroupBox Header="【2023/5/16】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>
+                            <TextBlock Text="&#9312; 新增：多语言完善" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 新增：检查更新" Foreground="Green"/>
+                            <TextBlock Text="&#9314; 优化：优化了设置和主窗口的一些逻辑代码" Foreground="Blue"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="【2023/5/16】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
                             <TextBlock Text="&#9312; 新增：多语言文本及其切换基本完成" Foreground="Green"/>
                             <TextBlock Text="&#9312; 新增：开机自动启动" Foreground="Green"/>
                             <TextBlock Text="&#9312; 新增：通知定时关闭" Foreground="Green"/>

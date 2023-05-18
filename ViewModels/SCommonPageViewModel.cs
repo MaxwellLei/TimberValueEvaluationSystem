@@ -73,7 +73,12 @@ namespace TimberValueEvaluationSystem.ViewModels
         public bool Boot
         {
             get { return boot; }
-            set { Set(ref boot, value);}
+            set { Set(ref boot, value);
+                if (changeConfig)
+                {
+                    ExecuteBootCommand();
+                }
+            }
         }
 
         private bool autoCheck;  //自动检查更新
@@ -83,9 +88,9 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref autoCheck, value);
                 if (changeConfig)
                 {
-                    Growl.Info("修改成功");
-                    SaveConfig();
+                    ExecuteAutoCheckUpdateCommand();
                 }
+                
             }
         }
 
@@ -93,13 +98,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public int ExitMode
         {
             get { return exitMode; }
-            set { Set(ref exitMode, value);
-                if (changeConfig)
-                {
-                    Growl.Info("修改成功");
-                    SaveConfig();
-                }
-            }
+            set { Set(ref exitMode, value);}
         }
 
         public RelayCommand OpenDbFolderCommand { get; private set; }   //打开数据库文件夹命令
@@ -108,7 +107,10 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand WsLocationChangedCommand { get; private set; }   //修改工作区位置命令
         public RelayCommand AutoOffTimeChangedCommand { get; private set; }   //修改通知自动关闭时间命令
         public RelayCommand LanguageChangedCommand { get; private set; }   //修改语言命令
-        public RelayCommand BootCommand { get; private set; }   //开机启动命令
+        //public RelayCommand BootCommand { get; private set; }   //开机启动命令
+        //public RelayCommand AutoCheckUpdateCommand { get; private set; }   //自动检查更新命令
+        public RelayCommand CheckUpdateCommand { get; private set; }   //检查更新命令
+        public RelayCommand ExitProgrmModeCommand { get; private set; }   //退出程序方式命令
 
         //初始化
         public SCommonPageViewModel()
@@ -119,15 +121,39 @@ namespace TimberValueEvaluationSystem.ViewModels
             WsLocationChangedCommand = new RelayCommand(ExecuteWsLocationChangedCommand);
             LanguageChangedCommand = new RelayCommand(ExecuteLanguageChangedCommand);
             AutoOffTimeChangedCommand = new RelayCommand(ExecuteAutoOffTimeChangedCommand);
-            BootCommand = new RelayCommand(ExecuteBootCommand);
+            //BootCommand = new RelayCommand(ExecuteBootCommand);
+            //AutoCheckUpdateCommand = new RelayCommand(ExecuteAutoCheckUpdateCommand);
+            CheckUpdateCommand = new RelayCommand(ExecuteCheckUpdateCommand);
+            ExitProgrmModeCommand = new RelayCommand(ExecuteExitProgrmModeCommand);
             ReadConfig();   //读取配置文件
             changeConfig = true;
+        }
+
+        //退出程序方式
+        private void ExecuteExitProgrmModeCommand()
+        {
+            ConfigHelper.SetConfig("exit_program_mode", ExitMode.ToString());
+            MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
+        }
+
+        //自动检查更新
+        private void ExecuteAutoCheckUpdateCommand()
+        {
+            ConfigHelper.SetConfig("auto_check_update", AutoCheck.ToString());
+            MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
+        }
+
+        //检查更新
+        private void ExecuteCheckUpdateCommand()
+        {
+            UpdateHelper.CheckForUpdatesAsync();
         }
 
         //开机自动启动
         private void ExecuteBootCommand()
         {
             BootHelper.SetAutoRun(Boot);
+            ConfigHelper.SetConfig("boot", Boot.ToString());
             MessageHelper.Success((string)Application.Current.Resources["SuccessfullyModified"]);
         }
 

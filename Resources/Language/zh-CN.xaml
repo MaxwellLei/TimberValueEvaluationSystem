@@ -6,8 +6,13 @@
     <s:String x:Key="CancelModified">取消修改</s:String>
     <s:String x:Key="OpenFolderSuccessfully">打开文件成功</s:String>
     <s:String x:Key="FileReadSuccessfully">文件读取成功</s:String>
-      
-      
+    <s:String x:Key="FindNewVersion">发现新版本，是否更新？</s:String>
+    <s:String x:Key="FindNewVersionError">检查更新时发生错误：</s:String>
+    <s:String x:Key="StartImageCopySuccessfully">启动图添加成功！</s:String>
+    <s:String x:Key="StartImageCopyError">启动图添失败：</s:String>
+    <s:String x:Key="OpenBrowserError">无法打开浏览器</s:String>
+
+
     <!--启动窗体-->
     <s:String x:Key="Loading">正在启动中...</s:String>
       
@@ -25,6 +30,7 @@
     <s:String x:Key="NewCard">新建卡片</s:String>
     <s:String x:Key="DeleteCard">删除卡片</s:String>
     
+
     <!--地图Page-->
     <s:String x:Key="ImportFile">导入文件</s:String>
     <s:String x:Key="Unhighlight">取消高亮</s:String>
@@ -95,6 +101,13 @@
     <s:String x:Key="LightColor">浅色</s:String>
     <s:String x:Key="DarkColor">深色</s:String>
     <s:String x:Key="FollowTheSystem">跟随系统</s:String>
+    <s:String x:Key="HomePageBackground">主页背景</s:String>
+    <s:String x:Key="Default">默认</s:String>
+    <s:String x:Key="CustomBackground">自定义</s:String>
+    <s:String x:Key="HomePageSearchEngine">主页搜索引擎</s:String>
+    <s:String x:Key="BaiDu">百度</s:String>
+    <s:String x:Key="Bing">必应</s:String>
+    <s:String x:Key="Google">谷歌</s:String>
     <s:String x:Key="StartImg">启动图</s:String>
     <s:String x:Key="DefaultRandom">默认随机</s:String>
     <s:String x:Key="FixedDisplay">固定显示</s:String>

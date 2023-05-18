@@ -37,6 +37,14 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref _shpFilePath, value); }
         }
 
+        //图层侧边栏出现方式
+        private string _drawerMode;
+        public string DrawerMode
+        {
+            get { return _drawerMode; }
+            set { Set(ref _drawerMode, value); }
+        }
+
         //侧边栏双向数据绑定
         private bool isOpenSidebar;
         public bool IsOpenSidebar
@@ -237,6 +245,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         //弹出图层侧边栏
         private void ExecuteLayerSidebarCommand()
         {
+            DrawerMode = ConfigHelper.GetConfig("layer_pop_mode");
             IsOpenSidebar = true;
         }
     }

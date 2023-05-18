@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimberValueEvaluationSystem.ViewModels;
 
 namespace TimberValueEvaluationSystem.Views
 {
@@ -25,19 +26,9 @@ namespace TimberValueEvaluationSystem.Views
         public SExteriorPageView()
         {
             InitializeComponent();
-            CoverFlowMain.AddRange(new[]
-            {
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/1.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/2.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/3.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/4.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/5.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/6.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/7.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/8.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/9.jpg"),
-                new Uri(@"pack://application:,,,/Resources/Image/StartPic/10.jpg")
-            });
+            this.DataContext = new SExteriorPageViewModel();
+            (this.DataContext as SExteriorPageViewModel).CoverFlowMain = this.CoverFlow;
+            (this.DataContext as SExteriorPageViewModel).Init();
         }
         public static Page GetPage()
         {

@@ -1,6 +1,8 @@
 ﻿<Page x:Class="TimberValueEvaluationSystem.Views.SExteriorPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:hc="https://handyorg.github.io/handycontrol"
@@ -28,6 +30,34 @@
                         </ComboBox.Items>
                     </ComboBox>
                 </GroupBox>
+                
+                <GroupBox Header="{DynamicResource HomePageBackground}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
+                              FontSize="16" Margin="0 0 0 5">
+                    <ComboBox SelectedIndex="0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <ComboBox.Items>
+                            <TextBlock Text="{DynamicResource Default}"/>
+                            <TextBlock Text="{DynamicResource CustomBackground}"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Header="{DynamicResource HomePageSearchEngine}" Style="{StaticResource GroupBoxOriginal}" 
+                          hc:TitleElement.TitlePlacement="Left" FontSize="16" Margin="0 0 0 5">
+                    <ComboBox SelectedIndex="{Binding SearchEngine}" FontSize="12" VerticalAlignment="Center" 
+                              HorizontalAlignment="Right">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding SearchEngineChangedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ComboBox.Items>
+                            <TextBlock Text="{DynamicResource BaiDu}"/>
+                            <TextBlock Text="{DynamicResource Bing}"/>
+                            <TextBlock Text="{DynamicResource Google}"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </GroupBox>
+
                 <GroupBox Header="{DynamicResource StartImg}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5">
                     <StackPanel>
@@ -38,17 +68,24 @@
                                     <TextBlock Text="{DynamicResource FixedDisplay}"/>
                                 </ComboBox.Items>
                             </ComboBox>
-                            <Button Content="{DynamicResource AddStartImg}" Margin="10 0 0 0"/>
+                            <Button Content="{DynamicResource AddStartImg}" Margin="10 0 0 0" Command="{Binding AddStartImgCommand}"/>
                         </WrapPanel>
-                        <hc:CoverFlow x:Name="CoverFlowMain" VerticalAlignment="Stretch" Height="270"/>
+                        <hc:CoverFlow x:Name="CoverFlow" VerticalAlignment="Stretch" Height="270"/>
                     </StackPanel>
                 </GroupBox>
+                
 
-
-                <hc:Divider Content="{DynamicResource Map}" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
-                <GroupBox Header="{DynamicResource LayerPopupModel}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left"
-                              FontSize="16" Margin="0 0 0 5">
-                    <ComboBox SelectedIndex="0" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <hc:Divider Content="{DynamicResource Map}" HorizontalContentAlignment="Left" FontSize="20" 
+                            FontWeight="Bold" LineStrokeThickness="5"/>
+                <GroupBox Header="{DynamicResource LayerPopupModel}" Style="{StaticResource GroupBoxOriginal}" 
+                          hc:TitleElement.TitlePlacement="Left" FontSize="16" Margin="0 0 0 5">
+                    <ComboBox SelectedIndex="{Binding LayerPopMode}" FontSize="12" VerticalAlignment="Center" 
+                              HorizontalAlignment="Right">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding LayerPopModeCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <ComboBox.Items>
                             <TextBlock Text="{DynamicResource Push}"/>
                             <TextBlock Text="{DynamicResource Press}"/>

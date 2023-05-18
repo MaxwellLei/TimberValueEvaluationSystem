@@ -39,5 +39,16 @@ namespace TimberValueEvaluationSystem.Services
             growlInfo.Message = message;
             Growl.Warning(growlInfo);
         }
+
+        //错误消息通知
+        public static void Error(string message)
+        {
+            GrowlInfo growlInfo = new GrowlInfo();
+            growlInfo.WaitTime = waitTime;
+            growlInfo.Message = message;
+            Growl.Error(growlInfo);
+        }
+
+
     }
 }

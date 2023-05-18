@@ -24,6 +24,8 @@ namespace TimberValueEvaluationSystem.Views
         {
             InitializeComponent();
             this.DataContext = new HomePageViewModel();
+            (this.DataContext as HomePageViewModel).SearchString = this.SearchBar;
+            
         }
         public static Page GetPage()
         {
