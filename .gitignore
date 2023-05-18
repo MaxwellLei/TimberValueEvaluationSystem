@@ -12,6 +12,7 @@ Release/
 *.pdb
 *.cache
 
+TimberValueEvaluationSystem.csproj
 
 _ReSharper*/
 *.crproj
