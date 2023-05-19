@@ -29,7 +29,12 @@
     <!--主页Page-->
     <s:String x:Key="NewCard">新建卡片</s:String>
     <s:String x:Key="DeleteCard">删除卡片</s:String>
-    
+    <s:String x:Key="ShowOrHideCard">显示/隐藏卡片</s:String>
+    <s:String x:Key="Memorandum">备忘录</s:String>
+    <s:String x:Key="ToDoList">待办事项</s:String>
+    <s:String x:Key="OneWords">一言</s:String>
+    <s:String x:Key="Announcement">公告</s:String>
+
 
     <!--地图Page-->
     <s:String x:Key="ImportFile">导入文件</s:String>

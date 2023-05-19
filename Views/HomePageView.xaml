@@ -5,15 +5,20 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:sv="clr-namespace:TimberValueEvaluationSystem.Services"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePageView">
+    <Page.Resources>
+        <sv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
     <Page.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="{DynamicResource NewCard}"/>
+            <MenuItem Header="{DynamicResource NewCard}" Command="{Binding NewCardCommand}"/>
             <MenuItem Header="{DynamicResource DeleteCard}"/>
+            <MenuItem Header="{DynamicResource ShowOrHideCard}" Command="{Binding ShowOrHideCardCommand}"/>
         </ContextMenu>
     </Page.ContextMenu>
     <Page.Background>
@@ -40,8 +45,115 @@
 
         </Grid>
         <!--下半部分-->
-        <Grid>
-
+        <Grid Grid.Row="1" Margin="100 32 100 36" Visibility="{Binding CardsStatus, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--备忘录-->
+            <Border CornerRadius="8" Background="White" Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.18*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#f69a63" CornerRadius="8 8 0 0">
+                        <TextBlock Text="{DynamicResource Memorandum}" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Grid.Row="1">
+                        <RichTextBox BorderThickness="0">
+                            <FlowDocument>
+                                <Paragraph>
+                                    1. 这是一个备忘内容
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </Border>
+                </Grid>
+            </Border>
+            <!--代办事项-->
+            <Border CornerRadius="8" Background="White" Grid.Column="1" Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.18*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Background="#f69a63" CornerRadius="8 8 0 0">
+                        <TextBlock Text="{DynamicResource ToDoList}" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Grid.Row="1">
+                        <StackPanel Margin="10">
+                            <Border BorderThickness="0 0 0 0.5" BorderBrush="Black">
+                                <Grid>
+                                    <CheckBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 2 0 2"
+                                         BorderThickness="0" Text="这是一个默认计划"/>
+                                </Grid>
+                            </Border>
+                            <Border BorderThickness="0 0 0 0.5" BorderBrush="Black">
+                                <Grid>
+                                    <CheckBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 2 0 2"
+                                         BorderThickness="0" Text="这还是一个默认计划"/>
+                                </Grid>
+                            </Border>
+                            <Border BorderThickness="0 0 0 0.5" BorderBrush="Black">
+                                <Grid>
+                                    <CheckBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 2 0 2"
+                                         BorderThickness="0" Text="这又双叒叕是一个默认计划"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+            
+            <Border CornerRadius="8" Grid.Column="2" Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <!--每日一言-->
+                    <Border Background="White" CornerRadius="8" Margin="0 0 0 8">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Background="#f69a63" CornerRadius="8 8 0 0">
+                                <TextBlock Text="{DynamicResource OneWords}" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                            </Border>
+                            <Border Grid.Row="1">
+                                <TextBlock Text="{Binding Words}" TextWrapping="Wrap"
+                                           Margin="10" Foreground="#fe4500" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <!--公告-->
+                    <Border Background="White" CornerRadius="8" Grid.Row="1" Margin="0 8 0 0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Background="#f69a63" CornerRadius="8 8 0 0">
+                                <TextBlock Text="{DynamicResource Announcement}" FontSize="18" FontWeight="Bold" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Border Grid.Row="1">
+                                <Image Source="../Resources/Image/Other/Seraphine_0.png"  HorizontalAlignment="Left" 
+                                       Margin="-2 0 0 0"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 

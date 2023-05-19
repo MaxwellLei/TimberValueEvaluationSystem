@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HarfBuzzSharp;
+using TimberValueEvaluationSystem.Models;
 using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem.ViewModels
@@ -20,6 +25,22 @@ namespace TimberValueEvaluationSystem.ViewModels
 
         
         private DispatcherTimer _timer;     //计时器对象
+
+        //是否展示卡片
+        private bool _cardsStatus;
+        public bool CardsStatus
+        {
+            get { return _cardsStatus; }
+            set { Set(ref _cardsStatus, value); }
+        }
+
+        //一言内容
+        private string _words;
+        public string Words
+        {
+            get { return _words; }
+            set { Set(ref _words, value); }
+        }
 
         //搜索内容
         private SearchBar _searchString;
@@ -43,16 +64,40 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref _currentDate, value); }
         }
 
-
-
+        public ICommand AddCardCommand { get; private set; }    //创建卡片命令
+        public ICommand RemoveCardCommand { get; private set; }     //删除卡片命令
+        public RelayCommand ShowOrHideCardCommand { get; private set; }   //搜索开始命令
         public RelayCommand SearchStartedCommand { get; private set; }   //搜索开始命令
+
 
         public HomePageViewModel()
         {
+            AddCardCommand = new RelayCommand(ExecuteAddCardCommand);
+            RemoveCardCommand = new RelayCommand(ExecuteRemoveCardCommand);
+            ShowOrHideCardCommand = new RelayCommand(ExecuteShowOrHideCardCommand);
             SearchStartedCommand = new RelayCommand(ExecuteSearchStartedCommand);
 
-            Init();
+            Init();     //初始化
         }
+
+        //显示和隐藏卡片
+        private void ExecuteShowOrHideCardCommand()
+        {
+            CardsStatus = !CardsStatus;
+        }
+
+        //删除卡片
+        private void ExecuteRemoveCardCommand()
+        {
+
+        }
+
+        //创建卡片
+        private void ExecuteAddCardCommand()
+        {
+
+        }
+
 
         //执行搜索命令
         private void ExecuteSearchStartedCommand()
@@ -102,6 +147,31 @@ namespace TimberValueEvaluationSystem.ViewModels
                 CurrentDate = DateTime.Now.ToString("yyyy年 MM月 dd日 dddd");
             };
             _timer.Start();
+
+            //获取一言
+            GetWordsAsync();
+
+            //展示卡片
+            CardsStatus = true;
+        }
+
+        //获取一言
+        private async Task GetWordsAsync()
+        {
+            string url = "https://v1.hitokoto.cn/?c=f&encode=text"; // 替换为您的实际网址
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    string fetchedText = await httpClient.GetStringAsync(url);
+                    Words = fetchedText;
+                }
+                catch (Exception ex)
+                {
+                    Words = "你我一起，改变世界";
+                }
+            }
         }
     }
 }

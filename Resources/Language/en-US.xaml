@@ -28,7 +28,12 @@
     <!--主页Page-->
     <s:String x:Key="NewCard">New Card</s:String>
     <s:String x:Key="DeleteCard">Delete Card</s:String>
-    
+    <s:String x:Key="ShowOrHideCard">Show/Hide Card</s:String>
+    <s:String x:Key="Memorandum">Memorandum</s:String>
+    <s:String x:Key="ToDoList">To Do List</s:String>
+    <s:String x:Key="OneWords">Words</s:String>
+    <s:String x:Key="Announcement">Announcement</s:String>
+
 
     <!--地图Page-->
     <s:String x:Key="ImportFile">Import File</s:String>
