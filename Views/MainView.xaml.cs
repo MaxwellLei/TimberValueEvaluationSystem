@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Runtime.Serialization.Json;
 using TimberValueEvaluationSystem.Services;
 using System.Diagnostics;
+using HandyControl.Data;
 
 namespace TimberValueEvaluationSystem
 {
@@ -195,5 +196,6 @@ namespace TimberValueEvaluationSystem
                 MessageHelper.Warning((string)System.Windows.Application.Current.Resources["OpenBrowserError"] + ex.Message);
             }
         }
+
     }
 }

@@ -19,6 +19,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
 using TimberValueEvaluationSystem.Services;
+using TimberValueEvaluationSystem.ViewsPopUp.DataPage;
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -106,6 +107,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand<MouseEventArgs> GetMapInfoCommand { get; private set; }   //移动鼠标命令
         public RelayCommand WheelChangedCommand { get; private set; }   //鼠标滚轮命令
         public RelayCommand EditSurfaceCommand { get; private set; }   //编辑绘制点线面命令
+        public RelayCommand TestCommand { get; private set; }   //测试命令
 
 
         public MapPageViewModel()
@@ -121,6 +123,13 @@ namespace TimberValueEvaluationSystem.ViewModels
             GetMapInfoCommand = new RelayCommand<MouseEventArgs>(GetInfoCommand);
             WheelChangedCommand = new RelayCommand(ExecuteWheelChangedCommand);
             EditSurfaceCommand = new RelayCommand(ExecuteEditSurfaceCommand);
+            TestCommand = new RelayCommand(ExecuteTestCommand);
+        }
+        //测试
+        private void ExecuteTestCommand()
+        {
+            var forestValueView = new ForestValueView();
+            Dialog.Show(forestValueView);
         }
 
         //鼠标滚轮命令

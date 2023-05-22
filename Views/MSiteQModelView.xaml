@@ -48,7 +48,7 @@
                     <TextBlock Text="输入分类依据的数据，根据指示完成数据分析，可以选择单次分析，也可以导入 CSV 文件或者数据库导入进行批量预测" 
                                    Margin="0 0 0 0" FontSize="16"
                                    Foreground="White" TextWrapping="Wrap"/>
-                    <TextBlock Text="注：该模型参数不存在缺省值" 
+                    <TextBlock Text="注：该模型参数不存在缺省值"
                                    Margin="0 5 0 0" FontSize="16"
                                    Foreground="Blue" TextWrapping="Wrap"/>
                     <hc:Divider Content="决策树可视化" HorizontalContentAlignment="Left" Foreground="White" 

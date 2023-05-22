@@ -115,8 +115,12 @@
 
                 <!--右侧显示栏-->
                 <Border Grid.Column="1" CornerRadius="0 0 8 0">
-                    <Grid>
-                        <Frame Name="Nav" BorderThickness="0" NavigationUIVisibility="Hidden"/>
+                    <Grid >
+                        <Border CornerRadius="10 0 8 0">
+                            <Frame Name="Nav" BorderThickness="0" NavigationUIVisibility="Hidden"  ClipToBounds="True">
+                            </Frame>
+                        </Border>
+                        
                         <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" 
                                   HorizontalAlignment="Right">
                             <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top"/>

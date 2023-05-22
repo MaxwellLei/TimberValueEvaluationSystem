@@ -1,4 +1,4 @@
-﻿<Page x:Class="TimberValueEvaluationSystem.Views.SettingPageView"
+﻿<Grid x:Class="TimberValueEvaluationSystem.Views.SettingPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,54 +6,51 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SettingPageView">
+      d:DesignHeight="450" d:DesignWidth="800">
     <!--设置页面-->
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*" MinWidth="200" MaxWidth="320"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Border Background="#eff0f1">
-            <StackPanel Margin="10 5 10 5">
-                <hc:SearchBar Style="{StaticResource SearchBarPlus}" Margin="10 10 10 5"/>
-                <Border Height="60" Margin="20 0 20 0">
-                    <RadioButton Name="RadioButton1" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.25*" MinWidth="200" MaxWidth="320"/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Border Background="#eff0f1">
+        <StackPanel Margin="10 5 10 5">
+            <hc:SearchBar Style="{StaticResource SearchBarPlus}" Margin="10 10 10 5"/>
+            <Border Height="60" Margin="20 0 20 0">
+                <RadioButton Name="RadioButton1" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
                                 Margin="0,0,-300,0" IsChecked="True" Command="{Binding CommonPage}">
-                        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="&#xe63d;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
+                    <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="&#xe63d;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                             VerticalAlignment="Center" Margin="0 0 8 0"/>
-                            <TextBlock FontSize="16" Text="{DynamicResource GeneralSettings}" Foreground="Black" VerticalAlignment="Center"/>
-                        </WrapPanel>
-                    </RadioButton>
-                </Border>
-                <Border Height="60" Margin="20 0 20 0">
-                    <RadioButton Name="RadioButton2" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
+                        <TextBlock FontSize="16" Text="{DynamicResource GeneralSettings}" Foreground="Black" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                </RadioButton>
+            </Border>
+            <Border Height="60" Margin="20 0 20 0">
+                <RadioButton Name="RadioButton2" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
                                     Margin="0,0,-300,0" Command="{Binding ExteriorPage}" >
-                        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="&#xe7e8;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
+                    <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="&#xe7e8;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                             VerticalAlignment="Center" Margin="0 0 8 0"/>
-                            <TextBlock FontSize="16" Text="{DynamicResource PersonalizedSettings}" Foreground="Black" VerticalAlignment="Center"/>
-                        </WrapPanel>
-                    </RadioButton>
-                </Border>
-                <Border Height="60" Margin="20 0 20 0">
-                    <RadioButton Name="RadioButton3" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
+                        <TextBlock FontSize="16" Text="{DynamicResource PersonalizedSettings}" Foreground="Black" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                </RadioButton>
+            </Border>
+            <Border Height="60" Margin="20 0 20 0">
+                <RadioButton Name="RadioButton3" Style="{StaticResource SideControlBar2}" GroupName="SettingSideBar"
                                     Margin="0,0,-300,0" Command="{Binding AboutPage}" >
-                        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="&#xe60b;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
+                    <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="&#xe60b;" Foreground="Black" FontFamily="../Resources/Icon/#iconfont" FontSize="20"
                             VerticalAlignment="Center" Margin="0 0 8 0"/>
-                            <TextBlock FontSize="16" Text="{DynamicResource About}" Foreground="Black" VerticalAlignment="Center"/>
-                        </WrapPanel>
-                    </RadioButton>
-                </Border>
-            </StackPanel>
-        </Border>
-        <!--右侧显示区域-->
-        <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left"
+                        <TextBlock FontSize="16" Text="{DynamicResource About}" Foreground="Black" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                </RadioButton>
+            </Border>
+        </StackPanel>
+    </Border>
+    <!--右侧显示区域-->
+    <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left"
                 VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
-        <Grid Grid.Column="1" Margin="2 0 0 0" Background="White">
-            <Frame Name="SettingNav" BorderThickness="0"/>
-        </Grid>
+    <Grid Grid.Column="1" Margin="2 0 0 0" Background="White">
+        <Frame Name="SettingNav" BorderThickness="0"/>
     </Grid>
-</Page>
+</Grid>

@@ -23,7 +23,7 @@ namespace TimberValueEvaluationSystem.Views
     /// <summary>
     /// DataPageView.xaml 的交互逻辑
     /// </summary>
-    public partial class DataPageView : Page
+    public partial class DataPageView
     {
         private static DataPageView databasePage = null;
         public DataPageView()
@@ -31,7 +31,7 @@ namespace TimberValueEvaluationSystem.Views
             InitializeComponent();
             this.DataContext = new DataPageViewModel();
         }
-        public static Page GetPage()
+        public static DataPageView GetPage()
         {
             if (databasePage == null)
             {

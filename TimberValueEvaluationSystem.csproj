@@ -153,6 +153,9 @@
     <Compile Update="ViewsPopUp\DataPage\DeleteDatabaseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsPopUp\MapPage\ForestValueView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

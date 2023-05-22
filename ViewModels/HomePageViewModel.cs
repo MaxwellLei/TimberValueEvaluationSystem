@@ -64,6 +64,13 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref _currentDate, value); }
         }
 
+        private ObservableCollection<IconDefaultControlModel> _userControlViewModels;
+        public ObservableCollection<IconDefaultControlModel> UserControlViewModels
+        {
+            get { return _userControlViewModels; }
+            set { Set(ref _userControlViewModels, value); }
+        }
+
         public ICommand AddCardCommand { get; private set; }    //创建卡片命令
         public ICommand RemoveCardCommand { get; private set; }     //删除卡片命令
         public RelayCommand ShowOrHideCardCommand { get; private set; }   //搜索开始命令
@@ -95,7 +102,10 @@ namespace TimberValueEvaluationSystem.ViewModels
         //创建卡片
         private void ExecuteAddCardCommand()
         {
-
+            // 根据需要创建新的用户控件视图模型实例
+            IconDefaultControlModel newUserControlVM = 
+                new IconDefaultControlModel("../Resources/Image/Other/Seraphine0.png", "Name","hhhhhh");
+            UserControlViewModels.Add(newUserControlVM);
         }
 
 
@@ -153,6 +163,9 @@ namespace TimberValueEvaluationSystem.ViewModels
 
             //展示卡片
             CardsStatus = true;
+
+            //初始化队列
+            UserControlViewModels = new ObservableCollection<IconDefaultControlModel>();
         }
 
         //获取一言

@@ -37,9 +37,32 @@
 
 
     <!--地图Page-->
-    <s:String x:Key="ImportFile">导入文件</s:String>
+    <s:String x:Key="File">文件</s:String>
+    <s:String x:Key="NewFile">新建</s:String>
+    <s:String x:Key="OpenFile">打开</s:String>
+    <s:String x:Key="SaveFile">保存文件</s:String>
+    <s:String x:Key="SaveFileAs">另存为</s:String>
+    <s:String x:Key="SaveACopy">保存副本</s:String>
+    <s:String x:Key="Print">打印</s:String>
+    <s:String x:Key="ExitAPP">退出</s:String>
+    <s:String x:Key="Edit">编辑</s:String>
+    <s:String x:Key="Undo">撤销</s:String>
+    <s:String x:Key="Redo">恢复</s:String>
+    <s:String x:Key="Cut">剪切</s:String>
+    <s:String x:Key="Copy">复制</s:String>
+    <s:String x:Key="Paste">粘贴</s:String>
+    <s:String x:Key="Delete">删除</s:String>
+    <s:String x:Key="Tool">工具</s:String>
+    <s:String x:Key="MapOptions">选项</s:String>
+    <s:String x:Key="Help">帮助</s:String>
+    <s:String x:Key="ViewHelp">查看帮助</s:String>
+    <s:String x:Key="AboutArcGIS">关于ArcGIS</s:String>
+    <s:String x:Key="View">视图</s:String>
+    <s:String x:Key="ZoomIn">放大</s:String>
+    <s:String x:Key="ZoomOut">缩小</s:String>
     <s:String x:Key="Unhighlight">取消高亮</s:String>
     <s:String x:Key="EditMode">编辑模式</s:String>
+    <s:String x:Key="ConductValueEvaluation">进行价值评价</s:String>
     <s:String x:Key="ToolBar">工具栏</s:String>
     <s:String x:Key="Layers">图层</s:String>
     <s:String x:Key="ImportSHPFile">导入Shp文件</s:String>

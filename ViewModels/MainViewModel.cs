@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
 using HandyControl.Controls;
+using HandyControl.Data;
+using HandyControl.Themes;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using System;
@@ -20,6 +22,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand ModelPage { get; private set; }  //切换模型命令
         public RelayCommand DataPage { get; private set; }  //切换数据命令
         public RelayCommand SettingPage { get; private set; }  //切换设置命令
+        public RelayCommand ThemeModeChange { get; private set; }  //切换设置命令
 
         //初始化
         public MainViewModel(Frame nav)
@@ -30,9 +33,11 @@ namespace TimberValueEvaluationSystem.ViewModels
             ModelPage = new RelayCommand(ExecuteModelPage);
             DataPage = new RelayCommand(ExecuteDataPage);
             SettingPage = new RelayCommand(ExecuteSettingPage);
+            //ThemeModeChange = new RelayCommand(ExecuteThemeModeChange);
 
             FunInit();
         }
+
 
         //切换地图命令
         private void ExecuteMapPage()

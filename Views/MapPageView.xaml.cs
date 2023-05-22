@@ -18,7 +18,7 @@ using TimberValueEvaluationSystem.ViewModels;
 namespace TimberValueEvaluationSystem.Views
 {
     //地图页
-    public partial class MapPageView : Page
+    public partial class MapPageView
     {
         private static MapPageView mapPage = null;
         private MapPageView()
@@ -28,7 +28,7 @@ namespace TimberValueEvaluationSystem.Views
             // 在此处将MyMapView对象赋值给MapPageViewModel中的MyMapView属性
             (this.DataContext as MapPageViewModel).MyMapView = this.MyMapView;
         }
-        public static Page GetPage()
+        public static MapPageView GetPage()
         {
             if (mapPage == null)
             {

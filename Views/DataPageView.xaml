@@ -1,4 +1,4 @@
-﻿<Page x:Class="TimberValueEvaluationSystem.Views.DataPageView"
+﻿<Grid x:Class="TimberValueEvaluationSystem.Views.DataPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,74 +9,72 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:TimberValueEvaluationSystem.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DataPageView">
+      d:DesignHeight="450" d:DesignWidth="800" Background="#eeeeee">
+    <Grid.Resources>
+        <sv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Grid.Resources>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.25*" MinWidth="200" MaxWidth="460"/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <!--左侧栏-->
     <Grid Background="#eeeeee">
-        <Grid.Resources>
-            <sv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*" MinWidth="200" MaxWidth="460"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <!--左侧栏-->
-        <Grid Background="#eeeeee">
-            <TabControl Margin="5" Style="{StaticResource TabControlInLine}" Background="#eff0f1">
-                
-                <!--数据库-->
-                <TabItem Header="{DynamicResource Database}" Background="#eff0f1">
-                    <Grid Background="#eff0f1">
+        <TabControl Margin="5" Style="{StaticResource TabControlInLine}" Background="#eff0f1">
+
+            <!--数据库-->
+            <TabItem Header="{DynamicResource Database}" Background="#eff0f1">
+                <Grid Background="#eff0f1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="360"/>
+                        <RowDefinition MinHeight="120"/>
+                    </Grid.RowDefinitions>
+                    <!--左侧数据库上半部分-->
+                    <Grid>
+                        <Grid.ContextMenu>
+                            <ContextMenu Placement="Right">
+                                <MenuItem Header="{DynamicResource Refresh}" Command="{Binding RefreshDbCommand}"/>
+                                <MenuItem Header="{DynamicResource SetDatabaseLocation}" Command="{Binding SetDatabaseLocationCommand}"/>
+                                <MenuItem Header="{DynamicResource NewDatabase}" Command="{Binding NewDBTableCommand}"/>
+                                <MenuItem Header="{DynamicResource DeleteDatabase}" Command="{Binding DeleteDBTableCommand}"/>
+                                <MenuItem Header="{DynamicResource OpenFileLocation}" Command="{Binding OpenDbFolderCommand}"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
                         <Grid.RowDefinitions>
-                            <RowDefinition MinHeight="360"/>
-                            <RowDefinition MinHeight="120"/>
+                            <RowDefinition Height="0.12*"/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <!--左侧数据库上半部分-->
-                        <Grid>
-                            <Grid.ContextMenu>
-                                <ContextMenu Placement="Right">
-                                    <MenuItem Header="{DynamicResource Refresh}" Command="{Binding RefreshDbCommand}"/>
-                                    <MenuItem Header="{DynamicResource SetDatabaseLocation}" Command="{Binding SetDatabaseLocationCommand}"/>
-                                    <MenuItem Header="{DynamicResource NewDatabase}" Command="{Binding NewDBTableCommand}"/>
-                                    <MenuItem Header="{DynamicResource DeleteDatabase}" Command="{Binding DeleteDBTableCommand}"/>
-                                    <MenuItem Header="{DynamicResource OpenFileLocation}" Command="{Binding OpenDbFolderCommand}"/>
-                                </ContextMenu>
-                            </Grid.ContextMenu>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.12*"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
-                                <TextBlock Text="{DynamicResource LocalDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
+                            <TextBlock Text="{DynamicResource LocalDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="14"/>
-                            </Border>
-                            <ListBox  BorderThickness="0" ItemsSource="{Binding DatabaseTree}"
+                        </Border>
+                        <ListBox  BorderThickness="0" ItemsSource="{Binding DatabaseTree}"
                                       Background="#eff0f1" Grid.Row="1" SelectedItem="{Binding SelectedDbItem, Mode=TwoWay}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding IconType}" Margin="5 0 5 0"/>
-                                            <TextBlock Text="{Binding FName}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <TextBlock Text="{DynamicResource LocalDatabaseNull}" Grid.Row="1" HorizontalAlignment="Center" 
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding IconType}" Margin="5 0 5 0"/>
+                                        <TextBlock Text="{Binding FName}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Text="{DynamicResource LocalDatabaseNull}" Grid.Row="1" HorizontalAlignment="Center" 
                                        Visibility="{Binding IsListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"
                                        VerticalAlignment="Center"/>
-                        </Grid>
+                    </Grid>
 
-                        <GridSplitter Grid.Row="1" Height="2" Background="#f6f7f7" VerticalAlignment="Top"
+                    <GridSplitter Grid.Row="1" Height="2" Background="#f6f7f7" VerticalAlignment="Top"
                                       BorderThickness="0" HorizontalAlignment="Stretch"/>
-                        <Grid Grid.Row="2" Margin="0 2 0 0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.15*"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
-                                <TextBlock Text="{DynamicResource CloudDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <Grid Grid.Row="2" Margin="0 2 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.15*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Background="#e1e1e1" Margin="2" CornerRadius="5">
+                            <TextBlock Text="{DynamicResource CloudDatabase}" VerticalAlignment="Center" HorizontalAlignment="Center"
                                        FontWeight="Bold" FontSize="14"/>
-                            </Border>
-                            <!--<ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
+                        </Border>
+                        <!--<ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
                                  SelectedItem="{Binding SelectedTableItem, Mode=TwoWay}" Background="#eff0f1" Grid.Row="1">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
@@ -86,52 +84,52 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>-->
-                            <TextBlock Text="{DynamicResource CloudDatabaseNull}" Grid.Row="1"
+                        <TextBlock Text="{DynamicResource CloudDatabaseNull}" Grid.Row="1"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
                     </Grid>
-                </TabItem>
-                
-                <!--数据表-->
-                <TabItem Header="{DynamicResource DataTable}" Background="#eff0f1">
-                    <Grid Background="#eff0f1">
-                        <Grid.ContextMenu>
-                            <ContextMenu Placement="Right">
-                                <MenuItem Header="{DynamicResource Refresh}" Command="{Binding NewDatabaseCommand}"/>
-                                <MenuItem Header="{DynamicResource NewDataTable}" Command="{Binding NewDatabaseCommand}"/>
-                                <MenuItem Header="{DynamicResource DeleteDataTable}" Command="{Binding NewDatabaseCommand}"/>
-                            </ContextMenu>
-                        </Grid.ContextMenu>
-                        <ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
-                                 SelectedItem="{Binding SelectedTableItem, Mode=TwoWay}" Background="#eff0f1" Grid.Row="1">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding TName}" Margin="5 0 5 0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <TextBlock Text="{DynamicResource DatabaseNull}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
-                                   Visibility="{Binding IsTableListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                    </Grid>
-                </TabItem>
-            </TabControl>
-        </Grid>
+                </Grid>
+            </TabItem>
 
-        <!--右侧栏-->
-        <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" BorderThickness="0"
+            <!--数据表-->
+            <TabItem Header="{DynamicResource DataTable}" Background="#eff0f1">
+                <Grid Background="#eff0f1">
+                    <Grid.ContextMenu>
+                        <ContextMenu Placement="Right">
+                            <MenuItem Header="{DynamicResource Refresh}" Command="{Binding NewDatabaseCommand}"/>
+                            <MenuItem Header="{DynamicResource NewDataTable}" Command="{Binding NewDatabaseCommand}"/>
+                            <MenuItem Header="{DynamicResource DeleteDataTable}" Command="{Binding NewDatabaseCommand}"/>
+                        </ContextMenu>
+                    </Grid.ContextMenu>
+                    <ListBox ItemsSource="{Binding DatabaseTable}" BorderThickness="0" 
+                                 SelectedItem="{Binding SelectedTableItem, Mode=TwoWay}" Background="#eff0f1" Grid.Row="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding TName}" Margin="5 0 5 0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Text="{DynamicResource DatabaseNull}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
+                                   Visibility="{Binding IsTableListEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+    <!--右侧栏-->
+    <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Left" BorderThickness="0"
                   VerticalAlignment="Stretch" Background="#f7f8f8" Opacity="0.85"/>
-        <Grid Grid.Column="1" Margin="2 0 0 0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="0.08*"/>
-            </Grid.RowDefinitions>
-            <!--<DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
+    <Grid Grid.Column="1" Margin="2 0 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.08*"/>
+        </Grid.RowDefinitions>
+        <!--<DataGrid HeadersVisibility="All" RowHeaderWidth="60" VerticalAlignment="Stretch" AutoGenerateColumns="False" 
                       ItemsSource="{Binding DataTable}" Background="#eff0f1">-->
-            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding DataTable}" Background="#eff0f1"
+        <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding DataTable}" Background="#eff0f1"
                       BorderThickness="0" RowHeight="44">
-                <!--<DataGrid.Columns>
+            <!--<DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Index}" Header="ID" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding SoilThickness}" Header="土壤厚度"/>
                     <DataGridTextColumn Binding="{Binding Slope}" Header="坡位"/>
@@ -139,20 +137,18 @@
                     <DataGridTextColumn Binding="{Binding Gradient}" Header="坡度"/>
                     <DataGridTextColumn Binding="{Binding SiteQuality}" Header="立地质量"/>
                 </DataGrid.Columns>-->
-            </DataGrid>
-            <hc:Pagination VerticalAlignment="Bottom" HorizontalAlignment="Center" DataCountPerPage="14"
+        </DataGrid>
+        <hc:Pagination VerticalAlignment="Bottom" HorizontalAlignment="Center" DataCountPerPage="14"
                            PageIndex="{Binding PageCount, Mode=TwoWay}" IsJumpEnabled="True" Margin="0 0 0 20" Grid.Row="1"
                            MaxPageCount="{Binding MaxPageCount}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="PageUpdated">
-                        <cmd:EventToCommand Command="{Binding PageChangedCommand}" PassEventArgsToCommand="True"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </hc:Pagination>
-            <TextBlock Text="{DynamicResource TableDataNull}" HorizontalAlignment="Center" VerticalAlignment="Center"
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="PageUpdated">
+                    <cmd:EventToCommand Command="{Binding PageChangedCommand}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </hc:Pagination>
+        <TextBlock Text="{DynamicResource TableDataNull}" HorizontalAlignment="Center" VerticalAlignment="Center"
                        Visibility="{Binding IsTableDataEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
-        </Grid>
     </Grid>
-    
-</Page>
+</Grid>

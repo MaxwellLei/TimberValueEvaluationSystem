@@ -23,7 +23,7 @@ namespace TimberValueEvaluationSystem.Views
     /// <summary>
     /// ModelPageView.xaml 的交互逻辑
     /// </summary>
-    public partial class ModelPageView : Page
+    public partial class ModelPageView
     {
         private static ModelPageView mapPage = null;
         private ModelPageView()
@@ -31,7 +31,7 @@ namespace TimberValueEvaluationSystem.Views
             InitializeComponent();
             this.DataContext = new ModelPageViewModel(ModelNav);
         }
-        public static Page GetPage()
+        public static ModelPageView GetPage()
         {
             if (mapPage == null)
             {

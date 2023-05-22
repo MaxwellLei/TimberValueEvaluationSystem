@@ -115,6 +115,16 @@
                 <hc:Divider Content="{DynamicResource ReleaseNotes}" HorizontalContentAlignment="Left" 
                             FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
                 <StackPanel>
+                    <GroupBox Header="【2023/5/23】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
+                              Padding="18" Margin="0 10 0 0">
+                        <StackPanel>
+                            <TextBlock Text="&#9312; 新增：半重绘了地图模块的布局" Foreground="Green"/>
+                            <TextBlock Text="&#9313; 新增：重写了主页的卡片功能" Foreground="Green"/>
+                            <TextBlock Text="&#9314; 新增：更多的图标" Foreground="Green"/>
+                            <TextBlock Text="&#9315; 优化：优化了部分Page" Foreground="Blue"/>
+                            <TextBlock Text="&#9316; 优化：优化了主窗体和frame的圆角问题" Foreground="Blue"/>
+                        </StackPanel>
+                    </GroupBox>
                     <GroupBox Header="【2023/5/18】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
                               Padding="18" Margin="0 10 0 0">
                         <StackPanel>

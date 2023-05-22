@@ -36,9 +36,32 @@
 
 
     <!--地图Page-->
-    <s:String x:Key="ImportFile">Import File</s:String>
+    <s:String x:Key="File">File</s:String>
+    <s:String x:Key="NewFile">New</s:String>
+    <s:String x:Key="OpenFile">Open</s:String>
+    <s:String x:Key="SaveFile">Save File</s:String>
+    <s:String x:Key="SaveFileAs">Save File As</s:String>
+    <s:String x:Key="SaveACopy">Save a copy</s:String>
+    <s:String x:Key="Print">Print</s:String>
+    <s:String x:Key="ExitAPP">Exit</s:String>
+    <s:String x:Key="Edit">Edit</s:String>
+    <s:String x:Key="Undo">Undo</s:String>
+    <s:String x:Key="Redo">Redo</s:String>
+    <s:String x:Key="Cut">Cut</s:String>
+    <s:String x:Key="Copy">Copy</s:String>
+    <s:String x:Key="Paste">Paste</s:String>
+    <s:String x:Key="Delete">Delete</s:String>
+    <s:String x:Key="View">View</s:String>
+    <s:String x:Key="ZoomIn">Zoom In</s:String>
+    <s:String x:Key="ZoomOut">Zoom Out</s:String>
+    <s:String x:Key="Tool">Tool</s:String>
+    <s:String x:Key="Help">Help</s:String>
+    <s:String x:Key="ViewHelp">View Help</s:String>
+    <s:String x:Key="AboutArcGIS">About ArcGIS</s:String>
+    <s:String x:Key="MapOptions">MapOptions</s:String>
     <s:String x:Key="Unhighlight">Unhighlight</s:String>
     <s:String x:Key="EditMode">Edit Mode</s:String>
+    <s:String x:Key="ConductValueEvaluation">Conduct value evaluation</s:String>
     <s:String x:Key="ToolBar">ToolBar</s:String>
     <s:String x:Key="Layers">Layers</s:String>
     <s:String x:Key="ImportSHPFile">Import SHP File</s:String>

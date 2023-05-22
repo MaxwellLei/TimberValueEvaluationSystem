@@ -17,7 +17,7 @@ using TimberValueEvaluationSystem.ViewModels;
 namespace TimberValueEvaluationSystem.Views
 {
     //主页
-    public partial class HomePageView : Page
+    public partial class HomePageView 
     {
         private static HomePageView homePage = null;
         private HomePageView()
@@ -27,7 +27,7 @@ namespace TimberValueEvaluationSystem.Views
             (this.DataContext as HomePageViewModel).SearchString = this.SearchBar;
             
         }
-        public static Page GetPage()
+        public static HomePageView GetPage()
         {
             if (homePage == null)
             {

@@ -18,7 +18,7 @@ using TimberValueEvaluationSystem.ViewModels;
 
 namespace TimberValueEvaluationSystem.Views
 {
-    public partial class SettingPageView : Page
+    public partial class SettingPageView
     {
         private static SettingPageView settingPage = null;
         private SettingPageView()
@@ -26,7 +26,7 @@ namespace TimberValueEvaluationSystem.Views
             InitializeComponent();
             this.DataContext = new SettingPageViewModel(SettingNav);
         }
-        public static Page GetPage()
+        public static SettingPageView GetPage()
         {
             if (settingPage == null)
             {
