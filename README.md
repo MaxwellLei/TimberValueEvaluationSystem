@@ -44,12 +44,18 @@
 
 # 软件截图
 
-<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230516020040848.png" alt="image-20230516020040848" style="zoom:50%;" />
+<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230525235910237.png" alt="image-20230525235910237" style="zoom:50%;" />
 
-<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230516020200902.png" alt="image-20230516020200902" style="zoom:50%;" />
+<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230525235938513.png" alt="image-20230525235938513" style="zoom:50%;" />
+
+<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230526000105543.png" alt="image-20230526000105543" style="zoom:50%;" />
 
 <img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230516020214588.png" alt="image-20230516020214588" style="zoom:50%;" />
 
 <img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230516020226939.png" alt="image-20230516020226939" style="zoom:50%;" />
 
 <img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230516020240251.png" alt="image-20230516020240251" style="zoom:50%;" />
+
+<img src="https://wordpress-serverless-code-ap-beijing-1303234197.cos.ap-beijing.myqcloud.com/PicGo/image-20230526000154773.png" alt="image-20230526000154773" style="zoom:50%;" />
+
+> 注：图示中的图片来源于网络，如有侵权请联系我删除
