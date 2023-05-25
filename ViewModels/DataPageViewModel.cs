@@ -292,62 +292,39 @@ namespace TimberValueEvaluationSystem.ViewModels
         //新建数据库
         private async void ExecuteNewDBCommandAsync()
         {
-            //获取异步任务
-            CancellationTokenSource cts = cts = new CancellationTokenSource();
             //创建获取信息窗口
-            var newDatabaseView = new NewDatabaseView();
+            var newDatabaseView = new NewDatabaseView(NewDatabaseConfirmCallback);
             Dialog.Show(newDatabaseView);
-            Task task = Task.Run(() =>
-            {
-                while (!cts.IsCancellationRequested && !newDatabaseView.IsEnd)
-                {
-                    if (newDatabaseView.DatabaseName != null)
-                    {
-                        // 新建数据库
-                        DatabaseHelper.CreateDatabase(ConfigHelper.GetConfig("database_location_path"), newDatabaseView.DatabaseName);
-                        // 刷新列表
-                        InitList();
-                        cts.Cancel(); // 成功执行后立刻取消任务
-                    }
-                }
-            }, cts.Token);
+        }
 
-            await task;
-            //DatabaseHelper.CreateMSQMTable();
-            //Growl.Info(Convert.ToString(SelectedDbItem));
-            //Growl.Info("创建表成功");
+        //弹窗确认回调函数
+        private void NewDatabaseConfirmCallback(DialogResults dialogResults)
+        {
+            // 新建数据库
+            DatabaseHelper.CreateDatabase(ConfigHelper.GetConfig("database_location_path"),dialogResults.GetValue<string>("DatabaseName"));
+            // 刷新列表
+            InitList();
         }
 
         //删除数据库
-        private async void ExecuteDeleteDBCommand()
+        private void ExecuteDeleteDBCommand()
         {
-            //管道通信传递数据
-            CommunicationChannel.text = SelectedDbItem.FName;
-            //获取异步任务
-            CancellationTokenSource cts = new CancellationTokenSource(); 
             //创建获取信息窗口
-            var deleteDatabaseView = new DeleteDatabaseView();
+            var deleteDatabaseView = new DeleteDatabaseView(SelectedDbItem.FName, ConfirmCallback);
             Dialog.Show(deleteDatabaseView);
-            Task task = Task.Run(() =>
-            {
-                while (deleteDatabaseView.IsEnd >= 0)
-                {
-                    if (deleteDatabaseView.IsEnd > 0)
-                    {
-                        //删除数据库
-                        if (FileHelper.DeleteFile(SelectedDbItem.Path) == true)
-                        {
-                            //刷新列表
-                            InitList();
-                            deleteDatabaseView.IsEnd -= 2;
-                            cts.Cancel();
-                        }
-                    }
-                }
-                CommunicationChannel.text = null;
-            }, cts.Token);
-            await task;
         }
+
+        //弹窗确认回调函数
+        private void ConfirmCallback()
+        {
+            //删除数据库
+            if (FileHelper.DeleteFile(SelectedDbItem.Path) == true)
+            {
+                //刷新列表
+                InitList();
+            }
+        }
+
         
         //打开数据库文件夹
         private void ExecuteOpenDbFolderCommand()

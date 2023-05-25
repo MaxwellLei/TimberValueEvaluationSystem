@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,8 +17,11 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HarfBuzzSharp;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using TimberValueEvaluationSystem.Models;
 using TimberValueEvaluationSystem.Services;
+using TimberValueEvaluationSystem.ViewsPopUp.DataPage;
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -64,26 +69,25 @@ namespace TimberValueEvaluationSystem.ViewModels
             set { Set(ref _currentDate, value); }
         }
 
-        private ObservableCollection<IconDefaultControlModel> _userControlViewModels;
-        public ObservableCollection<IconDefaultControlModel> UserControlViewModels
+        private ObservableCollection<IconDefaultControlViewModel> _userControlViewModels;
+        public ObservableCollection<IconDefaultControlViewModel> UserControlViewModels
         {
             get { return _userControlViewModels; }
             set { Set(ref _userControlViewModels, value); }
         }
 
         public ICommand AddCardCommand { get; private set; }    //创建卡片命令
-        public ICommand RemoveCardCommand { get; private set; }     //删除卡片命令
-        public RelayCommand ShowOrHideCardCommand { get; private set; }   //搜索开始命令
+        public ICommand RefreshCommand { get; private set; }     //删除卡片命令
+        public RelayCommand ShowOrHideCardCommand { get; private set; }   //显示/隐藏命令
         public RelayCommand SearchStartedCommand { get; private set; }   //搜索开始命令
 
 
         public HomePageViewModel()
         {
             AddCardCommand = new RelayCommand(ExecuteAddCardCommand);
-            RemoveCardCommand = new RelayCommand(ExecuteRemoveCardCommand);
+            RefreshCommand = new RelayCommand(ExecuteRefreshCommand);
             ShowOrHideCardCommand = new RelayCommand(ExecuteShowOrHideCardCommand);
             SearchStartedCommand = new RelayCommand(ExecuteSearchStartedCommand);
-
             Init();     //初始化
         }
 
@@ -93,19 +97,34 @@ namespace TimberValueEvaluationSystem.ViewModels
             CardsStatus = !CardsStatus;
         }
 
-        //删除卡片
-        private void ExecuteRemoveCardCommand()
+        //刷新
+        private void ExecuteRefreshCommand()
         {
-
+            ReadUserControlViewModels();
+            MessageHelper.Info("刷新成功");
         }
+
 
         //创建卡片
         private void ExecuteAddCardCommand()
         {
-            // 根据需要创建新的用户控件视图模型实例
-            IconDefaultControlModel newUserControlVM = 
-                new IconDefaultControlModel("../Resources/Image/Other/Seraphine0.png", "Name","hhhhhh");
+            //弹窗
+            var newCardView = new NewCardView(ConfirmCallback);
+            Dialog.Show(newCardView);
+        }
+
+        //弹出确认结束回调函数
+        private void ConfirmCallback(DialogResults result)
+        {
+            IconDefaultControlViewModel newUserControlVM =
+                new IconDefaultControlViewModel(result.GetValue<string>("Icon"),
+                                                result.GetValue<string>("Name"),
+                                                result.GetValue<string>("Describe"),
+                                                result.GetValue<string>("Link"),
+                                                1,
+                                                1);
             UserControlViewModels.Add(newUserControlVM);
+            SaveUserControlViewModels();
         }
 
 
@@ -164,9 +183,40 @@ namespace TimberValueEvaluationSystem.ViewModels
             //展示卡片
             CardsStatus = true;
 
-            //初始化队列
-            UserControlViewModels = new ObservableCollection<IconDefaultControlModel>();
+            //初始化Json文件
+            if (ConfigHelper.GetConfig("json_location_path") == "")
+            {
+                //设置Json路径
+                ConfigHelper.SetConfig("json_location_path", Directory.GetCurrentDirectory()+ "\\Resources\\AppData\\List.json");
+            }
+
+            ReadUserControlViewModels();
+
         }
+
+        //保存json文件
+        public void SaveUserControlViewModels()
+        {
+            string json = JsonConvert.SerializeObject(UserControlViewModels);
+            File.WriteAllText(ConfigHelper.GetConfig("json_location_path"), json);
+        }
+
+        //读取json文件
+        public void ReadUserControlViewModels()
+        {
+            UserControlViewModels = new ObservableCollection<IconDefaultControlViewModel>();
+            if (File.Exists(ConfigHelper.GetConfig("json_location_path")))
+            {
+                string json = File.ReadAllText(ConfigHelper.GetConfig("json_location_path"));
+                foreach(var item in JsonConvert.DeserializeObject<ObservableCollection<IconDefaultControlViewModel>>(json))
+                {
+                    UserControlViewModels.Add(item);
+                }
+                //UserControlViewModels = JsonConvert.DeserializeObject<ObservableCollection<IconDefaultControlViewModel>>(json);
+            }
+        }
+
+        
 
         //获取一言
         private async Task GetWordsAsync()

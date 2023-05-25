@@ -14,29 +14,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimberValueEvaluationSystem.Models;
 using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem.ViewsPopUp.DataPage
 {
     public partial class DeleteDatabaseView
     {
-        public int IsEnd = 0;     //这个窗口是否结束
+        //回调委托
+        private readonly Action _callback;
 
-        public DeleteDatabaseView()
+        public DeleteDatabaseView(string databasename,Action callback)
         {
             InitializeComponent();
-            DatabaseName.Text = CommunicationChannel.text;
+            DatabaseName.Text = databasename;
+            _callback = callback;
         }
         //点击确认后
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IsEnd = 1;
+            //执行回调
+            _callback?.Invoke();
             ControlCommands.Close.Execute(this,this);
         }
         //点击取消后
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            IsEnd = -1;
             Growl.Warning("取消删除");
             ControlCommands.Close.Execute(this, this);
         }

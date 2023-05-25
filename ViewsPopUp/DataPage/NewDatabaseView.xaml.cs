@@ -14,30 +14,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimberValueEvaluationSystem.Models;
 
 namespace TimberValueEvaluationSystem.ViewsPopUp.DataPage
 {
     public partial class NewDatabaseView
     {
-        public bool IsEnd;    //这个窗口是否结束
-        public string DatabaseName = null;
+        //回调委托
+        private readonly Action<DialogResults> _callback;
 
-        public NewDatabaseView()
+        public NewDatabaseView(Action<DialogResults> callback)
         {
             InitializeComponent();
-            IsEnd = false;
+            _callback = callback;
         }
         //点击确认后
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DatabaseName = _databaseName.Text;
-            IsEnd = true;
+            //创建返回消息
+            var resultData = new DialogResults();
+            resultData.AddValue("DatabaseName", (object)_databaseName.Text);
+            _callback?.Invoke(resultData);
             ControlCommands.Close.Execute(this, this);
         }
         //点击取消后
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            IsEnd = true;
             Growl.Warning("取消创建");
             ControlCommands.Close.Execute(this, this);
         }

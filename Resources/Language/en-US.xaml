@@ -11,6 +11,7 @@
     <s:String x:Key="StartImageCopySuccessfully">Startup Image added successfully！</s:String>
     <s:String x:Key="StartImageCopyError">Failed to add startup image：</s:String>
     <s:String x:Key="OpenBrowserError">Can't open browser</s:String>
+    <s:String x:Key="CancelCreation">Cancel Creation</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">Loading...</s:String>
@@ -154,5 +155,6 @@
     <s:String x:Key="Quote4">📌Machine Learning：</s:String>
     <s:String x:Key="Quote5">📌Architecture Tool：</s:String>
     <s:String x:Key="Quote6">📌Database Support：</s:String>
+    <s:String x:Key="Quote7">📌Json Support：</s:String>
     <s:String x:Key="ReleaseNotes">Release Notes</s:String>
 </ResourceDictionary>

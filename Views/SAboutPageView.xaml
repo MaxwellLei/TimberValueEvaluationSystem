@@ -107,6 +107,12 @@
                             <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
                             <TextBlock Text="1.0.117）" FontSize="16"/>
                         </WrapPanel>
+                        <WrapPanel Margin="0 5 0 0">
+                            <TextBlock Text="{DynamicResource Quote7}" FontSize="16"/>
+                            <TextBlock Text="Newtonsoft.Json" FontSize="16" Foreground="#1182c3"/>
+                            <TextBlock Text="{DynamicResource Version}" FontSize="16"/>
+                            <TextBlock Text="13.0.1）" FontSize="16"/>
+                        </WrapPanel>
 
                     </StackPanel>
                 </Grid>
@@ -115,169 +121,198 @@
                 <hc:Divider Content="{DynamicResource ReleaseNotes}" HorizontalContentAlignment="Left" 
                             FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
                 <StackPanel>
-                    <GroupBox Header="【2023/5/23】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：半重绘了地图模块的布局" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：重写了主页的卡片功能" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 新增：更多的图标" Foreground="Green"/>
-                            <TextBlock Text="&#9315; 优化：优化了部分Page" Foreground="Blue"/>
-                            <TextBlock Text="&#9316; 优化：优化了主窗体和frame的圆角问题" Foreground="Blue"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/18】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：主页各种卡片" Foreground="Green"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/17】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：多语言完善" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：检查更新" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 优化：优化了设置和主窗口的一些逻辑代码" Foreground="Blue"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/16】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：多语言文本及其切换基本完成" Foreground="Green"/>
-                            <TextBlock Text="&#9312; 新增：开机自动启动" Foreground="Green"/>
-                            <TextBlock Text="&#9312; 新增：通知定时关闭" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 修复：切换英文部分控件显示异常问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/15】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：多语言适配" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 修复：设置部分功能导致程序崩溃问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/14】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：重绘了标题栏" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 修改：优化了启动图" Foreground="Blue"/>
-                            <TextBlock Text="&#9314; 修改：托盘菜单" Foreground="Blue"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/13】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：弹窗类" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：相关功能指示说明" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修改：优化了数据库公共类相关代码" Foreground="Blue"/>
-                            <TextBlock Text="&#9315; 修改：优化了数据模块相关逻辑" Foreground="Blue"/>
-                            <TextBlock Text="&#9316; 修复：新建和删除数据库失效问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/12】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 修改：优化了数据页面部分代码" Foreground="Blue"/>
-                            <TextBlock Text="&#9313; 修改：优化了公共类相关逻辑" Foreground="Blue"/>
-                            <TextBlock Text="&#9314; 修改：优化了配置文件相关代码" Foreground="Blue"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/11】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：Shp文件面高亮显示" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：地图页面相关信息显示" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
-                            <TextBlock Text="&#9315; 修改：数据页面布局" Foreground="Blue"/>
-                            <TextBlock Text="&#9316; 修复：设置页面滚动异常" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/5/03】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：配置文件" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：配置绑定前端，功能测试" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
-                        </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="【2023/4/29】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：引入 SQLite，数据库相关功能" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：数据 View 重新布局" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修复：一些BUG" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/5/25】更新内容📣" FontSize="16" Margin="0 10 0 0"
+                              IsExpanded="True">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：重写了主页的卡片功能" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修复：修复偶尔弹窗确认无反应的问题" Foreground="Red"/>
+                                <TextBlock Text="&#9314; 修复：修复取消文件导入消息仍然显示导入成功的问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/23】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：半重绘了地图模块的布局" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：重写了主页的卡片功能" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 新增：更多的图标" Foreground="Green"/>
+                                <TextBlock Text="&#9315; 优化：优化了部分Page" Foreground="Blue"/>
+                                <TextBlock Text="&#9316; 优化：优化了主窗体和frame的圆角问题" Foreground="Blue"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/18】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：主页各种卡片" Foreground="Green"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/17】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：多语言完善" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：检查更新" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 优化：优化了设置和主窗口的一些逻辑代码" Foreground="Blue"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/16】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：多语言文本及其切换基本完成" Foreground="Green"/>
+                                <TextBlock Text="&#9312; 新增：开机自动启动" Foreground="Green"/>
+                                <TextBlock Text="&#9312; 新增：通知定时关闭" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修复：切换英文部分控件显示异常问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/15】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：多语言适配" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修复：设置部分功能导致程序崩溃问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/14】更新内容📣" FontSize="16" Padding="18" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：重绘了标题栏" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修改：优化了启动图" Foreground="Blue"/>
+                                <TextBlock Text="&#9314; 修改：托盘菜单" Foreground="Blue"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/13】更新内容📣" FontSize="16" Padding="18" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：弹窗类" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：相关功能指示说明" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修改：优化了数据库公共类相关代码" Foreground="Blue"/>
+                                <TextBlock Text="&#9315; 修改：优化了数据模块相关逻辑" Foreground="Blue"/>
+                                <TextBlock Text="&#9316; 修复：新建和删除数据库失效问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/12】更新内容📣" FontSize="16" Padding="18" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 修改：优化了数据页面部分代码" Foreground="Blue"/>
+                                <TextBlock Text="&#9313; 修改：优化了公共类相关逻辑" Foreground="Blue"/>
+                                <TextBlock Text="&#9314; 修改：优化了配置文件相关代码" Foreground="Blue"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/11】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：Shp文件面高亮显示" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：地图页面相关信息显示" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
+                                <TextBlock Text="&#9315; 修改：数据页面布局" Foreground="Blue"/>
+                                <TextBlock Text="&#9316; 修复：设置页面滚动异常" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/03】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：配置文件" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：配置绑定前端，功能测试" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修改：优化了部分代码" Foreground="Blue"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/4/29】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：引入 SQLite，数据库相关功能" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：数据 View 重新布局" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修复：一些BUG" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/28】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：引入 ArcGis，读取 Shp 文件" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：图层显示" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 新增：数据View" Foreground="Green"/>
-                            <TextBlock Text="&#9315; 新增：消息通知" Foreground="Green"/>
-                            <TextBlock Text="&#9316; 修复：一些BUG" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/28】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：引入 ArcGis，读取 Shp 文件" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：图层显示" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 新增：数据View" Foreground="Green"/>
+                                <TextBlock Text="&#9315; 新增：消息通知" Foreground="Green"/>
+                                <TextBlock Text="&#9316; 修复：一些BUG" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/27】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：模型单项预测实现" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 修复：一些已知问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/27】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：模型单项预测实现" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修复：一些已知问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/26】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：公共服务类，实现相关文件读取接口" Foreground="Green"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/26】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：公共服务类，实现相关文件读取接口" Foreground="Green"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/25】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：模型单项预测实现" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：引入 LiveCharts2，实现图表可视化" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修复：一些已知问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/25】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：模型单项预测实现" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：引入 LiveCharts2，实现图表可视化" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修复：一些已知问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/24】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：引入 微软 ONNXRuntime，训练模型调用相关" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：模型适配界面" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修复：一些BUG" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/24】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：引入 微软 ONNXRuntime，训练模型调用相关" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：模型适配界面" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修复：一些BUG" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/23】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：其他更多界面" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 修复：一些显示问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/23】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：其他更多界面" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 修复：一些显示问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/22】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：项目LOGO" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：最小化托盘及其菜单" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 修复：重绘软件显示不正常问题" Foreground="Red"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/22】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：项目LOGO" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：最小化托盘及其菜单" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 修复：重绘软件显示不正常问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
 
-                    <GroupBox Header="【2023/4/21】更新内容📣" FontSize="16" Style="{StaticResource GroupBoxTab}"
-                              Padding="18" Margin="0 10 0 0">
-                        <StackPanel>
-                            <TextBlock Text="&#9312; 新增：初始化项目" Foreground="Green"/>
-                            <TextBlock Text="&#9313; 新增：引入 MVVMLightLibs，项目基本架构" Foreground="Green"/>
-                            <TextBlock Text="&#9314; 新增：引入 HandyOrg，启动界面异步" Foreground="Green"/>
-                            <TextBlock Text="&#9315; 新增：主界面及其动画" Foreground="Green"/>
-                        </StackPanel>
-                    </GroupBox>
+                    <Expander Header="【2023/4/21】更新内容📣" FontSize="16" Margin="0 10 0 0">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：初始化项目" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 新增：引入 MVVMLightLibs，项目基本架构" Foreground="Green"/>
+                                <TextBlock Text="&#9314; 新增：引入 HandyOrg，启动界面异步" Foreground="Green"/>
+                                <TextBlock Text="&#9315; 新增：主界面及其动画" Foreground="Green"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
                 </StackPanel>
             </StackPanel>
         </hc:ScrollViewer>

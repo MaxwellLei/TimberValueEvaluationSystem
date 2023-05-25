@@ -4,11 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:TimberValueEvaluationSystem.Controls"
-             mc:Ignorable="d" Height="80" Width="80" hc:Poptip.Content="{Binding Description}"
+             mc:Ignorable="d" Height="{Binding HeightSize}" Width="{Binding WidthtSize}" hc:Poptip.Content="{Binding Description}"
              d:DesignHeight="80" d:DesignWidth="80">
-    <StackPanel>
-        <Image Source="{Binding Icon}" HorizontalAlignment="Center"/>
-        <TextBlock Text="{Binding Text}" HorizontalAlignment="Center"/>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <cmd:EventToCommand Command="{Binding ClickCardCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightGray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Height="72" Width="72">
+            <Border.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{DynamicResource DeleteCard}" Command="{Binding DeleteCardCommand}"/>
+                </ContextMenu>
+            </Border.ContextMenu>
+            <Image Source="{Binding Icon}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Margin="20 0" Foreground="White" FontWeight="Bold"/>
     </StackPanel>
 </UserControl>

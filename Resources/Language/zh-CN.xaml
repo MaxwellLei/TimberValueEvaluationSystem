@@ -11,7 +11,7 @@
     <s:String x:Key="StartImageCopySuccessfully">启动图添加成功！</s:String>
     <s:String x:Key="StartImageCopyError">启动图添失败：</s:String>
     <s:String x:Key="OpenBrowserError">无法打开浏览器</s:String>
-
+    <s:String x:Key="CancelCreation">取消创建</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">正在启动中...</s:String>
@@ -155,5 +155,6 @@
     <s:String x:Key="Quote4">📌机器学习CLR：</s:String>
     <s:String x:Key="Quote5">📌架构工具：</s:String>
     <s:String x:Key="Quote6">📌数据库支持：</s:String>
+    <s:String x:Key="Quote7">📌Json支持：</s:String>
     <s:String x:Key="ReleaseNotes">更新说明</s:String>
 </ResourceDictionary>

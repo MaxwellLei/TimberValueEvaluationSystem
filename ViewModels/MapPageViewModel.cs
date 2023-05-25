@@ -184,10 +184,13 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ExecuteSelectShpFileCommand()
         {
             ShpFilePath = FileHelper.GetFilePath("Shapefiles(*.shp) | *.shp");  //读取文件路径
-            ReadShpFileAsync(ShpFilePath);  //打开Shp文件
-            MapLayers = new ObservableCollection<Layer>(Map.OperationalLayers);     //更新图层数据
-            //ExecuteWheelChangedCommand();   //更新比例尺
-            MessageHelper.Success((string)Application.Current.Resources["FileReadSuccessfully"]);
+            if(ShpFilePath != null)
+            {
+                ReadShpFileAsync(ShpFilePath);  //打开Shp文件
+                MapLayers = new ObservableCollection<Layer>(Map.OperationalLayers);     //更新图层数据
+                //ExecuteWheelChangedCommand();   //更新比例尺
+                MessageHelper.Success((string)Application.Current.Resources["FileReadSuccessfully"]);
+            }
         }
 
         //高亮显示面

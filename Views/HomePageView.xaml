@@ -16,8 +16,8 @@
     </Border.Resources>
     <Border.ContextMenu>
         <ContextMenu>
+            <MenuItem Header="{DynamicResource Refresh}" Command="{Binding RefreshCommand}"/>
             <MenuItem Header="{DynamicResource NewCard}" Command="{Binding AddCardCommand}"/>
-            <MenuItem Header="{DynamicResource DeleteCard}"/>
             <MenuItem Header="{DynamicResource ShowOrHideCard}" Command="{Binding ShowOrHideCardCommand}"/>
         </ContextMenu>
     </Border.ContextMenu>
@@ -46,18 +46,22 @@
 
             </Grid>
             <!--下半部分-->
-            <ItemsControl ItemsSource="{Binding UserControlViewModels}" Grid.Row="1">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <uc:IconDefaultControl DataContext="{Binding}"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ScrollViewer Grid.Row="1" Margin="200 80" 
+                          Visibility="{Binding CardsStatus, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ItemsControl  ItemsSource="{Binding UserControlViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <hc:WaterfallPanel Orientation="Horizontal" Groups="6"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <uc:IconDefaultControl DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            
             <!--<Grid Grid.Row="1" Margin="100 32 100 36" Visibility="{Binding CardsStatus, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

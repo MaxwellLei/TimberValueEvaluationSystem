@@ -5,6 +5,7 @@ using HandyControl.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -85,7 +86,7 @@ namespace TimberValueEvaluationSystem.Services
                 return false;
             }
         }
-
+         
         //检查文件是否被占用
         public static bool IsFileInUse(string path)
         {
@@ -120,6 +121,32 @@ namespace TimberValueEvaluationSystem.Services
         public static bool IsFileExist(string path)
         {
             return System.IO.File.Exists(path);
+        }
+
+        //复制文件到目标路径
+        public static bool CopyFile(string sourcePath, string targetPath)
+        {
+            try
+            {
+                System.IO.File.Copy(sourcePath, targetPath);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        //获取当前运行 程序所在路径
+        public static string GetAppPath()
+        {
+            return System.AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        //判断文件夹是否为空
+        public static bool IsFolderEmpty(string path)
+        {
+            return Directory.GetFiles(path).Length == 0;
         }
     }
 }

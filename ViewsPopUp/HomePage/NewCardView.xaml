@@ -1,0 +1,48 @@
+﻿<Border x:Class="TimberValueEvaluationSystem.ViewsPopUp.DataPage.NewCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TimberValueEvaluationSystem.ViewsPopUp.DataPage"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="White" CornerRadius="10" Padding="24 10">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <hc:Divider Content="新建卡片" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+                    LineStrokeThickness="5" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <hc:ImageSelector Name="_cardImage" Height="120" Width="120"/>
+            <StackPanel Grid.Column="1">
+                <WrapPanel Margin="0 10">
+                    <TextBlock Text="名称" VerticalAlignment="Center" Margin="10 0"/>
+                    <TextBox Name="_cardName"  Width="320" Focusable="True"/>
+                </WrapPanel>
+                <WrapPanel Margin="0 10">
+                    <TextBlock Text="描述" VerticalAlignment="Center" Margin="10 0"/>
+                    <TextBox Name="_cardDescribe" Width="320" Focusable="True"/>
+                </WrapPanel>
+                <WrapPanel Margin="0 10">
+                    <TextBlock Text="链接" VerticalAlignment="Center" Margin="10 0"/>
+                    <TextBox Name="_cardLink" Width="320" Focusable="True"/>
+                </WrapPanel>
+            </StackPanel>
+            
+            
+        </Grid>
+        <Grid Grid.Row="2" Margin="0 10">
+            <Button Width="80" Style="{StaticResource ButtonDanger}" Content="取消" 
+                    Click="Button_Click_1" HorizontalAlignment="Left"/>
+            <Button Width="80" Style="{StaticResource ButtonSuccess}" Content="确认" 
+                    Click="Button_Click" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="errorMessage" Text="{Binding WaringMessage}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Foreground="Red" FontWeight="DemiBold"/>
+        </Grid>
+    </Grid>
+    
+</Border>
