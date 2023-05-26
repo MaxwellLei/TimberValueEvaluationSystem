@@ -114,21 +114,21 @@
         <Separator BorderBrush="DimGray" BorderThickness="2"/>
         <Button Content="&#xe64d;" Style="{StaticResource ToolbarIcon}" Command="{Binding SelectShpFileCommand}"/>
         <Button Content="&#xe8c8;" Style="{StaticResource ToolbarIcon}"/>
-        <Button Content="&#xe932;" Style="{StaticResource ToolbarIcon}"/>
+        <Button Content="&#xe932;" Style="{StaticResource ToolbarIcon}" Command="{Binding PrintCommand}"/>
         <Separator BorderBrush="DimGray" BorderThickness="2"/>
         <Button Content="&#xe63b;" Style="{StaticResource ToolbarIcon}" Command="{Binding LayerSidebarCommand}"/>
         <Button Content="&#xe604;" Style="{StaticResource ToolbarIcon}"/>
         <Separator BorderBrush="DimGray" BorderThickness="2"/>
-        <Button Content="&#xe61f;" Style="{StaticResource ToolbarIcon}"/>
-        <Button Content="&#xe931;" Style="{StaticResource ToolbarIcon}"/>
+        <Button Content="&#xe61f;" Style="{StaticResource ToolbarIcon}" Command="{Binding FocusLayersCommand}"/>
+        <Button Content="&#xe931;" Style="{StaticResource ToolbarIcon}" Command="{Binding ScreenshotCommand}"/>
 
     </ToolBar>
     <!--地图-->
     <esri:MapView x:Name="MyMapView" Map="{Binding Map}" Focusable="True" Grid.Row="2">
         <esri:MapView.ContextMenu>
             <ContextMenu>
-                <MenuItem Header="{DynamicResource OpenFile}"/>
-                <MenuItem Header="{DynamicResource Unhighlight}"/>
+                <MenuItem Header="{DynamicResource OpenFile}" Command="{Binding SelectShpFileCommand}"/>
+                <MenuItem Header="{DynamicResource Focus}" Command="{Binding FocusLayersCommand}"/>
                 <MenuItem Header="{DynamicResource EditMode}"/>
                 <MenuItem Header="{DynamicResource ConductValueEvaluation}" Command="{Binding TestCommand}"/>
             </ContextMenu>
@@ -145,6 +145,25 @@
             </i:EventTrigger>
         </i:Interaction.Triggers>
     </esri:MapView>
+    <!--图层的属性面板-->
+    <Canvas Grid.Row="2">
+        <Grid Width="120" Margin="10 50" VerticalAlignment="Stretch" HorizontalAlignment="Left">
+            <ItemsControl ItemsSource="{Binding FeatureAttributes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Canvas>
+    
+    
     <!--底部状态栏-->
     <StatusBar Grid.Row="3" Background="#eeeeee">
         <WrapPanel HorizontalAlignment="Stretch">
@@ -160,30 +179,46 @@
             <Grid Background="#eeeeee">
                 <Grid.ContextMenu>
                     <ContextMenu Placement="Right">
-                        <MenuItem Header="{DynamicResource UnloadLayer}"/>
-                        <MenuItem Header="{DynamicResource MoveLayerUp}"/>
-                        <MenuItem Header="{DynamicResource MoveLayerDown}"/>
-                        <MenuItem Header="{DynamicResource LayerOnTop}"/>
-                        <MenuItem Header="{DynamicResource LayerBottom}"/>
-                        <MenuItem Header="{DynamicResource More}">
-
-                        </MenuItem>
+                        <MenuItem Header="{DynamicResource ClearLayer}" Command="{Binding ClearLayerCommand}"/>
                     </ContextMenu>
                 </Grid.ContextMenu>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0.06*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Border Width="300">
-                    <ListView ItemsSource="{Binding MapLayers}" BorderThickness="0">
-                        <ListView.ItemTemplate>
+                <Border Background="#e1e1e1" Margin="5" CornerRadius="5">
+                    <TextBlock Text="{DynamicResource Basemap}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontWeight="Bold" FontSize="14"/>
+                </Border>
+                <Border Width="300" Grid.Row="1">
+                    <ListBox ItemsSource="{Binding MapLayers}" BorderThickness="0" SelectedIndex="{Binding SelectedLayer}"
+                             Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True"  Margin="3">
+                        <ListBox.ContextMenu>
+                            <ContextMenu Placement="Right">
+                                <MenuItem Header="{DynamicResource Focus}" Command="{Binding FocusSelectedLayerCommand}">
+                                    <MenuItem.Icon>
+                                        <TextBlock Text="&#xe61f;" Style="{StaticResource CommonIcon}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource UnloadLayer}" Command="{Binding UnloadLayerCommand}"/>
+                                <MenuItem Header="{DynamicResource ClearLayer}" Command="{Binding ClearLayerCommand}"/>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource MoveLayerUp}" Command="{Binding MoveLayerUpCommand}"/>
+                                <MenuItem Header="{DynamicResource MoveLayerDown}" Command="{Binding MoveLayerDownCommand}"/>
+                                <MenuItem Header="{DynamicResource LayerOnTop}" Command="{Binding LayerOnTopCommand}"/>
+                                <MenuItem Header="{DynamicResource LayerBottom}" Command="{Binding LayerBottomCommand}"/>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource More}">
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                        <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="Bold" />
-                                </StackPanel>
+                                <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="Bold" />
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Border>
             </Grid>
         </Border>

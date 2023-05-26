@@ -121,8 +121,18 @@
                 <hc:Divider Content="{DynamicResource ReleaseNotes}" HorizontalContentAlignment="Left" 
                             FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
                 <StackPanel>
-                    <Expander Header="【2023/5/25】更新内容📣" FontSize="16" Margin="0 10 0 0"
+                    <Expander Header="【2023/5/26】更新内容📣" FontSize="16" Margin="0 10 0 0"
                               IsExpanded="True">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：增加了地图模块部分功能" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 优化：优化了删除卡片需要手动刷新的问题" Foreground="Blue"/>
+                                <TextBlock Text="&#9314; 修复：修复了未导入图层的情况下点击地图导致软件崩溃的问题" Foreground="Red"/>
+                                <TextBlock Text="&#9315; 修复：修复了新增卡片导致的卡死问题" Foreground="Red"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/25】更新内容📣" FontSize="16" Margin="0 10 0 0">
                         <Border Background="#eeeeee">
                             <StackPanel Margin="10">
                                 <TextBlock Text="&#9312; 新增：重写了主页的卡片功能" Foreground="Green"/>

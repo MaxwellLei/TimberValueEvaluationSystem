@@ -52,6 +52,7 @@
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <hc:WaterfallPanel Orientation="Horizontal" Groups="6"/>
+                            <!--<ws:FluidWrapPanel Orientation="Horizontal" ItemWidth="120" ItemHeight="120"/>-->
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>

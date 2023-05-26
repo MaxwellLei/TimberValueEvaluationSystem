@@ -123,6 +123,29 @@ namespace TimberValueEvaluationSystem.Services
             return System.IO.File.Exists(path);
         }
 
+        //检查文件夹是否存在
+        public static bool IsFolderExist(string path)
+        {
+            return System.IO.Directory.Exists(path);
+        }
+
+        //如果文件夹不存在则创建文件夹
+        public static bool CreateFolder(string path)
+        {
+            try
+            {
+                if (!IsFolderExist(path))
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         //复制文件到目标路径
         public static bool CopyFile(string sourcePath, string targetPath)
         {

@@ -101,7 +101,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ExecuteRefreshCommand()
         {
             ReadUserControlViewModels();
-            MessageHelper.Info("刷新成功");
+            MessageHelper.Info((string)Application.Current.Resources["Refreshsuccessfully"]);
         }
 
 
@@ -117,7 +117,8 @@ namespace TimberValueEvaluationSystem.ViewModels
         private void ConfirmCallback(DialogResults result)
         {
             IconDefaultControlViewModel newUserControlVM =
-                new IconDefaultControlViewModel(result.GetValue<string>("Icon"),
+                new IconDefaultControlViewModel(ReadUserControlViewModels,
+                                                result.GetValue<string>("Icon"),
                                                 result.GetValue<string>("Name"),
                                                 result.GetValue<string>("Describe"),
                                                 result.GetValue<string>("Link"),
@@ -178,7 +179,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             _timer.Start();
 
             //获取一言
-            GetWordsAsync();
+            //GetWordsAsync();
 
             //展示卡片
             CardsStatus = true;
@@ -186,10 +187,12 @@ namespace TimberValueEvaluationSystem.ViewModels
             //初始化Json文件
             if (ConfigHelper.GetConfig("json_location_path") == "")
             {
+                //如果AppData文件夹不存在，则创建文件夹
+                FileHelper.CreateFolder(Directory.GetCurrentDirectory() + "\\Resources\\AppData");
                 //设置Json路径
                 ConfigHelper.SetConfig("json_location_path", Directory.GetCurrentDirectory()+ "\\Resources\\AppData\\List.json");
             }
-
+            //刷新列表
             ReadUserControlViewModels();
 
         }
@@ -210,9 +213,9 @@ namespace TimberValueEvaluationSystem.ViewModels
                 string json = File.ReadAllText(ConfigHelper.GetConfig("json_location_path"));
                 foreach(var item in JsonConvert.DeserializeObject<ObservableCollection<IconDefaultControlViewModel>>(json))
                 {
+                    item._callback = ReadUserControlViewModels;
                     UserControlViewModels.Add(item);
                 }
-                //UserControlViewModels = JsonConvert.DeserializeObject<ObservableCollection<IconDefaultControlViewModel>>(json);
             }
         }
 
@@ -221,7 +224,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         //获取一言
         private async Task GetWordsAsync()
         {
-            string url = "https://v1.hitokoto.cn/?c=f&encode=text"; // 替换为您的实际网址
+            string url = "https://v1.hitokoto.cn/?c=f&encode=text";
 
             using (HttpClient httpClient = new HttpClient())
             {

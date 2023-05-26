@@ -12,6 +12,8 @@
     <s:String x:Key="StartImageCopyError">启动图添失败：</s:String>
     <s:String x:Key="OpenBrowserError">无法打开浏览器</s:String>
     <s:String x:Key="CancelCreation">取消创建</s:String>
+    <s:String x:Key="Refreshsuccessfully">刷新成功</s:String>
+    <s:String x:Key="PrintedSuccessfully">打印成功</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">正在启动中...</s:String>
@@ -68,11 +70,13 @@
     <s:String x:Key="ImportSHPFile">导入Shp文件</s:String>
     <s:String x:Key="Screenshot">截图</s:String>
     <s:String x:Key="Focus">聚焦</s:String>
+    <s:String x:Key="Basemap">底图：默认</s:String>
     <s:String x:Key="UnloadLayer">卸载图层</s:String>
     <s:String x:Key="MoveLayerUp">上移图层</s:String>
     <s:String x:Key="MoveLayerDown">下移图层</s:String>
     <s:String x:Key="LayerOnTop">图层置顶</s:String>
     <s:String x:Key="LayerBottom">图层置底</s:String>
+    <s:String x:Key="ClearLayer">清空图层</s:String>
     <s:String x:Key="More">更多</s:String>
     <s:String x:Key="Scale">比例尺:</s:String>
     <s:String x:Key="Coordinate">坐标:</s:String>

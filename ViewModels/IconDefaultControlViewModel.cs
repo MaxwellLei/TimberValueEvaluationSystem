@@ -27,13 +27,16 @@ namespace TimberValueEvaluationSystem.ViewModels
         public int WidthtSize { get; set; }
         public int HeightSize { get; set; }
 
+        //刷新回调委托
+        [JsonIgnore]
+        public Action _callback;
 
         [JsonIgnore]
         public RelayCommand ClickCardCommand { get; private set; }  //点击卡片命令
         [JsonIgnore]
         public RelayCommand DeleteCardCommand { get; private set; }  //删除卡片命令
 
-        public IconDefaultControlViewModel(string icon, string text, string description, string link,int width, int height)
+        public IconDefaultControlViewModel(Action action,string icon, string text, string description, string link,int width, int height)
         {
             Icon = icon;
             Text = text;
@@ -41,6 +44,7 @@ namespace TimberValueEvaluationSystem.ViewModels
             WidthtSize = width * 100;
             HeightSize = height * 100;
             Link = link;
+            _callback = action;
 
 
             ClickCardCommand = new RelayCommand(() =>
@@ -75,6 +79,9 @@ namespace TimberValueEvaluationSystem.ViewModels
             // 将更新后的 JSON 数组保存回文件
             string updatedJson = jsonArray.ToString();
             File.WriteAllText(filePath, updatedJson);
+
+            //执行刷新回调
+            _callback?.Invoke();
         }
     }
 }

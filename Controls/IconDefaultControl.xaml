@@ -7,8 +7,9 @@
              xmlns:cmd="http://www.galasoft.ch/mvvmlight"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:TimberValueEvaluationSystem.Controls"
-             mc:Ignorable="d" Height="{Binding HeightSize}" Width="{Binding WidthtSize}" hc:Poptip.Content="{Binding Description}"
-             d:DesignHeight="80" d:DesignWidth="80">
+             mc:Ignorable="d" Height="{Binding HeightSize}" Width="{Binding WidthtSize}"
+             hc:Poptip.Content="{Binding Description}" d:DesignHeight="80"
+             d:DesignWidth="80">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeftButtonDown">
             <cmd:EventToCommand Command="{Binding ClickCardCommand}"/>

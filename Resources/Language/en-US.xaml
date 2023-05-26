@@ -12,6 +12,8 @@
     <s:String x:Key="StartImageCopyError">Failed to add startup image：</s:String>
     <s:String x:Key="OpenBrowserError">Can't open browser</s:String>
     <s:String x:Key="CancelCreation">Cancel Creation</s:String>
+    <s:String x:Key="Refreshsuccessfully">Refresh successfully</s:String>
+    <s:String x:Key="PrintedSuccessfully">Printed Successfully</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">Loading...</s:String>
@@ -68,11 +70,13 @@
     <s:String x:Key="ImportSHPFile">Import SHP File</s:String>
     <s:String x:Key="Screenshot">Screenshot</s:String>
     <s:String x:Key="Focus">Focus</s:String>
+    <s:String x:Key="Basemap">Basemap: Default</s:String>
     <s:String x:Key="UnloadLayer">Unload Layer</s:String>
     <s:String x:Key="MoveLayerUp">Move Layer Up</s:String>
     <s:String x:Key="MoveLayerDown">Move Layer Down</s:String>
     <s:String x:Key="LayerOnTop">Layer On Top</s:String>
     <s:String x:Key="LayerBottom">Layer Bottom</s:String>
+    <s:String x:Key="ClearLayer">Clear Layer</s:String>
     <s:String x:Key="More">More</s:String>
     <s:String x:Key="Scale">Scale:</s:String>
     <s:String x:Key="Coordinate">Coordinate:</s:String>
