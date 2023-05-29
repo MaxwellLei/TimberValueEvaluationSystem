@@ -13,7 +13,8 @@
 * **操作系统为`Windows 7`，`windows 10` 或者 `windows 11`等及其以上版本**
 * **具备`.NET 6`运行时**
 
-> 如果没有`.NET 6`运行时，理论上运行的时候会报错，然后微软给你一个下载链接，下载安装即可
+> <del>如果没有`.NET 6`运行时，理论上运行的时候会报错，然后微软给你一个下载链接，下载安装即可</del>
+> 我已经打包多个不同版本和类型的安装包，如果你并不了解什么是`.NET6`运行时，则直接下载 **independent** 版本即可。
 
 项目引用了其他`Nuget`包，进行相关功能的支持，如下是感谢支持项目：
 
@@ -23,6 +24,7 @@
 * **📌机器学习运行时：[Microsoft.ML.OnnxRuntime](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/1.15.0-alpha)（1.12.0）**
 * **📌MVVM工具包：[MvvmLightLibs](https://www.nuget.org/packages/MvvmLightLibs)（5.4.1.1）**
 * **📌数据库支持：[System.Data.SQLite](https://www.nuget.org/packages/System.Data.SQLite)（1.0.117）**
+* **📌JSON支持：[Newtonsoft.Json](https://www.newtonsoft.com/json)（12.0.3）**
 
 ----
 
