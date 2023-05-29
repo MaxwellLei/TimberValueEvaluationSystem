@@ -42,7 +42,7 @@
 * Views：MVVM 中的`View`，请将你的`View`放在这里（UI）
 * ViewPopUp：它已经不是严格的`mvvm`层面，我创建它是因为有写地方需要弹窗来获取相关数据，这个弹窗的`View`我就放在这里面，主要是`Views`文件夹会因为大量的弹窗`view`而变得混乱，我决定给它们单独放一个文件夹
 
-> 本项目将会在6月中旬结束更新，如果你后面需要相关帮助，可以通过访问[我的博客引导页中](https://welcome-1303234197.cos-website.ap-beijing.myqcloud.com/)找到我的联系方式。
+> 本项目将会在6月中旬结束更新，如果你后面需要相关帮助，可以通过访问[我的博客引导页中](https://welcome-1303234197.cos-website.ap-beijing.myqcloud.com/)找到我的联系方式。 
 
 # 软件截图
 
