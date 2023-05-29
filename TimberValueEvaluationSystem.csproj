@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Icon\logo_icon.ico</ApplicationIcon>
-	<Version>0.4.5.0</Version>
+	<Version>0.4.8.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -173,6 +173,7 @@
 
   <ItemGroup>
     <Folder Include="Resources\AppData\" />
+    <Folder Include="Directory.Build.props\" />
   </ItemGroup>
 
 </Project>

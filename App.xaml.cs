@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
 using TimberValueEvaluationSystem.Services;
 
 namespace TimberValueEvaluationSystem
@@ -16,8 +18,8 @@ namespace TimberValueEvaluationSystem
     {
         App()
         {
-            
-            
+            //渲染交给GPU提升性能
+            RenderOptions.ProcessRenderMode = RenderMode.Default;
         }
     }
 }

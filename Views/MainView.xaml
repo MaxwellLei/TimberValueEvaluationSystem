@@ -123,7 +123,7 @@
                         
                         <ScrollViewer VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" 
                                   HorizontalAlignment="Right">
-                            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top"/>
+                            <VirtualizingStackPanel  hc:Growl.GrowlParent="True" VerticalAlignment="Top"/>
                         </ScrollViewer>
                     </Grid>
                 </Border>

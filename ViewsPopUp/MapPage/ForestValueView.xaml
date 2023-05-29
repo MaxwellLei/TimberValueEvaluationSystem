@@ -2,61 +2,104 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TimberValueEvaluationSystem.ViewsPopUp.DataPage"
-             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:hc="https://handyorg.github.io/handycontrol" Name="TopBorder"
              Background="White" CornerRadius="10" Padding="24 10">
-    <StackPanel>
-        <hc:Divider Content="计算结果" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--左半边-->
+        <StackPanel Margin="10 0 20 0">
+            <hc:Divider Content="林区属性" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
                     LineStrokeThickness="5"/>
-        <StackPanel Width="300">
-            <TextBlock Text="林区ID：3"/>
-            <TextBlock Text="立地质量：好"/>
-            <TextBlock Text="林木价值（元/亩）：1450.5"/>
+            <TextBlock Text="当前评价方法：成本法" Foreground="Blue" FontWeight="Bold"/>
+            <ItemsControl Name="itemscontrol">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
-        <!--<hc:Divider Content="经营参数" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+        <!--右半边-->
+        <StackPanel Grid.Column="1">
+            <hc:Divider Content="经营参数" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
                     LineStrokeThickness="5"/>
-        <StackPanel>
-            <GroupBox Header="第一年成本" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+            <StackPanel>
+                <GroupBox Header="平均年龄（年）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5" >
-                <Grid>
-                    <TextBox Width="300"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="第二年成本" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                    <Grid>
+                        <hc:NumericUpDown Name="_AverageAge" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="第一年成本（元/亩）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5" >
-                <Grid>
-                    <TextBox Width="300"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="第三年成本" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                    <Grid>
+                        <TextBox Name="_FirstYearCost" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="第二年成本（元/亩）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5" >
-                <Grid>
-                    <TextBox Width="300"/>
-                </Grid>
-            </GroupBox>
+                    <Grid>
+                        <TextBox Name="_SecondYearCost" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="第三年成本（元/亩）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                              FontSize="16" Margin="0 0 0 5" >
+                    <Grid>
+                        <TextBox Name="_ThirdYearCost" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="年管护成本（元/亩）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                              FontSize="16" Margin="0 0 0 5" >
+                    <Grid>
+                        <TextBox Name="_AnnualCost" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            <hc:Divider Content="其他参数" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+                    LineStrokeThickness="5"/>
+            <StackPanel>
+                <GroupBox Header="调整系数" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                              FontSize="16" Margin="0 0 0 5" >
+                    <Grid>
+                        <TextBox Name="_AdjustmentCoefficient" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="投资收益率（%）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                              FontSize="16" Margin="0 0 0 5" >
+                    <Grid>
+                        <TextBox Name="_ReturnOnInvestment" Width="180" HorizontalAlignment="Right"/>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            <hc:Divider Content="评估结果" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
+                    LineStrokeThickness="5"/>
+            <StackPanel>
+                <GroupBox Header="林木价值（元/亩）" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
+                              FontSize="16" Margin="0 0 0 5" >
+                    <Grid>
+                        <TextBlock Name="_Result" Width="180" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                   Foreground="Blue"/>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            <WrapPanel>
+                <Button Width="80" Style="{StaticResource ButtonDanger}" Content="取消" 
+                    Click="Button_Click_1" HorizontalAlignment="Left"/>
+                <Button Width="100" Style="{StaticResource ButtonPrimary}" Content="清空数据" 
+                    Click="Button_Click_3" HorizontalAlignment="Center" Margin="10 0 0 0"/>
+                <Button Width="100" Style="{StaticResource ButtonPrimary}" Content="导出报告" 
+                    Click="Button_Click_2" HorizontalAlignment="Center" Margin="10 0 0 0"/>
+                <Button Width="80" Style="{StaticResource ButtonSuccess}" Content="评估" 
+                    Click="Button_Click" HorizontalAlignment="Right" Margin="10 0 0 0"/>
+            </WrapPanel>
         </StackPanel>
-        <hc:Divider Content="其他参数" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" 
-                    LineStrokeThickness="5"/>
-        <StackPanel>
-            <GroupBox Header="调整系数" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
-                              FontSize="16" Margin="0 0 0 5" >
-                <Grid>
-                    <TextBox Width="300"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="投资收益率" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
-                              FontSize="16" Margin="0 0 0 5" >
-                <Grid>
-                    <TextBox Width="300"/>
-                </Grid>
-            </GroupBox>
-        </StackPanel>-->
-        <Grid Margin="0 15 0 10">
-            <Button Width="80" Style="{StaticResource ButtonPrimary}" Content="导出" 
-                    Click="Button_Click_1" HorizontalAlignment="Left"/>
-            <Button Width="100" Style="{StaticResource ButtonPrimary}" Content="保存到数据库" Margin="100 0 0 0"
-                    Click="Button_Click_1" HorizontalAlignment="Left"/>
-            <Button Width="80" Style="{StaticResource ButtonSuccess}" Content="确定" 
-                    Click="Button_Click" HorizontalAlignment="Right"/>
-        </Grid>
-    </StackPanel>
+    </Grid>
 </Border>

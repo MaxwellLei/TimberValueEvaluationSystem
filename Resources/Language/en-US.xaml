@@ -14,6 +14,8 @@
     <s:String x:Key="CancelCreation">Cancel Creation</s:String>
     <s:String x:Key="Refreshsuccessfully">Refresh successfully</s:String>
     <s:String x:Key="PrintedSuccessfully">Printed Successfully</s:String>
+    <s:String x:Key="ExportSucceeded">Export Succeeded</s:String>
+    <s:String x:Key="UnselectedFaces">Unselected Faces</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">Loading...</s:String>

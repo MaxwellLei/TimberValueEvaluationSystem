@@ -10,6 +10,7 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore;
 using TimberValueEvaluationSystem.Views;
 using System.Windows.Controls;
+using System.Threading.Tasks;
 
 namespace TimberValueEvaluationSystem.ViewModels
 {
@@ -19,9 +20,6 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand SiteQualityPageCommand { get; private set; }   //立地质量模型页面
         public RelayCommand SiteQualityPredictionCommand { get; private set; }   //立地质量模型预测
         public RelayCommand ImportModelCommand { get; private set; }   //立地质量模型预测
-
-
-
 
         public ModelPageViewModel(Frame frame)
         {
@@ -40,7 +38,10 @@ namespace TimberValueEvaluationSystem.ViewModels
         //切换立地质量模型页面
         private void ExecuteSiteQualityPageCommand()
         {
-            Nav.Navigate(MSiteQModelView.GetPage());
+            Task.Run(() =>
+            {
+                 Nav.Navigate(MSiteQModelView.GetPage());
+            });
         }
 
         //立地质量模型预测

@@ -14,6 +14,8 @@
     <s:String x:Key="CancelCreation">取消创建</s:String>
     <s:String x:Key="Refreshsuccessfully">刷新成功</s:String>
     <s:String x:Key="PrintedSuccessfully">打印成功</s:String>
+    <s:String x:Key="ExportSucceeded">导出成功</s:String>
+    <s:String x:Key="UnselectedFaces">未选中林区/林班/面</s:String>
 
     <!--启动窗体-->
     <s:String x:Key="Loading">正在启动中...</s:String>

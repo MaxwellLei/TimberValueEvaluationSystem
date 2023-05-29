@@ -27,10 +27,6 @@ namespace TimberValueEvaluationSystem.ViewModels
 {
     public class HomePageViewModel : ViewModelBase
     {
-
-        
-        private DispatcherTimer _timer;     //计时器对象
-
         //是否展示卡片
         private bool _cardsStatus;
         public bool CardsStatus
@@ -164,19 +160,8 @@ namespace TimberValueEvaluationSystem.ViewModels
         //初始化
         private void Init()
         {
-            //初始化计时器
-            _timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            _timer.Tick += (sender, e) =>
-            {
-                //按照 小时：分钟 格式显示
-                CurrentTime = DateTime.Now.ToString("HH:mm");
-                //按照 年份：月：日 星期 显示
-                CurrentDate = DateTime.Now.ToString("yyyy年 MM月 dd日 dddd");
-            };
-            _timer.Start();
+            //更新时间
+            Task.Run(async () => await UpdatedTimeAsync());
 
             //获取一言
             //GetWordsAsync();
@@ -201,7 +186,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         public void SaveUserControlViewModels()
         {
             string json = JsonConvert.SerializeObject(UserControlViewModels);
-            File.WriteAllText(ConfigHelper.GetConfig("json_location_path"), json);
+            File.WriteAllText(ConfigHelper.GetConfig("data_location_path"), json);
         }
 
         //读取json文件
@@ -219,7 +204,19 @@ namespace TimberValueEvaluationSystem.ViewModels
             }
         }
 
-        
+        //更新时间
+        private async Task UpdatedTimeAsync()
+        {
+            // 初始化计时器
+            while (true)
+            {
+                // 按照 小时：分钟 格式显示
+                CurrentTime = DateTime.Now.ToString("HH:mm");
+                // 按照 年份：月：日 星期 显示
+                CurrentDate = DateTime.Now.ToString("yyyy年 MM月 dd日 dddd");
+                await Task.Delay(1000);
+            }
+        }
 
         //获取一言
         private async Task GetWordsAsync()

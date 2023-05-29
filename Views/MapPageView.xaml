@@ -130,7 +130,7 @@
                 <MenuItem Header="{DynamicResource OpenFile}" Command="{Binding SelectShpFileCommand}"/>
                 <MenuItem Header="{DynamicResource Focus}" Command="{Binding FocusLayersCommand}"/>
                 <MenuItem Header="{DynamicResource EditMode}"/>
-                <MenuItem Header="{DynamicResource ConductValueEvaluation}" Command="{Binding TestCommand}"/>
+                <MenuItem Header="{DynamicResource ConductValueEvaluation}" Command="{Binding ValueEvaluationCommand}"/>
             </ContextMenu>
         </esri:MapView.ContextMenu>
         <i:Interaction.Triggers>

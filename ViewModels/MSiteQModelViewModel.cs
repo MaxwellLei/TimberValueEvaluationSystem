@@ -35,6 +35,7 @@ namespace TimberValueEvaluationSystem.ViewModels
                 Values = new double[] { 2, 5, 4, -2, 4, -3, 5 }
             }
         }; //图表
+
         public ISeries[] pieSeries;
         public ISeries[] PieSeries
         {

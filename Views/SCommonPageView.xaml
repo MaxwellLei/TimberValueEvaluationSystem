@@ -18,7 +18,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <hc:ScrollViewer Grid.Column="1">
-            <StackPanel HorizontalAlignment="Stretch" Margin="0 0 10 0">
+            <VirtualizingStackPanel HorizontalAlignment="Stretch" Margin="0 0 10 0">
                 <hc:Divider Content="{DynamicResource RelativePath}" HorizontalContentAlignment="Left" FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
                 <GroupBox Header="{DynamicResource DatabasePath}" Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left" 
                               FontSize="16" Margin="0 0 0 5">
@@ -154,7 +154,7 @@
                         </ComboBox.Items>
                     </ComboBox>
                 </GroupBox>
-            </StackPanel>
+            </VirtualizingStackPanel>
         </hc:ScrollViewer>
     </Grid>
 </Page>

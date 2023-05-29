@@ -120,9 +120,19 @@
                 <!--更新说明部分-->
                 <hc:Divider Content="{DynamicResource ReleaseNotes}" HorizontalContentAlignment="Left" 
                             FontSize="20" FontWeight="Bold" LineStrokeThickness="5"/>
-                <StackPanel>
+                <VirtualizingStackPanel>
                     <Expander Header="【2023/5/26】更新内容📣" FontSize="16" Margin="0 10 0 0"
                               IsExpanded="True">
+                        <Border Background="#eeeeee">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="&#9312; 新增：增加了价值评估部分功能" Foreground="Green"/>
+                                <TextBlock Text="&#9313; 优化：优化了部分代码和逻辑结构" Foreground="Blue"/>
+                                <TextBlock Text="&#9314; 开发者的话：初步v0.4.8，我会尝试把.net6打个安装包下来，有机会的话开始Beta分支可能要重写UI部分，以实现黑暗模式以及部分性能提升" 
+                                           Foreground="Purple" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="【2023/5/26】更新内容📣" FontSize="16" Margin="0 10 0 0">
                         <Border Background="#eeeeee">
                             <StackPanel Margin="10">
                                 <TextBlock Text="&#9312; 新增：增加了地图模块部分功能" Foreground="Green"/>
@@ -323,7 +333,7 @@
                             </StackPanel>
                         </Border>
                     </Expander>
-                </StackPanel>
+                </VirtualizingStackPanel>
             </StackPanel>
         </hc:ScrollViewer>
     </Grid>

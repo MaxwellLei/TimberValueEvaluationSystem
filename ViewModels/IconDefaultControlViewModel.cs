@@ -62,7 +62,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         //删除json中的对象
         public void RemoveUserControlViewModels(string targetName)
         {
-            string filePath = ConfigHelper.GetConfig("json_location_path"); // 您的 JSON 文件路径
+            string filePath = ConfigHelper.GetConfig("data_location_path"); // 您的 JSON 文件路径
             // 读取 JSON 文件
             string json = File.ReadAllText(filePath);
             // 解析 JSON 数据为 JArray

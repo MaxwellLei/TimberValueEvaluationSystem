@@ -32,6 +32,9 @@ namespace TimberValueEvaluationSystem.ViewModels
     //地图页的 ViewModel
     class MapPageViewModel : ViewModelBase
     {
+        //是否选中图层面了
+        private bool _isLayerSurfaceSelected;
+
         //鼠标的x,y位置
         private double position_x = 0;
         private double position_y = 0;
@@ -133,13 +136,13 @@ namespace TimberValueEvaluationSystem.ViewModels
         public RelayCommand LayerOnTopCommand { get; private set; }  //置顶图层命令
         public RelayCommand LayerBottomCommand { get; private set; }  //置顶图层命令
         public RelayCommand ClearLayerCommand { get; private set; }   //清空图层命令
+        public RelayCommand ValueEvaluationCommand { get; private set; }   //林木价值评价命令
         public RelayCommand TestCommand { get; private set; }   //测试命令
 
 
         public MapPageViewModel()
         {
-            // 创建一个世界地图类型的地图
-            Map = new Map(Basemap.CreateStreets());
+            
             //初始化命令
             LayerSidebarCommand = new RelayCommand(ExecuteLayerSidebarCommand);
             SelectShpFileCommand = new RelayCommand(ExecuteSelectShpFileCommand);
@@ -157,12 +160,46 @@ namespace TimberValueEvaluationSystem.ViewModels
             LayerOnTopCommand = new RelayCommand(ExecuteLayerOnTopCommand);
             LayerBottomCommand = new RelayCommand(ExecuteLayerBottomCommand);
             ClearLayerCommand = new RelayCommand(ExecuteClearLayerCommand);
+            ValueEvaluationCommand = new RelayCommand(ExecuteValueEvaluationCommand);
             TestCommand = new RelayCommand(ExecuteTestCommand);
+
+            //加载地图
+            Task.Run(async () => await LoadMapAsync());
+
+            _isLayerSurfaceSelected = false;
         }
         //测试
         private void ExecuteTestCommand()
         {
             MessageHelper.Info($"选中的：{SelectedLayer}");
+        }
+
+        //异步创建地图
+        private async Task LoadMapAsync()
+        {
+            // 创建一个世界地图类型的地图
+            Map = new Map(Basemap.CreateStreets());
+        }
+
+        //林木价值评价命令
+        private void ExecuteValueEvaluationCommand()
+        {
+            if (_isLayerSurfaceSelected)
+            {
+                var forestValueView = new ForestValueView(FeatureAttributes, ConfirmCallback);
+                Dialog.Show(forestValueView);
+            }
+            else
+            {
+                MessageHelper.Warning(MessageHelper.GetString("UnselectedFaces"));
+            }
+            
+        }
+
+        //委托回调
+        private void ConfirmCallback()
+        {
+
         }
 
         //打印命令
@@ -456,6 +493,7 @@ namespace TimberValueEvaluationSystem.ViewModels
         //高亮显示面
         private async void MyMapView_GeoViewTapped(GeoViewInputEventArgs e)
         {
+            _isLayerSurfaceSelected = false;
             FeatureAttributes.Clear();
             //如果有图层，才可以点击
             if (MapLayers !=null && MapLayers.Count != 0)
@@ -518,6 +556,7 @@ namespace TimberValueEvaluationSystem.ViewModels
                         //MessageHelper.Info($"Key: {attribute.Key}, Value: {attribute.Value}");
                         FeatureAttributes.Add($"{attribute.Key}: {attribute.Value}");
                     }
+                    _isLayerSurfaceSelected = true;
                 }
             }
         }
